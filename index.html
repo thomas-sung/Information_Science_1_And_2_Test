@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>統測高職資訊科 專業科目線上測驗系統 (專一與專二分開考)</title>
+  <meta name="description" content="專為技術型高中（高職）電機與電子群資電類（資訊科、電子科）設計之 108 課綱統測線上測驗系統，支援專一（基本電學、電子學）與專二（微處理機、數位邏輯、程式設計實習）分開測驗、分數紀錄與完整詳細圖文解析。">
+  <!-- 引入 Google Fonts 提升排版質感 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       APP HEADER
+       ========================================================================= -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand" onclick="location.reload()">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-info">
+          <h1>高職資訊科 統測題庫測驗</h1>
+          <p>電機與電子群資電類 108 課綱模擬測驗系統</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
+          📊 歷次成績
+        </button>
+        <button id="theme-toggle-btn" class="btn-icon" title="切換深淺模式">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       MAIN WRAPPER
+       ========================================================================= -->
+  <main class="main-wrapper">
+
+    <!-- =======================================================================
+         VIEW 1: 設定與首頁 (view-setup)
+         ======================================================================= -->
+    <section id="view-setup" class="view-panel active">
+      <div class="hero-banner">
+        <span class="hero-tag">🎓 統測衝刺 · 隨選隨考 · 詳解全收錄</span>
+        <h2>四技二專統一入學測驗 專業科目模擬試題</h2>
+        <p>專業科目(一) 與 專業科目(二) 分開獨立測驗，作答完畢立即計算成績並提供題目詳細破題解析！</p>
+      </div>
+
+      <!-- 科目選擇卡片 -->
+      <div class="subject-grid">
+        <!-- 專一卡片 -->
+        <div class="subject-card selected" data-subject="subject1">
+          <div>
+            <div class="card-top">
+              <span class="subject-badge badge-s1">專一</span>
+              <span style="font-size: 1.5rem;">🔌</span>
+            </div>
+            <h3>專業科目(一)</h3>
+            <p>涵蓋基本電路定律、交流電學、二極體、雙極性電晶體與運算放大器。</p>
+            <div class="tags-list">
+              <span class="tag-item">基本電學</span>
+              <span class="tag-item">基本電學實習</span>
+              <span class="tag-item">電子學</span>
+              <span class="tag-item">電子學實習</span>
+            </div>
+          </div>
+          <div class="subject-footer">
+            <span>點擊選擇此科目</span>
+            <span>➔</span>
+          </div>
+        </div>
+
+        <!-- 專二卡片 -->
+        <div class="subject-card" data-subject="subject2">
+          <div>
+            <div class="card-top">
+              <span class="subject-badge badge-s2">專二</span>
+              <span style="font-size: 1.5rem;">💻</span>
+            </div>
+            <h3>專業科目(二)</h3>
+            <p>涵蓋微處理機系統架構、布林代數、邏輯閘、正反器與 C 語言程式實習。</p>
+            <div class="tags-list">
+              <span class="tag-item">微處理機</span>
+              <span class="tag-item">數位邏輯設計</span>
+              <span class="tag-item">程式設計實習</span>
+            </div>
+          </div>
+          <div class="subject-footer">
+            <span>點擊選擇此科目</span>
+            <span>➔</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 考試條件設定框 -->
+      <div class="settings-box">
+        <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">⚙️ 測驗模式設定</h4>
+        <div class="settings-grid">
+          <div class="setting-group">
+            <label for="mode-select">測驗模式</label>
+            <select id="mode-select" class="select-custom">
+              <option value="standard">模擬考試模式（限時 / 交卷後看詳解）</option>
+              <option value="practice">練習刷題模式（不限時 / 即時看解析）</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="count-select">測驗題數</label>
+            <select id="count-select" class="select-custom">
+              <option value="10">隨機抽取 10 題 (快速自我檢測)</option>
+              <option value="20">隨機抽取 20 題 (標準評量)</option>
+              <option value="all" selected>該科所有題目 (完整地毯式複習)</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label for="time-select">考試時間限制</label>
+            <select id="time-select" class="select-custom">
+              <option value="15">15 分鐘 (速測衝刺)</option>
+              <option value="30">30 分鐘</option>
+              <option value="60" selected>60 分鐘 (標準統測時間)</option>
+              <option value="80">80 分鐘 (充裕推導)</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button id="btn-start-exam" class="btn-start-exam" style="flex: 2; min-width: 220px;">
+            🚀 開始測驗
+          </button>
+          <button id="btn-wrong-review" class="btn-pill" style="flex: 1; min-width: 180px; justify-content: center; font-size: 1rem; border-color: var(--danger-border); color: var(--danger); background: var(--danger-bg);">
+            🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 2: 考試介面 (view-exam)
+         ======================================================================= -->
+    <section id="view-exam" class="view-panel">
+      <!-- 考試資訊頂部列 -->
+      <div class="exam-header-bar">
+        <div class="exam-subject-indicator">
+          <span id="exam-mode-badge" class="exam-badge">模擬考</span>
+          <strong id="exam-subject-title">專業科目(一)</strong>
+        </div>
+
+        <div id="exam-timer-box" class="exam-timer-box" title="剩餘考試時間">
+          <span>⏱️</span>
+          <span id="exam-timer-text">60:00</span>
+        </div>
+      </div>
+
+      <!-- 考試主排版：題目區 + 答題卡側邊欄 -->
+      <div class="exam-layout">
+        <!-- 題目作答卡 -->
+        <div class="question-card">
+          <div class="question-header">
+            <div class="question-meta">
+              <span class="q-num">第 <span id="q-index-num">1</span> 題</span>
+              <span style="color: var(--text-muted);">/ 共 <span id="q-total-num">10</span> 題</span>
+              <span id="q-category-tag" class="q-cat">基本電學</span>
+            </div>
+            <button id="btn-flag-question" class="btn-flag" title="標記稍後複查">
+              ☆ 標記複核
+            </button>
+          </div>
+
+          <!-- 題幹文字與程式碼區塊 -->
+          <div id="question-text" class="question-content">
+            題目讀取中...
+          </div>
+
+          <!-- 四個選項 (A, B, C, D) -->
+          <div id="options-container" class="options-list">
+            <!-- 由 JS 動態注入選項按鈕 -->
+          </div>
+
+          <!-- 刷題模式專用：即時查看詳解區 -->
+          <div style="margin-top: 1rem;">
+            <button id="btn-toggle-practice-exp" class="btn-pill" style="display: none;">
+              💡 展開 / 隱藏本題詳解
+            </button>
+            <div id="practice-explanation" class="inline-explanation">
+              <strong style="color: var(--primary);">💡 即時解析：</strong>
+              <div id="practice-explanation-content"></div>
+            </div>
+          </div>
+
+          <!-- 換題導航操作列 -->
+          <div class="nav-actions">
+            <button id="btn-prev-question" class="btn-nav">
+              ← 上一題
+            </button>
+            <button id="btn-next-question" class="btn-nav primary">
+              下一題 →
+            </button>
+          </div>
+        </div>
+
+        <!-- 答題卡與交卷側欄 -->
+        <aside class="answer-sheet-card">
+          <h4>
+            <span>答題進度卡</span>
+            <span class="progress-text"><span id="answered-count-text">0</span> / <span id="total-count-text">10</span></span>
+          </h4>
+
+          <div id="sheet-grid" class="sheet-grid">
+            <!-- 由 JS 動態產生 1~N 題號按鈕 -->
+          </div>
+
+          <div class="legend-list">
+            <div class="legend-item"><span class="legend-dot answered"></span> 已作答</div>
+            <div class="legend-item"><span class="legend-dot unanswered"></span> 未作答</div>
+            <div class="legend-item"><span class="legend-dot flagged"></span> 標記複核</div>
+          </div>
+
+          <button id="btn-submit-exam" class="btn-submit-exam">
+            交卷並查看成績
+          </button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 3: 成績報告與詳細解析 (view-result)
+         ======================================================================= -->
+    <section id="view-result" class="view-panel">
+      <!-- 總分卡片 -->
+      <div class="results-header-card">
+        <h2 style="font-size: 1.5rem; font-weight: 800;">🎉 測驗完成！成績結算</h2>
+        
+        <div class="score-display">
+          <div class="score-number" id="score-number">85</div>
+          <div class="score-total">總分 100 分</div>
+        </div>
+
+        <div>
+          <span id="grade-badge" class="grade-badge grade-excellent">表現優異，實力堅強！</span>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div id="stat-correct" class="stat-val correct">17</div>
+            <div class="stat-lbl">答對題數</div>
+          </div>
+          <div class="stat-item">
+            <div id="stat-wrong" class="stat-val wrong">3</div>
+            <div class="stat-lbl">答錯題數</div>
+          </div>
+          <div class="stat-item">
+            <div id="stat-rate" class="stat-val rate">85%</div>
+            <div class="stat-lbl">正確率</div>
+          </div>
+          <div class="stat-item">
+            <div id="stat-time" class="stat-val">28:40</div>
+            <div class="stat-lbl">作答總耗時</div>
+          </div>
+        </div>
+
+        <!-- 各考科分項掌握度 -->
+        <div style="margin: 1.5rem auto; max-width: 600px; text-align: left;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-secondary);">📚 各章節 / 考科掌握度統計：</h4>
+          <div id="category-breakdown" class="stats-grid" style="margin: 0;"></div>
+        </div>
+
+        <div class="result-actions">
+          <button id="btn-retake-exam" class="btn-pill primary" style="padding: 0.65rem 1.4rem;">
+            🔄 再測驗一次
+          </button>
+          <button id="btn-back-home" class="btn-pill" style="padding: 0.65rem 1.4rem;">
+            🏠 回首頁切換科目
+          </button>
+        </div>
+      </div>
+
+      <!-- 題目詳解清單區塊 -->
+      <div class="explanation-section">
+        <div class="filter-bar">
+          <h3 style="font-size: 1.3rem; font-weight: 800;">📖 題目檢討與詳細解析</h3>
+          <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all">全部題目</button>
+            <button class="filter-btn" data-filter="wrong">僅看錯題</button>
+            <button class="filter-btn" data-filter="correct">僅看答對</button>
+          </div>
+        </div>
+
+        <!-- 逐題詳解卡片容器 -->
+        <div id="review-list">
+          <!-- 由 JS 渲染每一題題目、選項標記與完整解析 -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL: 歷史測驗紀錄與數據備份 (history-modal)
+       ========================================================================= -->
+  <div id="history-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📊 歷次測驗歷史紀錄</h3>
+        <button id="modal-close-btn" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="history-empty-state" class="history-empty">
+          <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">📝</p>
+          <p>尚無任何測驗紀錄，現在就去進行一場測驗吧！</p>
+        </div>
+        <table class="history-table" style="display: none;">
+          <thead>
+            <tr>
+              <th>測驗日期</th>
+              <th>測驗科目</th>
+              <th>得分</th>
+              <th>答對題數</th>
+              <th>作答耗時</th>
+            </tr>
+          </thead>
+          <tbody id="history-table-body">
+            <!-- 歷史紀錄行由 JS 動態填入 -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button id="btn-export-data" class="btn-pill" title="下載備份 JSON 檔案">💾 匯出資料 (JSON)</button>
+          <label class="btn-pill" style="cursor: pointer;" title="從 JSON 檔案還原紀錄">
+            📥 匯入資料
+            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+          </label>
+        </div>
+        <button id="btn-clear-history" class="btn-pill" style="color: var(--danger); border-color: var(--danger-border);">
+          🗑️ 清除所有紀錄
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="app-footer">
+    <p>統測高職資訊科（電機與電子群資電類）專一與專二線上測驗系統</p>
+    <p style="margin-top: 0.3rem;">支援無伺服器純靜態部署於 GitHub Pages · 資料儲存於瀏覽器 LocalStorage</p>
+  </footer>
+
+  <!-- 引入題庫與邏輯指令稿 (注意題庫在前，應用程式在後) -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
