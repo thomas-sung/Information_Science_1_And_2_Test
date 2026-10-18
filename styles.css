@@ -1387,3 +1387,618 @@ body {
   background: var(--primary);
   color: #ffffff;
 }
+
+
+/* ==========================================================================
+   手機與行動裝置響應式排版優化 (Mobile & Responsive UX)
+   ========================================================================== */
+
+/* 基礎元件排版補充 */
+.setup-actions-bar {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.setup-actions-bar .btn-start-exam {
+  flex: 2;
+  min-width: 220px;
+}
+
+.setup-actions-bar .btn-action-wrong {
+  flex: 1;
+  min-width: 170px;
+  justify-content: center;
+  font-size: 1rem;
+  border-color: var(--danger-border);
+  color: var(--danger);
+  background: var(--danger-bg);
+}
+
+.setup-actions-bar .btn-action-browse {
+  flex: 1;
+  min-width: 170px;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--primary);
+  border-color: var(--primary-border);
+  background: var(--primary-light);
+}
+
+.browse-filter-group select {
+  width: auto;
+  min-width: 140px;
+}
+
+.browse-search-group {
+  flex: 1;
+  min-width: 220px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 全域行動端觸控優化 */
+button, .btn-pill, .btn-nav, .option-btn, .sheet-num-btn, .subject-card {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   平板與大螢幕手機 (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* 頂部導航列 */
+  .header-container {
+    padding: 0.6rem 0.85rem;
+  }
+
+  .brand {
+    gap: 0.5rem;
+  }
+
+  .brand-icon {
+    font-size: 1.4rem;
+  }
+
+  .brand-info h1 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .brand-info p {
+    display: none; /* 手機端隱藏過長副標，保持單行不換行 */
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .header-actions .btn-pill {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.82rem;
+    min-height: 38px;
+    border-radius: var(--radius-md);
+  }
+
+  .header-actions .btn-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  /* 主體容器與橫幅 */
+  .main-wrapper {
+    padding: 0.85rem 0.65rem;
+  }
+
+  .hero-banner {
+    padding: 1.25rem 0.5rem 0.85rem;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .hero-banner h2 {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-banner p {
+    font-size: 0.86rem;
+    line-height: 1.5;
+  }
+
+  /* 科目選擇卡片 */
+  .subject-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin: 1.15rem 0;
+  }
+
+  .subject-card {
+    padding: 1.15rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .subject-card:hover {
+    transform: none; /* 手機觸控移除 hover 上浮位移 */
+  }
+
+  .subject-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .subject-card p {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tags-list {
+    gap: 0.35rem;
+  }
+
+  .tag-item {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .subject-footer {
+    margin-top: 0.85rem;
+    padding-top: 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  /* 考試設定框 */
+  .settings-box {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin: 0.85rem 0;
+  }
+
+  /* iOS Select 縮放防護：強制字體 >= 16px */
+  .select-custom,
+  .input-custom {
+    font-size: 16px !important;
+    min-height: 44px;
+    padding: 0.6rem 0.85rem;
+  }
+
+  #scope-desc-box {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .setup-actions-bar {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .setup-actions-bar .btn-start-exam {
+    width: 100%;
+    min-height: 50px;
+    font-size: 1.1rem;
+    order: 1;
+  }
+
+  .setup-actions-bar .btn-action-wrong {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.95rem;
+    order: 2;
+  }
+
+  .setup-actions-bar .btn-action-browse {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.95rem;
+    order: 3;
+  }
+
+  /* 考試頂部資訊列 */
+  .exam-header-bar {
+    padding: 0.65rem 0.85rem;
+    margin-bottom: 0.85rem;
+    border-radius: var(--radius-md);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exam-subject-indicator {
+    flex: 1;
+    min-width: 170px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .exam-subject-indicator strong#exam-subject-title {
+    font-size: 0.95rem;
+  }
+
+  .exam-timer-box {
+    font-size: 1.05rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  /* 題目卡片 */
+  .question-card {
+    padding: 1.15rem 0.9rem;
+    border-radius: var(--radius-md);
+  }
+
+  .question-header {
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .question-meta {
+    gap: 0.35rem;
+    font-size: 0.82rem;
+  }
+
+  .q-num {
+    font-size: 1.15rem;
+  }
+
+  .q-cat {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .btn-flag {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.8rem;
+  }
+
+  .question-content {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+    word-break: break-word;
+  }
+
+  /* 程式碼區塊滾動 */
+  .code-snippet,
+  .question-content pre,
+  .inline-explanation pre {
+    font-size: 0.82rem;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* SVG 電路圖與卡諾圖手機自適應 */
+  .question-diagram-wrapper {
+    margin: 0.85rem 0;
+    padding: 0.6rem 0.4rem;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .question-diagram-wrapper svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .diagram-caption {
+    font-size: 0.78rem;
+    margin-top: 0.4rem;
+  }
+
+  .kmap-table {
+    font-size: 0.85rem;
+  }
+
+  /* 選項按鈕手指大觸控區 */
+  .options-list {
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .option-btn {
+    padding: 0.75rem 0.85rem;
+    gap: 0.75rem;
+    min-height: 50px;
+    border-radius: var(--radius-md);
+  }
+
+  .option-btn:active {
+    transform: scale(0.985);
+  }
+
+  .option-letter {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 0.85rem;
+  }
+
+  .option-text {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    word-break: break-word;
+  }
+
+  /* 底部換題導航按鈕 */
+  .nav-actions {
+    padding-top: 1rem;
+    gap: 0.75rem;
+  }
+
+  .btn-nav {
+    flex: 1;
+    min-height: 48px;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    justify-content: center;
+    border-radius: var(--radius-md);
+  }
+
+  /* 答題卡面板 */
+  .answer-sheet-card {
+    padding: 1.15rem 0.9rem;
+    border-radius: var(--radius-md);
+  }
+
+  .sheet-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.45rem;
+    max-height: 280px;
+  }
+
+  .sheet-num-btn {
+    min-height: 44px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+  }
+
+  .sheet-num-btn:active {
+    transform: scale(0.92);
+  }
+
+  .btn-submit-exam {
+    min-height: 50px;
+    font-size: 1.05rem;
+    border-radius: var(--radius-md);
+  }
+
+  /* 成績結算報告卡片 */
+  .results-header-card {
+    padding: 1.5rem 0.9rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.25rem;
+  }
+
+  .results-header-card h2 {
+    font-size: 1.35rem;
+  }
+
+  .candidate-info-card {
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .score-number {
+    font-size: 3.2rem;
+  }
+
+  .score-total {
+    font-size: 0.95rem;
+  }
+
+  .grade-badge {
+    font-size: 0.88rem;
+    padding: 0.3rem 0.9rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem;
+  }
+
+  .stat-item {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .stat-val {
+    font-size: 1.25rem;
+  }
+
+  .stat-lbl {
+    font-size: 0.75rem;
+  }
+
+  .result-actions {
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .result-actions .btn-pill {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 0.98rem;
+  }
+
+  /* 題庫瀏覽工具列 */
+  .browse-container {
+    padding: 1rem 0.75rem;
+    border-radius: var(--radius-md);
+  }
+
+  .browse-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+
+  .browse-filter-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .browse-filter-group label {
+    min-width: 45px;
+    font-size: 0.85rem;
+  }
+
+  .browse-filter-group select {
+    flex: 1;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 44px;
+    font-size: 16px !important;
+  }
+
+  .browse-search-group {
+    width: 100%;
+    min-width: 0 !important;
+  }
+
+  #browse-search-input {
+    width: 100%;
+    min-height: 44px;
+    font-size: 16px !important;
+  }
+
+  .browse-item-card {
+    padding: 1.15rem 0.85rem;
+    margin-bottom: 1.15rem;
+    border-radius: var(--radius-md);
+  }
+
+  .browse-item-card .btn-clean-number-reroll {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.6rem;
+    min-height: 36px;
+  }
+
+  /* 彈出視窗 Modal */
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    max-height: 94vh;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-header {
+    padding: 0.85rem 1.15rem;
+  }
+
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .modal-body {
+    padding: 1rem 0.85rem;
+  }
+
+  .modal-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .modal-footer > div {
+    display: flex;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .modal-footer .btn-pill {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.82rem;
+    min-height: 42px;
+  }
+
+  #btn-clear-history {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+  }
+
+  .history-table {
+    font-size: 0.8rem;
+    min-width: 480px; /* 確保表格內容完整，觸發水平滑動 */
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 0.55rem 0.65rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   小螢幕直向手機 (<= 480px，如 iPhone SE, iPhone 12/13/14/15, Android 小型機種)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .brand-info h1 {
+    font-size: 0.95rem;
+    max-width: 135px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .nav-btn-text {
+    display: none; /* 隱藏純文字，僅顯示圖示縮減寬度 */
+  }
+
+  .header-actions {
+    gap: 0.3rem;
+  }
+
+  .header-actions .btn-pill {
+    padding: 0.35rem 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  #header-user-name {
+    max-width: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .sheet-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.35rem;
+  }
+
+  .sheet-num-btn {
+    min-height: 42px;
+    font-size: 0.9rem;
+  }
+}

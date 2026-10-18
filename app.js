@@ -330,6 +330,7 @@
       if (state.currentIndex > 0) {
         state.currentIndex--;
         renderCurrentQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
 
@@ -337,6 +338,7 @@
       if (state.currentIndex < state.currentQuestions.length - 1) {
         state.currentIndex++;
         renderCurrentQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
 
@@ -747,6 +749,7 @@ function startExam(modeOverride) {
       numBtn.addEventListener('click', () => {
         state.currentIndex = idx;
         renderCurrentQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
 
       elements.sheetGrid.appendChild(numBtn);

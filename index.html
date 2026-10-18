@@ -34,7 +34,7 @@
           📚 題庫詳解總覽
         </button>
         <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
-          📊 歷次成績
+          📊 <span class="nav-btn-text">歷次成績</span>
         </button>
         <button id="theme-toggle-btn" class="btn-icon" title="切換深淺模式">
           🌙
@@ -162,15 +162,15 @@
           </div>
         </div>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <button id="btn-start-exam" class="btn-start-exam" style="flex: 2; min-width: 220px;">
+        <div class="setup-actions-bar">
+          <button id="btn-start-exam" class="btn-start-exam">
             🚀 開始測驗
           </button>
-          <button id="btn-wrong-review" class="btn-pill" style="flex: 1; min-width: 170px; justify-content: center; font-size: 1rem; border-color: var(--danger-border); color: var(--danger); background: var(--danger-bg);">
+          <button id="btn-wrong-review" class="btn-pill btn-action-wrong">
             🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
           </button>
-          <button id="btn-home-browse" class="btn-pill" style="flex: 1; min-width: 170px; justify-content: center; font-size: 1rem; color: var(--primary); border-color: var(--primary-border); background: var(--primary-light);">
-            📖 瀏覽全科題庫與解析
+          <button id="btn-home-browse" class="btn-pill btn-action-browse">
+            📖 瀏覽題庫與解析
           </button>
         </div>
       </div>
@@ -364,7 +364,7 @@
         <div class="browse-toolbar">
           <div class="browse-filter-group">
             <label for="browse-year-filter">年度：</label>
-            <select id="browse-year-filter" class="select-custom" style="width: auto; min-width: 140px;">
+            <select id="browse-year-filter" class="select-custom">
               <option value="all" selected>全部年度 (300題)</option>
               <option value="114">114 年度 (50題)</option>
               <option value="113">113 年度 (50題)</option>
@@ -377,7 +377,7 @@
 
           <div class="browse-filter-group">
             <label for="browse-subject-filter">考科：</label>
-            <select id="browse-subject-filter" class="select-custom" style="width: auto; min-width: 150px;">
+            <select id="browse-subject-filter" class="select-custom">
               <option value="all" selected>全部科目</option>
               <option value="subject1">專業科目(一)</option>
               <option value="subject2">專業科目(二)</option>
@@ -386,7 +386,7 @@
 
           <div class="browse-filter-group">
             <label for="browse-category-filter">單元：</label>
-            <select id="browse-category-filter" class="select-custom" style="width: auto; min-width: 140px;">
+            <select id="browse-category-filter" class="select-custom">
               <option value="all" selected>全部單元</option>
               <option value="基本電學">基本電學</option>
               <option value="電子學">電子學</option>
@@ -398,7 +398,7 @@
 
           <div class="browse-filter-group">
             <label for="browse-scope-filter">範圍：</label>
-            <select id="browse-scope-filter" class="select-custom" style="width: auto; min-width: 150px;">
+            <select id="browse-scope-filter" class="select-custom">
               <option value="all" selected>全部模考與真題 (300 題)</option>
               <option value="mock1">第 1 次模考範圍 (95 題)</option>
               <option value="mock2">第 2 次模考範圍 (含第 1 次，共 173 題)</option>
@@ -411,7 +411,7 @@
             </select>
           </div>
 
-          <div class="browse-search-group" style="flex: 1; min-width: 220px;">
+          <div class="browse-search-group">
             <input type="text" id="browse-search-input" class="input-custom" placeholder="🔍 搜尋題目或關鍵字 (例如：戴維寧、OPA、指標、卡諾圖)...">
           </div>
         </div>
@@ -444,7 +444,7 @@
           <p style="font-size: 2.5rem; margin-bottom: 0.5rem;">📝</p>
           <p>尚無任何測驗紀錄，現在就去進行一場測驗吧！</p>
         </div>
-        <table class="history-table" style="display: none;">
+        <div class="table-responsive"><table class="history-table" style="display: none;">
           <thead>
             <tr>
               <th>測驗日期</th>
@@ -458,7 +458,7 @@
           <tbody id="history-table-body">
             <!-- 歷史紀錄行由 JS 動態填入 -->
           </tbody>
-        </table>
+        </table></div>
       </div>
       <div class="modal-footer">
         <div>
