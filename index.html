@@ -105,6 +105,21 @@
       <div class="settings-box">
         <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">⚙️ 測驗模式設定</h4>
         <div class="settings-grid">
+          <div class="setting-group" style="grid-column: 1 / -1;">
+            <label for="scope-select">🎯 測驗範圍 / 模擬考次別</label>
+            <select id="scope-select" class="select-custom">
+              <option value="all" selected>🌟 統測全範圍 (第 1~4 次模考全收錄)</option>
+              <option value="mock1">📝 第一次模擬考範圍 (基電直流電路 / 邏輯閘布林代數 / C語言基礎)</option>
+              <option value="mock2">📝 第二次模擬考範圍 (電容電感暫態 / 二極體整流 / 組合邏輯 / 迴圈陣列)</option>
+              <option value="mock3">📝 第三次模擬考範圍 (交流電路 / BJT電晶體 / 正反器計數器 / 指標函式)</option>
+              <option value="mock4">📝 第四次模擬考範圍 (諧振OPA運算放大器 / 遞迴結構體 / 串列通訊中斷)</option>
+              <option value="past_exam">🏆 歷屆統測 108 課綱精選真題 (111~114年度)</option>
+            </select>
+            <div id="scope-desc-box" style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--text-secondary); background: var(--bg-elevated); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--primary);">
+              💡 <strong>隨機題目特色：</strong>包含歷屆與模考題型，計算題採用<strong>隨機好算數字 (Clean Numbers)</strong>，確保整數推導不卡關！
+            </div>
+          </div>
+
           <div class="setting-group">
             <label for="mode-select">測驗模式</label>
             <select id="mode-select" class="select-custom">

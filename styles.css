@@ -1254,3 +1254,67 @@ body {
   color: var(--text-muted);
   margin-top: 0.3rem;
 }
+
+
+/* ==========================================================================
+   電路圖、邏輯電路圖與示意圖樣式 (Diagrams & Schematics)
+   ========================================================================== */
+.question-diagram-wrapper {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.question-diagram-wrapper svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.diagram-caption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 卡諾圖專用表格樣式 */
+.kmap-table {
+  border-collapse: collapse;
+  margin: 0.75rem auto;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.kmap-table th, .kmap-table td {
+  border: 1.5px solid var(--border-color);
+  width: 50px;
+  height: 42px;
+  vertical-align: middle;
+}
+
+.kmap-table th {
+  background: var(--bg-elevated);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.kmap-table td {
+  background: var(--bg-surface);
+  font-weight: 800;
+}
+
+.kmap-table td.highlight-1 {
+  background: var(--primary-light);
+  color: var(--primary);
+}

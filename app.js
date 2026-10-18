@@ -10,6 +10,7 @@
   // ==========================================
   const state = {
     selectedSubject: 'subject1', // 'subject1' | 'subject2' | 'all'
+    selectedScope: 'all',        // 'all' | 'mock1' | 'mock2' | 'mock3' | 'mock4' | 'past_exam'
     examMode: 'standard',        // 'standard' (模擬考) | 'practice' (刷題練習) | 'wrong_review' (錯題複習)
     questionCountLimit: 10,      // 題數限制 (10, 20, 'all')
     timeLimitMinutes: 60,        // 考試時間 (分鐘)
@@ -63,6 +64,7 @@
     
     // 設定區
     subjectCards: document.querySelectorAll('.subject-card'),
+    scopeSelect: document.getElementById('scope-select'),
     modeSelect: document.getElementById('mode-select'),
     countSelect: document.getElementById('count-select'),
     timeSelect: document.getElementById('time-select'),
@@ -418,6 +420,7 @@
     }
 
     state.examMode = modeOverride || elements.modeSelect.value;
+    state.selectedScope = elements.scopeSelect ? elements.scopeSelect.value : 'all';
     state.questionCountLimit = elements.countSelect.value;
     state.timeLimitMinutes = parseInt(elements.timeSelect.value, 10);
     
@@ -425,22 +428,23 @@
 
     if (state.examMode === 'wrong_review') {
       // 錯題重練模式：挑選錯題庫中的題目
-      candidateQuestions = window.QUESTION_BANK.filter(q => state.wrongQuestionIds.has(q.id));
+      const allQ = window.getQuestionsForExam ? window.getQuestionsForExam('all', 'all') : (window.QUESTION_BANK || []);
+      candidateQuestions = allQ.filter(q => state.wrongQuestionIds.has(q.id));
       if (candidateQuestions.length === 0) {
         alert('錯題庫中目前沒有相應題目！');
         return;
       }
     } else {
-      // 依選定科目篩選
-      if (state.selectedSubject === 'all') {
-        candidateQuestions = [...window.QUESTION_BANK];
+      // 依選定科目與模擬考次別篩選出題 (包含動態好算數字生成)
+      if (typeof window.getQuestionsForExam === 'function') {
+        candidateQuestions = window.getQuestionsForExam(state.selectedSubject, state.selectedScope);
       } else {
-        candidateQuestions = window.QUESTION_BANK.filter(q => q.subject === state.selectedSubject);
+        candidateQuestions = (window.QUESTION_BANK || []).filter(q => q.subject === state.selectedSubject);
       }
     }
 
     if (candidateQuestions.length === 0) {
-      alert('該科目目前沒有題庫可測驗！');
+      alert('該範圍目前沒有符合條件的題庫！請嘗試選擇「統測全範圍」或其他科目。');
       return;
     }
 
@@ -490,11 +494,20 @@
       }, 1000);
     }
 
-    // 更新介面題頭資訊
+    // 更新介面題頭資訊 (包含模考次別標籤)
+    let scopeLabel = '統測全範圍';
+    if (elements.scopeSelect && elements.scopeSelect.selectedIndex >= 0) {
+      scopeLabel = elements.scopeSelect.options[elements.scopeSelect.selectedIndex].text.split('(')[0].trim().replace(/^[^\s]+\s*/, '');
+    }
+
     let subjectTitleText = '高職資訊科 專業科目測驗';
-    if (state.selectedSubject === 'subject1') subjectTitleText = '專業科目(一)：基本電學、電子學';
-    else if (state.selectedSubject === 'subject2') subjectTitleText = '專業科目(二)：微處理機、數位邏輯、程式設計實習';
-    else if (state.examMode === 'wrong_review') subjectTitleText = '歷史錯題專攻複習';
+    if (state.examMode === 'wrong_review') {
+      subjectTitleText = '歷史錯題專攻複習';
+    } else if (state.selectedSubject === 'subject1') {
+      subjectTitleText = `專業科目(一) · ${scopeLabel}`;
+    } else if (state.selectedSubject === 'subject2') {
+      subjectTitleText = `專業科目(二) · ${scopeLabel}`;
+    }
 
     elements.examSubjectTitle.textContent = subjectTitleText;
     elements.examModeBadge.textContent = state.examMode === 'practice' ? '刷題模式' : '模擬考模式';
@@ -542,8 +555,12 @@
     elements.qTotalNum.textContent = state.currentQuestions.length;
     elements.qCategoryTag.textContent = q.category;
 
-    // 題幹文字與程式碼處理
-    elements.questionText.innerHTML = formatContentWithCode(q.question);
+    // 題幹文字與程式碼處理 (若有附圖則一併渲染電路圖或邏輯圖)
+    let contentHtml = formatContentWithCode(q.question);
+    if (q.diagramSvg || q.diagramHtml) {
+      contentHtml += `<div class="question-diagram-wrapper">${q.diagramSvg || q.diagramHtml}</div>`;
+    }
+    elements.questionText.innerHTML = contentHtml;
 
     // 標記複核按鈕狀態
     updateFlagButtonState();
@@ -734,7 +751,7 @@
       studentId: state.currentUser && state.currentUser.studentId ? state.currentUser.studentId : '',
       candidateLabel: candidateStr,
       date: new Date().toLocaleString('zh-TW', { hour12: false }),
-      subjectName: getSubjectLabel(state.selectedSubject, state.examMode),
+      subjectName: getSubjectLabel(state.selectedSubject, state.examMode, state.selectedScope),
       score: score,
       correct: correctCount,
       total: totalQuestions,
@@ -855,6 +872,11 @@
         `;
       });
 
+      let reviewContentHtml = formatContentWithCode(q.question);
+      if (q.diagramSvg || q.diagramHtml) {
+        reviewContentHtml += `<div class="question-diagram-wrapper">${q.diagramSvg || q.diagramHtml}</div>`;
+      }
+
       itemDiv.innerHTML = `
         <div class="review-header">
           <div class="question-meta">
@@ -863,7 +885,7 @@
           </div>
           ${statusHtml}
         </div>
-        <div class="review-question">${formatContentWithCode(q.question)}</div>
+        <div class="review-question">${reviewContentHtml}</div>
         <div class="review-options">${optionsHtml}</div>
         <div class="explanation-box">
           <div class="explanation-title">💡 詳細解析與核心考點：</div>
@@ -983,11 +1005,19 @@
     return arr;
   }
 
-  function getSubjectLabel(subjectKey, mode) {
+  function getSubjectLabel(subjectKey, mode, scope) {
     if (mode === 'wrong_review') return '歷史錯題重練';
-    if (subjectKey === 'subject1') return '專業科目(一)';
-    if (subjectKey === 'subject2') return '專業科目(二)';
-    return '專一與專二綜合測驗';
+    const subj = subjectKey === 'subject1' ? '專業科目(一)' : (subjectKey === 'subject2' ? '專業科目(二)' : '專一與專二綜合');
+    const scopeNames = {
+      mock1: '第1次模考',
+      mock2: '第2次模考',
+      mock3: '第3次模考',
+      mock4: '第4次模考',
+      past_exam: '歷屆統測真題',
+      all: '統測全範圍'
+    };
+    const sc = scopeNames[scope] || '全範圍';
+    return `${subj} [${sc}]`;
   }
 
   function escapeHtml(str) {
