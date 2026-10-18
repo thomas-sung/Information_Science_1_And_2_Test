@@ -11,7 +11,7 @@
   // SVG 電路圖與邏輯圖產生器 (Circuit & Logic Schematics)
   // =========================================================================
   const DIAGRAMS = {
-    // 1. 惠斯登電橋 (Wheatstone Bridge)
+    // 1. 惠斯登電橋 (Wheatstone Bridge) - 未知臂固定標記為 Rx=?
     wheatstone: function(r1, r2, r3, rx) {
       return `
         <svg viewBox="0 0 320 220" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -31,8 +31,8 @@
           <line x1="135" y1="165" x2="160" y2="200" stroke="#2563eb" stroke-width="2.5"/>
 
           <line x1="250" y1="110" x2="205" y2="155" stroke="#2563eb" stroke-width="2.5"/>
-          <rect x="185" y="145" width="40" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="3"/>
-          <text x="205" y="160" font-size="11" font-weight="bold" fill="currentColor" text-anchor="middle">Rx=${rx || '?'}Ω</text>
+          <rect x="185" y="145" width="40" height="20" fill="var(--bg-elevated)" stroke="#dc2626" stroke-width="2" rx="3"/>
+          <text x="205" y="160" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Rx = ?</text>
           <line x1="185" y1="165" x2="160" y2="200" stroke="#2563eb" stroke-width="2.5"/>
 
           <!-- 中間檢流計 -->
@@ -64,10 +64,11 @@
 
     // 2. 理想運算放大器 (OPA) 反相放大電路
     opaInverting: function(r1, rf, vi) {
+      const viDisplay = vi !== undefined && vi !== null && vi !== '' ? `${vi}V` : 'Vi';
       return `
         <svg viewBox="0 0 340 180" width="320" height="170" xmlns="http://www.w3.org/2000/svg">
           <circle cx="25" cy="50" r="3" fill="#2563eb"/>
-          <text x="25" y="38" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">Vi=${vi}V</text>
+          <text x="25" y="38" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">Vi=${viDisplay}</text>
           <line x1="25" y1="50" x2="60" y2="50" stroke="#2563eb" stroke-width="2"/>
           
           <rect x="60" y="40" width="46" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
@@ -96,7 +97,7 @@
           <line x1="230" y1="70" x2="305" y2="70" stroke="#2563eb" stroke-width="2"/>
           <circle cx="265" cy="70" r="3" fill="#2563eb"/>
           <circle cx="305" cy="70" r="3" fill="#16a34a"/>
-          <text x="305" y="58" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">Vo=?</text>
+          <text x="305" y="58" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">Vo = ?</text>
         </svg>
         <div class="diagram-caption">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>
       `;
@@ -104,11 +105,12 @@
 
     // 3. 橋式全波整流電路
     bridgeRectifier: function(vinPeak) {
+      const vinStr = vinPeak !== undefined && vinPeak !== null && vinPeak !== '' ? `${vinPeak}V AC` : 'Vin (AC)';
       return `
         <svg viewBox="0 0 340 180" width="310" height="165" xmlns="http://www.w3.org/2000/svg">
           <circle cx="35" cy="90" r="16" fill="var(--bg-surface)" stroke="#2563eb" stroke-width="2"/>
           <path d="M 27 90 Q 31 82 35 90 T 43 90" fill="none" stroke="#2563eb" stroke-width="2"/>
-          <text x="35" y="122" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">${vinPeak}V AC</text>
+          <text x="35" y="122" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">${vinStr}</text>
 
           <line x1="35" y1="74" x2="35" y2="50" stroke="#2563eb" stroke-width="2"/>
           <line x1="35" y1="50" x2="110" y2="50" stroke="#2563eb" stroke-width="2"/>
@@ -138,17 +140,20 @@
 
     // 4. 戴維寧等效電路
     thevenin: function(eth, rth) {
+      const isUnknown = (eth === null || eth === undefined || eth === '' || rth === null || rth === undefined || rth === '');
+      const ethLabel = isUnknown ? 'Eth = ?' : `Eth = ${eth}V`;
+      const rthLabel = isUnknown ? 'Rth = ?' : `Rth = ${rth}Ω`;
       return `
         <svg viewBox="0 0 300 130" width="280" height="120" xmlns="http://www.w3.org/2000/svg">
           <circle cx="45" cy="65" r="18" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2"/>
           <line x1="36" y1="65" x2="54" y2="65" stroke="#dc2626" stroke-width="2"/>
           <line x1="45" y1="56" x2="45" y2="74" stroke="#dc2626" stroke-width="2"/>
-          <text x="45" y="105" font-size="11" font-weight="bold" fill="currentColor" text-anchor="middle">Eth = ${eth}V</text>
+          <text x="45" y="105" font-size="11" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${ethLabel}</text>
 
           <line x1="45" y1="47" x2="45" y2="25" stroke="#2563eb" stroke-width="2"/>
           <line x1="45" y1="25" x2="110" y2="25" stroke="#2563eb" stroke-width="2"/>
           <rect x="110" y="15" width="50" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
-          <text x="135" y="29" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">Rth = ${rth}Ω</text>
+          <text x="135" y="29" font-size="10" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${rthLabel}</text>
           <line x1="160" y1="25" x2="245" y2="25" stroke="#2563eb" stroke-width="2"/>
 
           <line x1="45" y1="83" x2="45" y2="105" stroke="#2563eb" stroke-width="2"/>
@@ -164,17 +169,20 @@
     },
 
     // 5. 邏輯閘組合電路圖
-    logicGates: function() {
+    logicGates: function(a, b, c) {
+      const aText = (a !== undefined && a !== null && a !== '') ? `A=${a}` : 'A';
+      const bText = (b !== undefined && b !== null && b !== '') ? `B=${b}` : 'B';
+      const cText = (c !== undefined && c !== null && c !== '') ? `C=${c}` : 'C';
       return `
         <svg viewBox="0 0 340 160" width="310" height="145" xmlns="http://www.w3.org/2000/svg">
-          <text x="20" y="35" font-size="13" font-weight="bold" fill="currentColor">A</text>
-          <line x1="35" y1="30" x2="180" y2="30" stroke="#2563eb" stroke-width="2"/>
+          <text x="16" y="35" font-size="12" font-weight="bold" fill="currentColor">${aText}</text>
+          <line x1="42" y1="30" x2="180" y2="30" stroke="#2563eb" stroke-width="2"/>
 
-          <text x="20" y="90" font-size="13" font-weight="bold" fill="currentColor">B</text>
-          <line x1="35" y1="85" x2="80" y2="85" stroke="#2563eb" stroke-width="2"/>
+          <text x="16" y="90" font-size="12" font-weight="bold" fill="currentColor">${bText}</text>
+          <line x1="42" y1="85" x2="80" y2="85" stroke="#2563eb" stroke-width="2"/>
 
-          <text x="20" y="125" font-size="13" font-weight="bold" fill="currentColor">C</text>
-          <line x1="35" y1="120" x2="80" y2="120" stroke="#2563eb" stroke-width="2"/>
+          <text x="16" y="125" font-size="12" font-weight="bold" fill="currentColor">${cText}</text>
+          <line x1="42" y1="120" x2="80" y2="120" stroke="#2563eb" stroke-width="2"/>
 
           <path d="M 80 70 L 105 70 A 25 25 0 0 1 105 135 L 80 135 Z" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2"/>
           <text x="96" y="107" font-size="11" font-weight="bold" fill="currentColor">AND</text>
@@ -188,28 +196,30 @@
 
           <line x1="243" y1="45" x2="300" y2="45" stroke="#16a34a" stroke-width="2"/>
           <circle cx="300" cy="45" r="3.5" fill="#16a34a"/>
-          <text x="312" y="49" font-size="13" font-weight="bold" fill="#16a34a">F</text>
+          <text x="312" y="49" font-size="13" font-weight="bold" fill="#16a34a">F = ?</text>
         </svg>
         <div class="diagram-caption">【邏輯電路】組合邏輯電路圖</div>
       `;
     },
 
-    // 6. JK 正反器接線圖
-    jkFlipFlop: function() {
+    // 6. JK 正反器接線圖 - 依參數顯示 J, K，若未指定則顯示標籤 J 與 K
+    jkFlipFlop: function(jVal, kVal) {
+      const jLabel = (jVal !== undefined && jVal !== null && jVal !== '') ? `J=${jVal}` : 'J';
+      const kLabel = (kVal !== undefined && kVal !== null && kVal !== '') ? `K=${kVal}` : 'K';
       return `
         <svg viewBox="0 0 260 160" width="240" height="145" xmlns="http://www.w3.org/2000/svg">
           <rect x="70" y="20" width="110" height="120" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2.5" rx="4"/>
           <text x="125" y="45" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="middle">JK-FF</text>
 
           <line x1="20" y1="50" x2="70" y2="50" stroke="#2563eb" stroke-width="2"/>
-          <text x="38" y="44" font-size="12" font-weight="bold" fill="currentColor">J=1</text>
+          <text x="42" y="44" font-size="12" font-weight="bold" fill="currentColor">${jLabel}</text>
 
           <line x1="20" y1="80" x2="70" y2="80" stroke="#d97706" stroke-width="2"/>
           <polyline points="70,72 82,80 70,88" fill="none" stroke="#d97706" stroke-width="2"/>
           <text x="30" y="75" font-size="10" font-weight="bold" fill="#d97706">CLK ⏰</text>
 
           <line x1="20" y1="110" x2="70" y2="110" stroke="#2563eb" stroke-width="2"/>
-          <text x="38" y="125" font-size="12" font-weight="bold" fill="currentColor">K=1</text>
+          <text x="42" y="125" font-size="12" font-weight="bold" fill="currentColor">${kLabel}</text>
 
           <line x1="180" y1="50" x2="230" y2="50" stroke="#16a34a" stroke-width="2"/>
           <text x="195" y="44" font-size="12" font-weight="bold" fill="#16a34a">Q(t+1)</text>
@@ -268,8 +278,8 @@
     "source": "【109 統測真題】",
     "diagramType": "thevenin",
     "diagramParams": [
-      24,
-      8
+      null,
+      null
     ],
     "question": "如圖所示之直流電路，自負載端點 a-b 向左看入，請問其戴維寧等效電壓 Eth 及戴維寧等效電阻 Rth 分別為何？",
     "options": [
@@ -483,7 +493,9 @@
     "category": "電子學",
     "source": "【109 模擬考】",
     "diagramType": "bridgeRectifier",
-    "diagramParams": [],
+    "diagramParams": [
+      110
+    ],
     "question": "如圖所示之橋式全波整流電路，輸入交流電壓有效值為 110 V、頻率為 60 Hz。若忽略二極體順向導通電壓降，請問輸出端負載電壓之直流平均值 Vdc 及輸出漣波頻率 fr 分別為何？",
     "options": [
       "Vdc ≈ 99 V, fr = 120 Hz",
@@ -693,8 +705,6 @@
     "scope": "mock1",
     "category": "數位邏輯設計",
     "source": "【109 統測真題】",
-    "diagramType": "logicGates",
-    "diagramParams": [],
     "question": "依第摩根定理（De Morgan's Theorem），布林函數表示式 F = ((A' · B')')' 之化簡結果為下列何者？",
     "options": [
       "A + B",
@@ -747,7 +757,10 @@
     "category": "數位邏輯設計",
     "source": "【109 模擬考】",
     "diagramType": "jkFlipFlop",
-    "diagramParams": [],
+    "diagramParams": [
+      null,
+      null
+    ],
     "question": "若欲將一顆標準的負緣觸發 JK 正反器接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Qn+1 = Qn'），則 J 與 K 輸入端應如何連接？",
     "options": [
       "J = 0, K = 0",
@@ -2030,8 +2043,8 @@
     "question": "如圖所示之直流電路，由 A、B 兩端看入之戴維寧等效電壓 Eth 與戴維寧等效電阻 Rth 分別為多少？",
     "diagramType": "thevenin",
     "diagramParams": [
-      12,
-      6
+      null,
+      null
     ],
     "options": [
       "Eth = 12V, Rth = 6Ω",
@@ -2526,6 +2539,10 @@
     "source": "【111 統測真題】",
     "question": "如圖所示之一負緣觸發 JK 正反器，若目前現態輸出為 Q(t) = 0。今將輸入端設為 J = 1, K = 0，當下一個時脈脈波（Clock）負緣到達時，其下一個狀態輸出 Q(t+1) 將變為多少？",
     "diagramType": "jkFlipFlop",
+    "diagramParams": [
+      1,
+      0
+    ],
     "options": [
       "1 (設定 Set)",
       "0 (重置 Reset)",
@@ -4196,6 +4213,11 @@
     "source": "【113 統測真題】",
     "question": "如圖所示之邏輯電路，若輸入信號為 A=0, B=1, C=1，請問輸出端 F 之邏輯準位為何？",
     "diagramType": "logicGates",
+    "diagramParams": [
+      0,
+      1,
+      1
+    ],
     "options": [
       "高阻抗 Z",
       "1",
