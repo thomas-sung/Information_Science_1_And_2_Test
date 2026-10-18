@@ -697,7 +697,7 @@ function startExam(modeOverride) {
 
       btn.innerHTML = `
         <span class="option-letter">${letters[optIndex]}</span>
-        <span class="option-text">${escapeHtml(optText)}</span>
+        <span class="option-text">${formatOptionText(optText)}</span>
       `;
 
       btn.addEventListener('click', () => {
@@ -988,7 +988,7 @@ function startExam(modeOverride) {
         optionsHtml += `
           <div class="${optClass}">
             <strong>${letters[optIdx]}.</strong>
-            <span>${escapeHtml(optText)}${badge}</span>
+            <span>${formatOptionText(optText)}${badge}</span>
           </div>
         `;
       });
@@ -1169,7 +1169,7 @@ function startExam(modeOverride) {
         optionsHtml += `
           <div class="${optClass}">
             <strong style="margin-right: 0.35rem;">${letters[optIdx]}.</strong>
-            <span>${escapeHtml(optText)}${badge}</span>
+            <span>${formatOptionText(optText)}${badge}</span>
           </div>
         `;
       });
@@ -1503,6 +1503,19 @@ function startExam(modeOverride) {
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
+  }
+
+  // 格式化選項文字（支援安全的布林代數反向上標 overline 標籤）
+  function formatOptionText(text) {
+    if (!text) return '';
+    const replaced = text
+      .replace(/<span\s+class=["']overline["']\s*>/gi, '___OVERLINE_S___')
+      .replace(/<span\s+style=["']text-decoration:\s*overline;?["']\s*>/gi, '___OVERLINE_S___')
+      .replace(/<\/span>/gi, '___OVERLINE_E___');
+    const escaped = escapeHtml(replaced);
+    return escaped
+      .replace(/___OVERLINE_S___/g, '<span class="overline">')
+      .replace(/___OVERLINE_E___/g, '</span>');
   }
 
   // 格式化包含 Markdown 程式碼區塊 (```c ... ```) 的文字

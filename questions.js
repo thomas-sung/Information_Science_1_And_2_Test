@@ -295,7 +295,8 @@
 
           <circle cx="184" cy="110" r="3.5" fill="var(--bg-surface)" stroke="#16a34a" stroke-width="1.8"/>
           <line x1="188" y1="110" x2="230" y2="110" stroke="#16a34a" stroke-width="2"/>
-          <text x="198" y="125" font-size="12" font-weight="bold" fill="#16a34a">Q'</text>
+          <line x1="198" y1="114" x2="208" y2="114" stroke="#16a34a" stroke-width="1.5"/>
+          <text x="198" y="125" font-size="12" font-weight="bold" fill="#16a34a">Q</text>
         </svg>
         <div class="diagram-caption">【電路圖】負緣觸發 JK 正反器結構圖</div>
       `;
@@ -779,15 +780,15 @@
     "scope": "mock1",
     "category": "數位邏輯設計",
     "source": "【109 統測真題】",
-    "question": "依第摩根定理（De Morgan's Theorem），布林函數表示式 F = ((A' · B')')' 之化簡結果為下列何者？",
+    "question": "依狄摩根定理（De Morgan's Theorem），布林函數表示式 F = <span class=\"overline\"><span class=\"overline\"><span class=\"overline\">A</span> · <span class=\"overline\">B</span></span></span> 之化簡結果為下列何者？",
     "options": [
       "A + B",
-      "A' + B'",
+      "<span class=\"overline\">A</span> + <span class=\"overline\">B</span>",
       "A · B",
-      "A' · B'"
+      "<span class=\"overline\">A</span> · <span class=\"overline\">B</span>"
     ],
     "answer": 3,
-    "explanation": "第摩根定理化簡：<br>依雙重反向律 (X')' = X：<br>最外層之反向符號可抵消第二層括號外的反向符號：<br>F = ((A' · B')')' = A' · B'。<br>故正確答案為 (D)。"
+    "explanation": "狄摩根定理化簡：<br>依雙重反向律 <span class=\"overline\"><span class=\"overline\">X</span></span> = X：<br>最外層之反向符號可抵消第二層的反向符號：<br>F = <span class=\"overline\"><span class=\"overline\"><span class=\"overline\">A</span> · <span class=\"overline\">B</span></span></span> = <span class=\"overline\">A</span> · <span class=\"overline\">B</span>。<br>故正確答案為 (D)。"
   },
   {
     "id": "109-s2-028",
@@ -798,13 +799,13 @@
     "source": "【109 模擬考】",
     "question": "有一四變數布林函數 F(A, B, C, D) = Σm(0, 2, 8, 10) + d(4, 6, 12, 14)，其中 d 代表無關項（Don't care）。經卡諾圖化簡後的最簡積之和（SOP）結果為何？",
     "options": [
-      "B'",
-      "D'",
-      "B' · D'",
-      "A' · C'"
+      "<span class=\"overline\">B</span>",
+      "<span class=\"overline\">D</span>",
+      "<span class=\"overline\">B</span> · <span class=\"overline\">D</span>",
+      "<span class=\"overline\">A</span> · <span class=\"overline\">C</span>"
     ],
     "answer": 1,
-    "explanation": "卡諾圖化簡分析：<br>1. 在卡諾圖中，m(0, 2, 8, 10) 與 d(4, 6, 12, 14) 組合在一起。<br>2. 0, 4, 12, 8 是第 1 行；2, 6, 14, 10 是第 4 行。<br>3. 這 8 個相鄰項正好覆蓋了第 1 行與第 4 行的全部單元格，形成一個 8 格的大方塊（8-group）。<br>4. 在這兩行中，C 與 D 的狀態分別為 CD = 00 與 CD = 10，其中 C 由 0 變為 1 被消去，而 D 始終維持為 0（D'）；A 與 B 則全部 4 種組合皆存在而被完全消去。<br>因此最簡化結果為 D'，故選 (B)。"
+    "explanation": "卡諾圖化簡分析：<br>1. 在卡諾圖中，m(0, 2, 8, 10) 與 d(4, 6, 12, 14) 組合在一起。<br>2. 0, 4, 12, 8 是第 1 行；2, 6, 14, 10 是第 4 行。<br>3. 這 8 個相鄰項正好覆蓋了第 1 行與第 4 行的全部單元格，形成一個 8 格的大方塊（8-group）。<br>4. 在這兩行中，C 與 D 的狀態分別為 CD = 00 與 CD = 10，其中 C 由 0 變為 1 被消去，而 D 始終維持為 0（<span class=\"overline\">D</span>）；A 與 B 則全部 4 種組合皆存在而被完全消去。<br>因此最簡化結果為 <span class=\"overline\">D</span>，故選 (B)。"
   },
   {
     "id": "109-s2-029",
@@ -835,7 +836,7 @@
       null,
       null
     ],
-    "question": "如圖所示為一顆標準的負緣觸發 JK 正反器結構，若欲將其接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Qn+1 = Qn'），則 J 與 K 輸入端應如何連接？",
+    "question": "如圖所示為一顆標準的負緣觸發 JK 正反器結構，若欲將其接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Q(n+1) = <span class=\"overline\">Q(n)</span>），則 J 與 K 輸入端應如何連接？",
     "options": [
       "J = 0, K = 0",
       "J = 0, K = 1",
@@ -844,7 +845,7 @@
     ],
     "answer": 3,
     "explanation": "JK 正反器操作真值表：<br>- J = 0, K = 0：保持不變（No change）<br>- J = 0, K = 1：重置為 0（Reset）<br>- J = 1, K = 0：設定為 1（Set）<br>- J = 1, K = 1：狀態翻轉（Toggle）<br>因此將 J 與 K 同時接至高電位 1（或短接在一起當作 T 輸入），即成為 T 正反器。故選 (D)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q'</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
+    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"198\" y1=\"114\" x2=\"208\" y2=\"114\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
   },
   {
     "id": "109-s2-031",
@@ -895,7 +896,7 @@
       "環形計數器通常需要預先設定僅有單一個「1」在各級正反器間循環移動"
     ],
     "answer": 2,
-    "explanation": "計數器回授結構比較：<br>1. 環形計數器（Ring Counter）：將最後一級輸出 Q 接回第一級 D，有效狀態數為 n。<br>2. 強森計數器（Johnson Counter）：將最後一級的「反向輸出 Q'」回授至第一級輸入 D，使計數模數加倍擴充至 2n。<br>故 (C) 敘述將 Q 回授而非 Q'，是錯誤的。"
+    "explanation": "計數器回授結構比較：<br>1. 環形計數器（Ring Counter）：將最後一級輸出 Q 接回第一級 D，有效狀態數為 n。<br>2. 強森計數器（Johnson Counter）：將最後一級的「反向輸出 <span class=\"overline\">Q</span>」回授至第一級輸入 D，使計數模數加倍擴充至 2n。<br>故 (C) 敘述將 Q 回授而非 <span class=\"overline\">Q</span>，是錯誤的。"
   },
   {
     "id": "109-s2-034",
@@ -1673,7 +1674,7 @@
       "三輸入及閘 (AND Gate)"
     ],
     "answer": 0,
-    "explanation": "依或非運算定義：Y = (A + B + C)'。<br>當 A=B=C=0 時，(0+0+0)' = 0' = 1；任一者為 1 時輸出即為 0。符合三輸入反或閘（NOR）特性。故選 (A)。"
+    "explanation": "依或非運算定義：Y = <span class=\"overline\">A + B + C</span>。<br>當 A=B=C=0 時，<span class=\"overline\">0 + 0 + 0</span> = <span class=\"overline\">0</span> = 1；任一者為 1 時輸出即為 0。符合三輸入反或閘（NOR）特性。故選 (A)。"
   },
   {
     "id": "110-s2-029",
@@ -1684,13 +1685,13 @@
     "source": "【110 模擬考】",
     "question": "一四變數布林函數之最小項為 F(A,B,C,D) = Σ m(0, 2, 8, 10)，在卡諾圖上恰好為四個角落的格子。將這四個相鄰角落合併圈選後，化簡的最簡積之和 (SOP) 為何？",
     "options": [
-      "B' · D'",
-      "A' · C'",
+      "<span class=\"overline\">B</span> · <span class=\"overline\">D</span>",
+      "<span class=\"overline\">A</span> · <span class=\"overline\">C</span>",
       "A · B",
       "C · D"
     ],
     "answer": 0,
-    "explanation": "編碼對應：<br>m(0) = 0000, m(2) = 0010, m(8) = 1000, m(10) = 1010。<br>分析共同特徵：B 恆等於 0（B'），D 恆等於 0（D'）；而 A 與 C 皆出現 0 與 1 相互消去。<br>故四角落圈選之最簡式為 B' D'。選 (A)。"
+    "explanation": "編碼對應：<br>m(0) = 0000, m(2) = 0010, m(8) = 1000, m(10) = 1010。<br>分析共同特徵：B 恆等於 0（<span class=\"overline\">B</span>），D 恆等於 0（<span class=\"overline\">D</span>）；而 A 與 C 皆出現 0 與 1 相互消去。<br>故四角落圈選之最簡式為 <span class=\"overline\">B</span> · <span class=\"overline\">D</span>。選 (A)。"
   },
   {
     "id": "110-s2-030",
@@ -2532,7 +2533,7 @@
     "scope": "mock1",
     "category": "數位邏輯設計",
     "source": "【111 模擬考】",
-    "question": "布林代數表示式 F = A<span style=\"text-decoration: overline;\">B</span> + A B 經過化簡後的結果為何？",
+    "question": "布林代數表示式 F = A<span class=\"overline\">B</span> + A B 經過化簡後的結果為何？",
     "options": [
       "A",
       "B",
@@ -2540,7 +2541,7 @@
       "1"
     ],
     "answer": 0,
-    "explanation": "提公因數化簡：<br>F = A(<span style=\"text-decoration: overline;\">B</span> + B)。<br>根據互補律：<span style=\"text-decoration: overline;\">B</span> + B = 1。<br>因此 F = A · 1 = A。<br>故正確答案為 (A)。"
+    "explanation": "提公因數化簡：<br>F = A(<span class=\"overline\">B</span> + B)。<br>根據互補律：<span class=\"overline\">B</span> + B = 1。<br>因此 F = A · 1 = A。<br>故正確答案為 (A)。"
   },
   {
     "id": "111-s2-029",
@@ -2613,8 +2614,8 @@
       "切換 Toggle"
     ],
     "answer": 0,
-    "explanation": "JK 正反器真值表：<br>- J=0, K=0 ⇒ Q(t+1) = Q(t)（保持不變）<br>- J=0, K=1 ⇒ Q(t+1) = 0（重置 Reset）<br>- J=1, K=0 ⇒ Q(t+1) = 1（設定 Set）<br>- J=1, K=1 ⇒ Q(t+1) = <span style=\"text-decoration: overline;\">Q(t)</span>（反相切換 Toggle）<br>因此當 J=1, K=0 時，時脈觸發後輸出必定設定為 1，故選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J=1</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K=0</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q'</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
+    "explanation": "JK 正反器真值表：<br>- J=0, K=0 ⇒ Q(t+1) = Q(t)（保持不變）<br>- J=0, K=1 ⇒ Q(t+1) = 0（重置 Reset）<br>- J=1, K=0 ⇒ Q(t+1) = 1（設定 Set）<br>- J=1, K=1 ⇒ Q(t+1) = <span class=\"overline\">Q(t)</span>（反相切換 Toggle）<br>因此當 J=1, K=0 時，時脈觸發後輸出必定設定為 1，故選 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J=1</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K=0</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"198\" y1=\"114\" x2=\"208\" y2=\"114\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
   },
   {
     "id": "111-s2-033",
@@ -2881,7 +2882,7 @@
     "scope": "mock4",
     "category": "微處理機",
     "source": "【111 統測真題】",
-    "question": "8051 內部具有 5 個基本中斷來源，當發生「外部中斷 0 (<span style=\"text-decoration: overline;\">INT0</span>)」請求時，CPU 響應後會自動跳躍至哪一個固定的中斷向量（Interrupt Vector）位址開始執行中斷服務程式？",
+    "question": "8051 內部具有 5 個基本中斷來源，當發生「外部中斷 0 (<span class=\"overline\">INT0</span>)」請求時，CPU 響應後會自動跳躍至哪一個固定的中斷向量（Interrupt Vector）位址開始執行中斷服務程式？",
     "options": [
       "0003H",
       "000BH",
@@ -3380,15 +3381,15 @@
     "scope": "mock1",
     "category": "數位邏輯設計",
     "source": "【112 模擬考】",
-    "question": "根據狄摩根定理（De Morgan's Theorem），布林代數表示式 <span style=\"text-decoration: overline;\">A + B · C</span> 等價於下列何者？",
+    "question": "根據狄摩根定理（De Morgan's Theorem），布林代數表示式 <span class=\"overline\">A + B · C</span> 等價於下列何者？",
     "options": [
-      "A' · (B' + C')",
-      "A' · B' · C'",
-      "A' + B' · C'",
-      "(A' + B') · C'"
+      "<span class=\"overline\">A</span> · (<span class=\"overline\">B</span> + <span class=\"overline\">C</span>)",
+      "<span class=\"overline\">A</span> · <span class=\"overline\">B</span> · <span class=\"overline\">C</span>",
+      "<span class=\"overline\">A</span> + <span class=\"overline\">B</span> · <span class=\"overline\">C</span>",
+      "(<span class=\"overline\">A</span> + <span class=\"overline\">B</span>) · <span class=\"overline\">C</span>"
     ],
     "answer": 0,
-    "explanation": "依狄摩根第一定理：<span style=\"text-decoration: overline;\">X + Y</span> = <span style=\"text-decoration: overline;\">X</span> · <span style=\"text-decoration: overline;\">Y</span>。<br>令 X = A, Y = B · C：<br><span style=\"text-decoration: overline;\">A + B · C</span> = <span style=\"text-decoration: overline;\">A</span> · <span style=\"text-decoration: overline;\">B · C</span>。<br>再對 <span style=\"text-decoration: overline;\">B · C</span> 使用狄摩根第二定理：<span style=\"text-decoration: overline;\">B · C</span> = <span style=\"text-decoration: overline;\">B</span> + <span style=\"text-decoration: overline;\">C</span>。<br>代入得：<span style=\"text-decoration: overline;\">A</span> · (<span style=\"text-decoration: overline;\">B</span> + <span style=\"text-decoration: overline;\">C</span>)，即 A' · (B' + C')。<br>故選 (A)。"
+    "explanation": "依狄摩根第一定理：<span class=\"overline\">X + Y</span> = <span class=\"overline\">X</span> · <span class=\"overline\">Y</span>。<br>令 X = A, Y = B · C：<br><span class=\"overline\">A + B · C</span> = <span class=\"overline\">A</span> · <span class=\"overline\">B · C</span>。<br>再對 <span class=\"overline\">B · C</span> 使用狄摩根第二定理：<span class=\"overline\">B · C</span> = <span class=\"overline\">B</span> + <span class=\"overline\">C</span>。<br>代入得：<span class=\"overline\">A</span> · (<span class=\"overline\">B</span> + <span class=\"overline\">C</span>)。<br>故選 (A)。"
   },
   {
     "id": "112-s2-028",
@@ -3451,10 +3452,10 @@
     "source": "【112 統測真題】",
     "question": "D 型正反器（D Flip-Flop）之特性方程式為下列何者？",
     "options": [
-      "Q(t+1) = Q(t)'",
+      "Q(t+1) = <span class=\"overline\">Q(t)</span>",
       "Q(t+1) = D",
-      "Q(t+1) = S + R'Q",
-      "Q(t+1) = J Q' + K' Q"
+      "Q(t+1) = S + <span class=\"overline\">R</span> · Q",
+      "Q(t+1) = J · <span class=\"overline\">Q</span> + <span class=\"overline\">K</span> · Q"
     ],
     "answer": 1,
     "explanation": "D 正反器（Data / Delay Flip-Flop）：<br>當有效觸發時脈邊緣（Clock Edge）到達時，次態輸出直接等於輸入端 D 的資料，即 Q(t+1) = D。<br>此特性使 D 正反器廣泛應用於暫存器與資料延遲鎖存電路中。故選 (B)。"
@@ -3466,7 +3467,7 @@
     "scope": "mock3",
     "category": "數位邏輯設計",
     "source": "【112 模擬考】",
-    "question": "將 4 顆 T 型正反器（T Flip-Flop）之 T 輸入端均接高電位 1，並將前一級的 <span style=\"text-decoration: overline;\">Q</span> 輸出接到下一級的時脈 CLK 輸入端，構成非同步漣波上數計數器。若輸入時脈頻率為 160 kHz，則最後一級正反器輸出的頻率為何？",
+    "question": "將 4 顆 T 型正反器（T Flip-Flop）之 T 輸入端均接高電位 1，並將前一級的 <span class=\"overline\">Q</span> 輸出接到下一級的時脈 CLK 輸入端，構成非同步漣波上數計數器。若輸入時脈頻率為 160 kHz，則最後一級正反器輸出的頻率為何？",
     "options": [
       "40 kHz",
       "10 kHz",
@@ -3661,7 +3662,7 @@
       "系統擴充匯流排 (PCIe)"
     ],
     "answer": 1,
-    "explanation": "三大匯流排功能職責：<br>1. 控制匯流排（Control Bus）：傳送 CPU 發出的控制信號（如記憶體讀取 / 寫入 <span style=\"text-decoration: overline;\">RD</span>, <span style=\"text-decoration: overline;\">WR</span>、中斷確認、時脈等）。<br>2. 位址匯流排（Address Bus）：單向傳送記憶體或 I/O 的位址編號。<br>3. 資料匯流排（Data Bus）：雙向傳送實際的資料或指令代碼。<br>故選 (B)。"
+    "explanation": "三大匯流排功能職責：<br>1. 控制匯流排（Control Bus）：傳送 CPU 發出的控制信號（如記憶體讀取 / 寫入 <span class=\"overline\">RD</span>, <span class=\"overline\">WR</span>、中斷確認、時脈等）。<br>2. 位址匯流排（Address Bus）：單向傳送記憶體或 I/O 的位址編號。<br>3. 資料匯流排（Data Bus）：雙向傳送實際的資料或指令代碼。<br>故選 (B)。"
   },
   {
     "id": "112-s2-044",
@@ -4273,7 +4274,7 @@
       "不確定"
     ],
     "answer": 2,
-    "explanation": "電路分析：<br>1. 下方及閘（AND Gate）輸入為 B=1 與 C=1，及閘輸出為 1 · 1 = 1。<br>2. 上方反或閘（NOR Gate）之兩輸入端分別為：A=0 與及閘輸出 1。<br>3. NOR 運算：<span style=\"text-decoration: overline;\">0 + 1</span> = <span style=\"text-decoration: overline;\">1</span> = 0。<br>因此最終輸出端 F = 0，故選 (C)。",
+    "explanation": "電路分析：<br>1. 下方及閘（AND Gate）輸入為 B=1 與 C=1，及閘輸出為 1 · 1 = 1。<br>2. 上方反或閘（NOR Gate）之兩輸入端分別為：A=0 與及閘輸出 1。<br>3. NOR 運算：<span class=\"overline\">0 + 1</span> = <span class=\"overline\">1</span> = 0。<br>因此最終輸出端 F = 0，故選 (C)。",
     "diagramSvg": "\n        <svg viewBox=\"0 0 340 160\" width=\"310\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <text x=\"16\" y=\"35\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">A=0</text>\n          <line x1=\"42\" y1=\"30\" x2=\"180\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"16\" y=\"90\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">B=1</text>\n          <line x1=\"42\" y1=\"85\" x2=\"80\" y2=\"85\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"16\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">C=1</text>\n          <line x1=\"42\" y1=\"120\" x2=\"80\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 80 70 L 105 70 A 25 25 0 0 1 105 135 L 80 135 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"96\" y=\"107\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">AND</text>\n          <line x1=\"130\" y1=\"102\" x2=\"160\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"102\" x2=\"160\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"60\" x2=\"180\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 180 20 Q 195 45 180 70 Q 215 70 235 45 Q 215 20 180 20 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"239\" cy=\"45\" r=\"4\" fill=\"var(--bg-surface)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"49\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\">NOR</text>\n\n          <line x1=\"243\" y1=\"45\" x2=\"300\" y2=\"45\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <circle cx=\"300\" cy=\"45\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"312\" y=\"49\" font-size=\"13\" font-weight=\"bold\" fill=\"#16a34a\">F = ?</text>\n        </svg>\n        <div class=\"diagram-caption\">【邏輯電路】組合邏輯電路圖</div>\n      "
   },
   {
@@ -4325,7 +4326,7 @@
       "禁制 (Forbidden)"
     ],
     "answer": 2,
-    "explanation": "JK 正反器工作模式：<br>當 J=1, K=1 時，其特性方程式為 Q(t+1) = <span style=\"text-decoration: overline;\">Q(t)</span>。<br>亦即輸出會隨著每一次時脈脈波發生反相轉態，此狀態稱為「切換（Toggle）」，常用於頻率除以 2 的計數器設計中。故選 (C)。"
+    "explanation": "JK 正反器工作模式：<br>當 J=1, K=1 時，其特性方程式為 Q(t+1) = <span class=\"overline\">Q(t)</span>。<br>亦即輸出會隨著每一次時脈脈波發生反相轉態，此狀態稱為「切換（Toggle）」，常用於頻率除以 2 的計數器設計中。故選 (C)。"
   },
   {
     "id": "113-s2-032",
@@ -5123,7 +5124,7 @@
       "A 與 B 狀態相異時 (一者為 0，另一者為 1)"
     ],
     "answer": 3,
-    "explanation": "互斥或閘（Exclusive-OR, XOR）：<br>真值表定義為「兩輸入相異為 1，相同為 0」：<br>Y = A ⊕ B = A<span style=\"text-decoration: overline;\">B</span> + <span style=\"text-decoration: overline;\">A</span>B。<br>因此當 A ≠ B 時輸出為 1，故選 (D)。"
+    "explanation": "互斥或閘（Exclusive-OR, XOR）：<br>真值表定義為「兩輸入相異為 1，相同為 0」：<br>Y = A ⊕ B = A<span class=\"overline\">B</span> + <span class=\"overline\">A</span>B。<br>因此當 A ≠ B 時輸出為 1，故選 (D)。"
   },
   {
     "id": "114-s2-028",
@@ -5136,11 +5137,11 @@
     "options": [
       "A · B",
       "C · D",
-      "A' · D'",
-      "A' · B'"
+      "<span class=\"overline\">A</span> · <span class=\"overline\">D</span>",
+      "<span class=\"overline\">A</span> · <span class=\"overline\">B</span>"
     ],
     "answer": 3,
-    "explanation": "二進制編碼：<br>- m(0) = 0000<br>- m(1) = 0001<br>- m(2) = 0010<br>- m(3) = 0011<br>共同特徵：A=0, B=0 恆固定為 0；而 C 與 D 取遍 00, 01, 10, 11 相互抵消。<br>因此化簡後為 A' B'（即 <span style=\"text-decoration: overline;\">A</span> <span style=\"text-decoration: overline;\">B</span>）。<br>故正確答案為 (D)。"
+    "explanation": "二進制編碼：<br>- m(0) = 0000<br>- m(1) = 0001<br>- m(2) = 0010<br>- m(3) = 0011<br>共同特徵：A=0, B=0 恆固定為 0；而 C 與 D 取遍 00, 01, 10, 11 相互抵消。<br>因此化簡後為 <span class=\"overline\">A</span> · <span class=\"overline\">B</span>。<br>故正確答案為 (D)。"
   },
   {
     "id": "114-s2-029",
@@ -5166,7 +5167,7 @@
     "scope": "mock2",
     "category": "數位邏輯設計",
     "source": "【114 全國模考】",
-    "question": "基本 RS 正反器中，若輸入端 S=1, R=1 同時成立時，將導致輸出 Q 與 <span style=\"text-decoration: overline;\">Q</span> 同時為 0（或 1），失去互補特性，且時脈解除後次態無法預測。因此該輸入組合在設計時被嚴格禁止，稱為何種狀態？",
+    "question": "基本 RS 正反器中，若輸入端 S=1, R=1 同時成立時，將導致輸出 Q 與 <span class=\"overline\">Q</span> 同時為 0（或 1），失去互補特性，且時脈解除後次態無法預測。因此該輸入組合在設計時被嚴格禁止，稱為何種狀態？",
     "options": [
       "切換狀態 (Toggle)",
       "設定狀態 (Set)",
@@ -5174,7 +5175,7 @@
       "禁制狀態 (Forbidden / 不定狀態)"
     ],
     "answer": 3,
-    "explanation": "RS 正反器特性：<br>當 S=1, R=1 同時發生時，違反了正反器輸出互為反相（Q ≠ <span style=\"text-decoration: overline;\">Q</span>）的基本定義，且撤除信號瞬間會產生冒險競爭，故被定義為「禁制狀態 / 不允許狀態（Forbidden State）」。<br>JK 正反器正是為了克服此缺點而發明。故選 (D)。"
+    "explanation": "RS 正反器特性：<br>當 S=1, R=1 同時發生時，違反了正反器輸出互為反相（Q ≠ <span class=\"overline\">Q</span>）的基本定義，且撤除信號瞬間會產生冒險競爭，故被定義為「禁制狀態 / 不允許狀態（Forbidden State）」。<br>JK 正反器正是為了克服此缺點而發明。故選 (D)。"
   },
   {
     "id": "114-s2-031",
@@ -5191,7 +5192,7 @@
       "保持原狀態不變 (Q(t))"
     ],
     "answer": 3,
-    "explanation": "T 正反器特性方程式：Q(t+1) = T ⊕ Q(t)。<br>- 當 T = 1 時：Q(t+1) = <span style=\"text-decoration: overline;\">Q(t)</span>（反轉切換 Toggle）；<br>- 當 T = 0 時：Q(t+1) = Q(t)（保持原值不變 Hold）。<br>故選 (D)。"
+    "explanation": "T 正反器特性方程式：Q(t+1) = T ⊕ Q(t)。<br>- 當 T = 1 時：Q(t+1) = <span class=\"overline\">Q(t)</span>（反轉切換 Toggle）；<br>- 當 T = 0 時：Q(t+1) = Q(t)（保持原值不變 Hold）。<br>故選 (D)。"
   },
   {
     "id": "114-s2-032",
@@ -5412,7 +5413,7 @@
       "PSEN (Program Store Enable)"
     ],
     "answer": 3,
-    "explanation": "8051 控制腳位：<br><span style=\"text-decoration: overline;\">PSEN</span>（Program Store Enable，腳位 29）：為外部程式記憶體讀取選通信號。當 CPU 欲從外部 ROM 讀取指令或代碼時，<span style=\"text-decoration: overline;\">PSEN</span> 會產生低電位脈波以致能外部 ROM 輸出。<br>故選 (D)。"
+    "explanation": "8051 控制腳位：<br><span class=\"overline\">PSEN</span>（Program Store Enable，腳位 29）：為外部程式記憶體讀取選通信號。當 CPU 欲從外部 ROM 讀取指令或代碼時，<span class=\"overline\">PSEN</span> 會產生低電位脈波以致能外部 ROM 輸出。<br>故選 (D)。"
   },
   {
     "id": "114-s2-045",
@@ -5483,7 +5484,7 @@
       "001BH"
     ],
     "answer": 3,
-    "explanation": "8051 五大中斷向量入口表：<br>- 外部中斷 0 (<span style=\"text-decoration: overline;\">INT0</span>)：0003H<br>- 計時器 0 中斷 (TF0)：000BH<br>- 外部中斷 1 (<span style=\"text-decoration: overline;\">INT1</span>)：0013H<br>- **計時器 1 中斷 (TF1)：001BH**<br>- 串列埠中斷 (RI/TI)：0023H<br>故選 (D)。"
+    "explanation": "8051 五大中斷向量入口表：<br>- 外部中斷 0 (<span class=\"overline\">INT0</span>)：0003H<br>- 計時器 0 中斷 (TF0)：000BH<br>- 外部中斷 1 (<span class=\"overline\">INT1</span>)：0013H<br>- **計時器 1 中斷 (TF1)：001BH**<br>- 串列埠中斷 (RI/TI)：0023H<br>故選 (D)。"
   },
   {
     "id": "114-s2-049",

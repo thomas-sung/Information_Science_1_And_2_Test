@@ -2182,3 +2182,35 @@ button, .btn-pill, .btn-nav, .option-btn, .sheet-num-btn, .subject-card {
     display: flex !important;
   }
 }
+
+/* ==========================================================================
+   布林代數反向/補數 (Boolean Overbar / Overline) 樣式
+   ========================================================================== */
+.overline,
+[style*="text-decoration: overline"],
+[style*="text-decoration:overline"] {
+  text-decoration: overline;
+  text-decoration-thickness: 1.5px;
+  line-height: normal;
+  display: inline;
+}
+
+/* 巢狀反向符號（如狄摩根定理或雙重補數）層層向上堆疊清晰可見 */
+.overline .overline,
+.overline [style*="text-decoration: overline"],
+[style*="text-decoration: overline"] .overline {
+  border-top: 1.5px solid currentColor;
+  padding-top: 2px;
+  margin-top: 2px;
+  display: inline-block;
+  vertical-align: baseline;
+  text-decoration: overline;
+}
+
+.overline .overline .overline {
+  border-top: 1.5px solid currentColor;
+  padding-top: 2px;
+  margin-top: 2px;
+  display: inline-block;
+  vertical-align: baseline;
+}

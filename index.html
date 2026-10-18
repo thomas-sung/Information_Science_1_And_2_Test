@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261018_v3">
+  <link rel="stylesheet" href="styles.css?v=20261019_v1">
   <style>
     /* 立即生效防快取行動端切換規則 */
     @media (max-width: 900px) {
@@ -38,6 +38,32 @@
       .desktop-setup-actions {
         display: flex !important;
       }
+    }
+    /* 布林代數反向/補數 (Overline) 立即生效樣式 */
+    .overline,
+    [style*="text-decoration: overline"],
+    [style*="text-decoration:overline"] {
+      text-decoration: overline;
+      text-decoration-thickness: 1.5px;
+      line-height: normal;
+      display: inline;
+    }
+    .overline .overline,
+    .overline [style*="text-decoration: overline"],
+    [style*="text-decoration: overline"] .overline {
+      border-top: 1.5px solid currentColor;
+      padding-top: 2px;
+      margin-top: 2px;
+      display: inline-block;
+      vertical-align: baseline;
+      text-decoration: overline;
+    }
+    .overline .overline .overline {
+      border-top: 1.5px solid currentColor;
+      padding-top: 2px;
+      margin-top: 2px;
+      display: inline-block;
+      vertical-align: baseline;
     }
   </style>
 </head>
