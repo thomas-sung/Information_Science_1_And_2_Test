@@ -115,6 +115,9 @@
     // 瀏覽全題庫
     browseAllBtn: document.getElementById('browse-all-btn'),
     btnHomeBrowse: document.getElementById('btn-home-browse'),
+    mobileNavSelect: document.getElementById('mobile-nav-select'),
+    mobileSetupActionSelect: document.getElementById('mobile-setup-action-select'),
+    mobileWrongCountBadge: document.getElementById('mobile-wrong-count-badge'),
     viewBrowse: document.getElementById('view-browse'),
     btnBrowseBackHome: document.getElementById('btn-browse-back-home'),
     browseYearFilter: document.getElementById('browse-year-filter'),
@@ -315,6 +318,39 @@
     });
 
     // 專攻錯題按鈕
+    const handleDropdownMenuAction = (val) => {
+      if (!val) return;
+      if (val === 'profile') {
+        openLoginModal();
+      } else if (val === 'browse') {
+        switchView('browse');
+      } else if (val === 'history') {
+        openHistoryModal();
+      } else if (val === 'wrong') {
+        if (state.wrongQuestionIds.size === 0) {
+          alert('目前沒有歷史錯題紀錄喔！先進行一次測驗吧。');
+          return;
+        }
+        startExam('wrong_review');
+      }
+    };
+
+    if (elements.mobileNavSelect) {
+      elements.mobileNavSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        e.target.value = '';
+        handleDropdownMenuAction(val);
+      });
+    }
+
+    if (elements.mobileSetupActionSelect) {
+      elements.mobileSetupActionSelect.addEventListener('change', (e) => {
+        const val = e.target.value;
+        e.target.value = '';
+        handleDropdownMenuAction(val);
+      });
+    }
+
     if (elements.wrongReviewBtn) {
       elements.wrongReviewBtn.addEventListener('click', () => {
         if (state.wrongQuestionIds.size === 0) {

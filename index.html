@@ -26,16 +26,31 @@
         </div>
       </div>
       <div class="header-actions">
-        <div id="user-profile-btn" class="user-profile-badge" title="點擊設定或切換考生身分">
-          <span class="user-avatar">👤</span>
-          <span id="user-display-name">訪客 (點擊登入)</span>
+        <!-- 桌面版按鈕組 -->
+        <div class="desktop-header-actions">
+          <div id="user-profile-btn" class="user-profile-badge" title="點擊設定或切換考生身分">
+            <span class="user-avatar">👤</span>
+            <span id="user-display-name">訪客 (點擊登入)</span>
+          </div>
+          <button id="browse-all-btn" class="btn-pill" title="直接瀏覽所有題目與詳細解答">
+            📚 題庫詳解總覽
+          </button>
+          <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
+            📊 <span class="nav-btn-text">歷次成績</span>
+          </button>
         </div>
-        <button id="browse-all-btn" class="btn-pill" title="直接瀏覽所有題目與詳細解答">
-          📚 題庫詳解總覽
-        </button>
-        <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
-          📊 <span class="nav-btn-text">歷次成績</span>
-        </button>
+
+        <!-- 手機端功能下拉式選單 (解決按鈕太長或折行破版問題) -->
+        <div class="mobile-nav-select-wrapper">
+          <select id="mobile-nav-select" class="select-custom mobile-nav-select" aria-label="手機功能選單">
+            <option value="" disabled selected>☰ 功能選單 ▼</option>
+            <option value="profile">👤 考生身分登入</option>
+            <option value="browse">📚 題庫詳解總覽 (300題)</option>
+            <option value="history">📊 歷次成績與紀錄</option>
+            <option value="wrong">🎯 錯題本專攻模式</option>
+          </select>
+        </div>
+
         <button id="theme-toggle-btn" class="btn-icon" title="切換深淺模式">
           🌙
         </button>
@@ -162,16 +177,32 @@
           </div>
         </div>
 
-        <div class="setup-actions-bar">
+        <div class="setup-actions-container">
           <button id="btn-start-exam" class="btn-start-exam">
             🚀 開始測驗
           </button>
-          <button id="btn-wrong-review" class="btn-pill btn-action-wrong">
-            🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
-          </button>
-          <button id="btn-home-browse" class="btn-pill btn-action-browse">
-            📖 瀏覽題庫與解析
-          </button>
+
+          <!-- 桌面端並排按鈕列 -->
+          <div class="desktop-setup-actions">
+            <button id="btn-wrong-review" class="btn-pill btn-action-wrong">
+              🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
+            </button>
+            <button id="btn-home-browse" class="btn-pill btn-action-browse">
+              📖 瀏覽題庫與解析
+            </button>
+          </div>
+
+          <!-- 手機端功能下拉式選單 (取代超長橫幅按鈕) -->
+          <div class="mobile-setup-dropdown-box">
+            <label for="mobile-setup-action-select" class="mobile-setup-action-label">⚡ 或選擇其他學習模式：</label>
+            <select id="mobile-setup-action-select" class="select-custom mobile-setup-action-select">
+              <option value="" disabled selected>📂 更多功能（錯題本 / 題庫總覽 / 歷史紀錄）▼</option>
+              <option value="wrong">🎯 錯題本專攻複習 (<span id="mobile-wrong-count-badge">0</span> 題)</option>
+              <option value="browse">📖 瀏覽全部 300 題題目與解析</option>
+              <option value="history">📊 查看歷史成績與答題紀錄</option>
+              <option value="profile">👤 切換 / 設定考生身分與姓名</option>
+            </select>
+          </div>
         </div>
       </div>
     </section>
