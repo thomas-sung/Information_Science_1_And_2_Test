@@ -138,33 +138,102 @@
       `;
     },
 
-    // 4. 戴維寧等效電路
-    thevenin: function(eth, rth) {
+    // 4. 戴維寧等效電路 (可包含外接負載電阻 RL)
+    thevenin: function(eth, rth, rl) {
       const isUnknown = (eth === null || eth === undefined || eth === '' || rth === null || rth === undefined || rth === '');
       const ethLabel = isUnknown ? 'Eth = ?' : `Eth = ${eth}V`;
       const rthLabel = isUnknown ? 'Rth = ?' : `Rth = ${rth}Ω`;
+      const hasRl = (rl !== undefined && rl !== null && rl !== '');
+      const rlLabel = hasRl ? `RL = ${rl}Ω` : 'RL';
+
       return `
-        <svg viewBox="0 0 300 130" width="280" height="120" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="45" cy="65" r="18" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2"/>
-          <line x1="36" y1="65" x2="54" y2="65" stroke="#dc2626" stroke-width="2"/>
-          <line x1="45" y1="56" x2="45" y2="74" stroke="#dc2626" stroke-width="2"/>
-          <text x="45" y="105" font-size="11" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${ethLabel}</text>
+        <svg viewBox="0 0 340 140" width="310" height="130" xmlns="http://www.w3.org/2000/svg">
+          <!-- 戴維寧等效電壓源 Eth -->
+          <circle cx="45" cy="70" r="18" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2"/>
+          <line x1="36" y1="70" x2="54" y2="70" stroke="#dc2626" stroke-width="2"/>
+          <line x1="45" y1="61" x2="45" y2="79" stroke="#dc2626" stroke-width="2"/>
+          <text x="45" y="108" font-size="11" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${ethLabel}</text>
 
-          <line x1="45" y1="47" x2="45" y2="25" stroke="#2563eb" stroke-width="2"/>
-          <line x1="45" y1="25" x2="110" y2="25" stroke="#2563eb" stroke-width="2"/>
-          <rect x="110" y="15" width="50" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
-          <text x="135" y="29" font-size="10" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${rthLabel}</text>
-          <line x1="160" y1="25" x2="245" y2="25" stroke="#2563eb" stroke-width="2"/>
+          <!-- 連接到等效電阻 Rth -->
+          <line x1="45" y1="52" x2="45" y2="30" stroke="#2563eb" stroke-width="2"/>
+          <line x1="45" y1="30" x2="90" y2="30" stroke="#2563eb" stroke-width="2"/>
+          <rect x="90" y="20" width="55" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
+          <text x="117" y="34" font-size="10" font-weight="bold" fill="${isUnknown ? '#dc2626' : 'currentColor'}" text-anchor="middle">${rthLabel}</text>
+          <line x1="145" y1="30" x2="200" y2="30" stroke="#2563eb" stroke-width="2"/>
 
-          <line x1="45" y1="83" x2="45" y2="105" stroke="#2563eb" stroke-width="2"/>
-          <line x1="45" y1="105" x2="245" y2="105" stroke="#2563eb" stroke-width="2"/>
+          <!-- 端點 A -->
+          <circle cx="200" cy="30" r="3.5" fill="#16a34a"/>
+          <text x="200" y="18" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">A (+)</text>
 
-          <circle cx="245" cy="25" r="3.5" fill="#16a34a"/>
-          <text x="260" y="29" font-size="12" font-weight="bold" fill="#16a34a">A (+)</text>
-          <circle cx="245" cy="105" r="3.5" fill="#16a34a"/>
-          <text x="260" y="109" font-size="12" font-weight="bold" fill="#16a34a">B (-)</text>
+          ${hasRl ? `
+          <!-- 外接負載電阻 RL -->
+          <line x1="200" y1="30" x2="260" y2="30" stroke="#16a34a" stroke-width="2"/>
+          <line x1="260" y1="30" x2="260" y2="45" stroke="#16a34a" stroke-width="2"/>
+          <rect x="248" y="45" width="24" height="40" fill="var(--bg-elevated)" stroke="#16a34a" stroke-width="2" rx="2"/>
+          <text x="286" y="69" font-size="10" font-weight="bold" fill="#16a34a">${rlLabel}</text>
+          <line x1="260" y1="85" x2="260" y2="105" stroke="#16a34a" stroke-width="2"/>
+          <line x1="200" y1="105" x2="260" y2="105" stroke="#16a34a" stroke-width="2"/>
+          ` : ''}
+
+          <!-- 下方回路 -->
+          <line x1="45" y1="88" x2="45" y2="105" stroke="#2563eb" stroke-width="2"/>
+          <line x1="45" y1="105" x2="200" y2="105" stroke="#2563eb" stroke-width="2"/>
+
+          <!-- 端點 B -->
+          <circle cx="200" cy="105" r="3.5" fill="#16a34a"/>
+          <text x="200" y="125" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">B (-)</text>
         </svg>
-        <div class="diagram-caption">【電路圖】戴維寧等效模型電路</div>
+        <div class="diagram-caption">【電路圖】戴維寧等效模型電路${hasRl ? '（接上負載 RL）' : ''}</div>
+      `;
+    },
+
+    // 7. 戴維寧原始待化簡電路 (包含直流電源 E, 串聯電阻 R1, 並聯電阻 R2 與輸出端 a-b)
+    theveninOriginal: function(e, r1, r2) {
+      return `
+        <svg viewBox="0 0 340 180" width="310" height="165" xmlns="http://www.w3.org/2000/svg">
+          <!-- 直流電源 E -->
+          <circle cx="45" cy="90" r="18" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2"/>
+          <line x1="36" y1="90" x2="54" y2="90" stroke="#dc2626" stroke-width="2"/>
+          <line x1="45" y1="81" x2="45" y2="99" stroke="#dc2626" stroke-width="2"/>
+          <text x="45" y="130" font-size="11" font-weight="bold" fill="currentColor" text-anchor="middle">E = ${e}V</text>
+
+          <!-- 連接線往上到 R1 -->
+          <line x1="45" y1="72" x2="45" y2="40" stroke="#2563eb" stroke-width="2"/>
+          <line x1="45" y1="40" x2="100" y2="40" stroke="#2563eb" stroke-width="2"/>
+
+          <!-- 串聯電阻 R1 -->
+          <rect x="100" y="30" width="50" height="20" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
+          <text x="125" y="44" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">R1 = ${r1}Ω</text>
+          <line x1="150" y1="40" x2="200" y2="40" stroke="#2563eb" stroke-width="2"/>
+
+          <!-- 節點連接到 R2 與輸出端 a -->
+          <circle cx="200" cy="40" r="3.5" fill="#2563eb"/>
+          <line x1="200" y1="40" x2="200" y2="70" stroke="#2563eb" stroke-width="2"/>
+
+          <!-- 並聯電阻 R2 -->
+          <rect x="190" y="70" width="20" height="40" fill="var(--bg-elevated)" stroke="#2563eb" stroke-width="2" rx="2"/>
+          <text x="232" y="94" font-size="10" font-weight="bold" fill="currentColor" text-anchor="middle">R2 = ${r2}Ω</text>
+          <line x1="200" y1="110" x2="200" y2="140" stroke="#2563eb" stroke-width="2"/>
+
+          <!-- 下方接地/回路 -->
+          <line x1="45" y1="108" x2="45" y2="140" stroke="#2563eb" stroke-width="2"/>
+          <line x1="45" y1="140" x2="200" y2="140" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="200" cy="140" r="3.5" fill="#2563eb"/>
+
+          <!-- 輸出導線往端點 a 與 b -->
+          <line x1="200" y1="40" x2="270" y2="40" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="270" cy="40" r="4" fill="#16a34a"/>
+          <text x="285" y="44" font-size="13" font-weight="bold" fill="#16a34a">a</text>
+
+          <line x1="200" y1="140" x2="270" y2="140" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="270" cy="140" r="4" fill="#16a34a"/>
+          <text x="285" y="144" font-size="13" font-weight="bold" fill="#16a34a">b</text>
+
+          <!-- 看入方向箭頭 -->
+          <path d="M 315 85 L 295 90 L 315 95" fill="none" stroke="#dc2626" stroke-width="2"/>
+          <text x="315" y="112" font-size="10" font-weight="bold" fill="#dc2626" text-anchor="middle">向左看入</text>
+        </svg>
+        <div class="diagram-caption">【電路圖】直流電路戴維寧等效化簡示意圖</div>
       `;
     },
 
@@ -276,12 +345,13 @@
     "scope": "mock1",
     "category": "基本電學",
     "source": "【109 統測真題】",
-    "diagramType": "thevenin",
+    "diagramType": "theveninOriginal",
     "diagramParams": [
-      null,
-      null
+      36,
+      12,
+      24
     ],
-    "question": "如圖所示之直流電路，自負載端點 a-b 向左看入，請問其戴維寧等效電壓 Eth 及戴維寧等效電阻 Rth 分別為何？",
+    "question": "如圖所示之直流電路，已知直流電源 E = 36 V，電阻 R₁ = 12 Ω，R₂ = 24 Ω。自負載端點 a-b 向左看入，請問其戴維寧等效電壓 Eth 及戴維寧等效電阻 Rth 分別為何？",
     "options": [
       "Eth = 24 V, Rth = 8 Ω",
       "Eth = 18 V, Rth = 6 Ω",
@@ -289,8 +359,7 @@
       "Eth = 24 V, Rth = 12 Ω"
     ],
     "answer": 0,
-    "explanation": "依戴維寧等效電路分析：<br>1. 開路電壓：端點 a-b 開路時，輸出端之戴維寧等效電壓即為分壓標稱之開路電壓 Eth = 24 V。<br>2. 等效電阻：將獨立獨立電壓源短路後，由端點看入之等效內阻為 Rth = 8 Ω。<br>故選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 300 130\" width=\"280\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"45\" cy=\"65\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"36\" y1=\"65\" x2=\"54\" y2=\"65\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"56\" x2=\"45\" y2=\"74\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <text x=\"45\" y=\"105\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Eth = ?</text>\n\n          <line x1=\"45\" y1=\"47\" x2=\"45\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"25\" x2=\"110\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"110\" y=\"15\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"135\" y=\"29\" font-size=\"10\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Rth = ?</text>\n          <line x1=\"160\" y1=\"25\" x2=\"245\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <line x1=\"45\" y1=\"83\" x2=\"45\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"105\" x2=\"245\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <circle cx=\"245\" cy=\"25\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"29\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">A (+)</text>\n          <circle cx=\"245\" cy=\"105\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"109\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">B (-)</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】戴維寧等效模型電路</div>\n      "
+    "explanation": "依戴維寧等效電路分析：<br>1. 開路電壓（戴維寧等效電壓 Eth）：<br>端點 a-b 開路時，輸出端之戴維寧等效電壓即為電阻 R₂ 之分壓：<br>Eth = E × [ R₂ / (R₁ + R₂) ] = 36 V × [ 24 / (12 + 24) ] = 36 × (24 / 36) = 24 V。<br>2. 等效電阻（輸入阻抗 Rth）：<br>將獨立電壓源短路（以導線替代）後，由端點 a-b 向左看入之等效電阻為 R₁ 與 R₂ 之並聯值：<br>Rth = R₁ // R₂ = (12 × 24) / (12 + 24) = 288 / 36 = 8 Ω。<br>故戴維寧等效模型為 Eth = 24 V, Rth = 8 Ω，正確答案選 (A)。"
   },
   {
     "id": "109-s1-004",
@@ -587,7 +656,8 @@
     "diagramType": "opaInverting",
     "diagramParams": [
       10,
-      50
+      50,
+      2.0
     ],
     "question": "如圖所示之運算放大器（OPA）反相放大電路，已知 R1 = 10 kΩ，回授電阻 Rf = 50 kΩ，電源供應為 ±15 V。若輸入端輸入電壓 Vi = 2.0 V，請問輸出端電壓 Vo 為多少伏特 (V)？",
     "options": [
@@ -765,7 +835,7 @@
       null,
       null
     ],
-    "question": "若欲將一顆標準的負緣觸發 JK 正反器接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Qn+1 = Qn'），則 J 與 K 輸入端應如何連接？",
+    "question": "如圖所示為一顆標準的負緣觸發 JK 正反器結構，若欲將其接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Qn+1 = Qn'），則 J 與 K 輸入端應如何連接？",
     "options": [
       "J = 0, K = 0",
       "J = 0, K = 1",
@@ -1156,11 +1226,12 @@
     "subject": "subject1",
     "scope": "mock1",
     "category": "基本電學",
-    "source": "【110 模擬考】",
+    "source": "【110 統測真題】",
     "question": "如圖所示之直流電路，由 A、B 兩端看入之戴維寧等效電壓 Eth 與等效電阻 Rth 分別為 18 V 與 9 Ω。若在 A、B 兩端接上負載電阻 RL = 9 Ω，則負載所獲得的最大功率 Pmax 為多少瓦特？",
     "diagramType": "thevenin",
     "diagramParams": [
       18,
+      9,
       9
     ],
     "options": [
@@ -4639,11 +4710,12 @@
     "subject": "subject1",
     "scope": "mock1",
     "category": "基本電學",
-    "source": "【114 統測精準預試】",
+    "source": "【114 統測真題】",
     "question": "一具直流電路如圖所示，求得其戴維寧等效電壓 Eth = 30 V，戴維寧等效電阻 Rth = 15 Ω。若在 A、B 兩端接上負載電阻 R_L = 15 Ω，則該負載電阻消耗的功率為多少？",
     "diagramType": "thevenin",
     "diagramParams": [
       30,
+      15,
       15
     ],
     "options": [
