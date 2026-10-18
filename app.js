@@ -501,14 +501,17 @@
       return;
     }
 
-    // 隨機打散抽題
-    shuffleArray(candidateQuestions);
-
+    // 計算抽題數量
     let count = candidateQuestions.length;
     if (state.questionCountLimit !== 'all') {
       count = Math.min(parseInt(state.questionCountLimit, 10), candidateQuestions.length);
     }
-    state.currentQuestions = candidateQuestions.slice(0, count);
+
+    // 智能多樣性抽題（防止同次測試概念題目重複、跨次歷次優先抽新題）
+    state.currentQuestions = selectDiverseQuestions(candidateQuestions, count);
+
+    // 記錄本次測驗題目至 Session 歷次題庫池，避免連續測驗重複出題
+    addSessionTestedIds(state.currentQuestions.map(q => q.id));
 
     // 重設狀態
     state.currentIndex = 0;
@@ -1257,6 +1260,141 @@
   // ==========================================
   // 輔助工具函式 (Utility Functions)
   // ==========================================
+  // 取得題目概念簽章 (Topic Signature)，用於同次測驗概念去重
+  function getQuestionTopicSignature(q) {
+    const text = ((q.category || '') + ' ' + (q.question || '')).toLowerCase();
+    if (/重疊定理/.test(text)) return 'circuit_superposition';
+    if (/戴維寧/.test(text)) return 'circuit_thevenin';
+    if (/諾頓/.test(text)) return 'circuit_norton';
+    if (/節點電壓/.test(text)) return 'circuit_node_voltage';
+    if (/迴路電流|網目/.test(text)) return 'circuit_mesh_current';
+    if (/最大功率/.test(text)) return 'circuit_max_power';
+    if (/惠斯登|電橋/.test(text)) return 'circuit_bridge';
+    if (/串聯諧振/.test(text)) return 'ac_series_resonance';
+    if (/並聯諧振/.test(text)) return 'ac_parallel_resonance';
+    if (/兩瓦特|三相/.test(text)) return 'ac_three_phase';
+    if (/時間常數|暫態|充放電/.test(text)) return 'circuit_transient';
+    if (/濾波器|截止頻率/.test(text)) return 'filter_frequency';
+    if (/非反相放大/.test(text)) return 'opa_non_inverting';
+    if (/反相加法/.test(text)) return 'opa_summing';
+    if (/差動放大|減法/.test(text)) return 'opa_diff';
+    if (/反相放大/.test(text)) return 'opa_inverting';
+    if (/史密特|比較器|磁滯/.test(text)) return 'opa_schmitt';
+    if (/電壓隨耦|電壓追隨/.test(text)) return 'opa_follower';
+    if (/齊納|穩壓二極體/.test(text)) return 'diode_zener';
+    if (/整流|截波|箝位/.test(text)) return 'diode_application';
+    if (/bjt|電晶體|工作區|共射極|共基極/.test(text)) return 'transistor_bjt';
+    if (/fet|mosfet|汲極|夾止/.test(text)) return 'transistor_fet';
+    if (/卡諾圖/.test(text)) return 'logic_karnaugh';
+    if (/布林代數|狄摩根/.test(text)) return 'logic_boolean';
+    if (/正反器|正反器計數器|jk|d型/.test(text)) return 'logic_flipflop';
+    if (/多工器|解多工器|編碼器|解碼器/.test(text)) return 'logic_msi';
+    if (/進制轉換|補數/.test(text)) return 'logic_number_systems';
+    if (/計數器|模數/.test(text)) return 'logic_counter';
+    if (/strlen|strcpy|字串/.test(text)) return 'c_string';
+    if (/指標|\*p|&/.test(text)) return 'c_pointer';
+    if (/二維陣列|一維陣列|arr\[/.test(text)) return 'c_array';
+    if (/遞迴|recursion/.test(text)) return 'c_recursion';
+    if (/switch|case/.test(text)) return 'c_switch';
+    if (/for|while|迴圈/.test(text)) return 'c_loop';
+    if (/位元運算|>>|<<|\^|&|~/.test(text)) return 'c_bitwise';
+    if (/結構體|struct/.test(text)) return 'c_struct';
+    if (/div ab|mul ab|乘法|除法/.test(text)) return 'mcu_arithmetic';
+    if (/tmod|tcon|計時器|定時器/.test(text)) return 'mcu_timer';
+    if (/中斷|ie|ip|中斷向量/.test(text)) return 'mcu_interrupt';
+    if (/scon|串列|鮑率|uart|max232/.test(text)) return 'mcu_serial';
+    if (/dptr|movx|movc|定址模式/.test(text)) return 'mcu_addressing';
+    if (/8051|微處理機|微控制器/.test(text)) return 'mcu_general';
+    return q.category || 'general';
+  }
+
+  // 讀取當前 Session 已測題目 ID
+  function getSessionTestedIds() {
+    try {
+      const raw = sessionStorage.getItem('vcs_session_tested_qids');
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  // 記錄已測題目 ID（滑動窗口保留最近 200 題）
+  function addSessionTestedIds(ids) {
+    try {
+      const existing = getSessionTestedIds();
+      const idSet = new Set(existing);
+      (ids || []).forEach(id => idSet.add(id));
+      const updated = Array.from(idSet);
+      if (updated.length > 200) {
+        updated.splice(0, updated.length - 200);
+      }
+      sessionStorage.setItem('vcs_session_tested_qids', JSON.stringify(updated));
+    } catch (e) {}
+  }
+
+  // 智能多樣性抽題核心演算法（同次測試概念不重複、跨次優先出新題）
+  function selectDiverseQuestions(candidates, count) {
+    // 1. 嚴格依題目 ID 去重，排除任何重複項
+    const uniqueMap = new Map();
+    (candidates || []).forEach(q => {
+      if (q && q.id && !uniqueMap.has(q.id)) {
+        uniqueMap.set(q.id, q);
+      }
+    });
+    const pool = Array.from(uniqueMap.values());
+    const actualCount = Math.min(count, pool.length);
+    if (actualCount <= 0) return [];
+
+    // 2. 歷次/跨次測試防重複：區分未測與已測題目
+    const testedSet = new Set(getSessionTestedIds());
+    const unseen = pool.filter(q => !testedSet.has(q.id));
+    const seen = pool.filter(q => testedSet.has(q.id));
+
+    let priorityPool = [];
+    if (unseen.length >= actualCount) {
+      priorityPool = shuffleArray([...unseen]);
+    } else {
+      // 若未測題目不足，未測題全取，剩餘由已測題目亂序補足
+      priorityPool = shuffleArray([...unseen]).concat(shuffleArray([...seen]));
+    }
+
+    // 3. 同次測試防題型概念重複 (Topic Signature Diversity)
+    const topicMap = new Map();
+    priorityPool.forEach(q => {
+      const topic = getQuestionTopicSignature(q);
+      if (!topicMap.has(topic)) topicMap.set(topic, []);
+      topicMap.get(topic).push(q);
+    });
+
+    const selected = [];
+    const selectedIds = new Set();
+    const topics = shuffleArray(Array.from(topicMap.keys()));
+
+    // 第一階段：每個概念主題最多抽 1 題，確保概念完全不撞題
+    for (const topic of topics) {
+      if (selected.length >= actualCount) break;
+      const qList = topicMap.get(topic);
+      if (qList && qList.length > 0) {
+        const q = qList.shift();
+        selected.push(q);
+        selectedIds.add(q.id);
+      }
+    }
+
+    // 第二階段：若所需題數超過主題數量，從剩餘題目中補足，並保持 ID 唯一
+    if (selected.length < actualCount) {
+      for (const q of priorityPool) {
+        if (selected.length >= actualCount) break;
+        if (!selectedIds.has(q.id)) {
+          selected.push(q);
+          selectedIds.add(q.id);
+        }
+      }
+    }
+
+    // 再次洗牌，使題目順序自然分布
+    return shuffleArray(selected);
+  }
   function shuffleArray(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

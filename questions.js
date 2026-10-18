@@ -289,7 +289,8 @@
       "Eth = 24 V, Rth = 12 Ω"
     ],
     "answer": 0,
-    "explanation": "依戴維寧等效電路分析：<br>1. 開路電壓：端點 a-b 開路時，輸出端之戴維寧等效電壓即為分壓標稱之開路電壓 Eth = 24 V。<br>2. 等效電阻：將獨立獨立電壓源短路後，由端點看入之等效內阻為 Rth = 8 Ω。<br>故選 (A)。"
+    "explanation": "依戴維寧等效電路分析：<br>1. 開路電壓：端點 a-b 開路時，輸出端之戴維寧等效電壓即為分壓標稱之開路電壓 Eth = 24 V。<br>2. 等效電阻：將獨立獨立電壓源短路後，由端點看入之等效內阻為 Rth = 8 Ω。<br>故選 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 300 130\" width=\"280\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"45\" cy=\"65\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"36\" y1=\"65\" x2=\"54\" y2=\"65\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"56\" x2=\"45\" y2=\"74\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <text x=\"45\" y=\"105\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Eth = ?</text>\n\n          <line x1=\"45\" y1=\"47\" x2=\"45\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"25\" x2=\"110\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"110\" y=\"15\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"135\" y=\"29\" font-size=\"10\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Rth = ?</text>\n          <line x1=\"160\" y1=\"25\" x2=\"245\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <line x1=\"45\" y1=\"83\" x2=\"45\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"105\" x2=\"245\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <circle cx=\"245\" cy=\"25\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"29\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">A (+)</text>\n          <circle cx=\"245\" cy=\"105\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"109\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">B (-)</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】戴維寧等效模型電路</div>\n      "
   },
   {
     "id": "109-s1-004",
@@ -313,7 +314,8 @@
       "80 Ω"
     ],
     "answer": 2,
-    "explanation": "惠斯登電橋平衡對角相乘公式：<br>R1 × Rx = R2 × R3<br>10 × Rx = 20 × 30 = 600<br>Rx = 600 / 10 = 60 Ω。<br>故正確答案為 (C)。"
+    "explanation": "惠斯登電橋平衡對角相乘公式：<br>R1 × Rx = R2 × R3<br>10 × Rx = 20 × 30 = 600<br>Rx = 600 / 10 = 60 Ω。<br>故正確答案為 (C)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=20Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=30Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#dc2626\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Rx = ?</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
   },
   {
     "id": "109-s1-005",
@@ -504,7 +506,8 @@
       "Vdc ≈ 49.5 V, fr = 60 Hz"
     ],
     "answer": 0,
-    "explanation": "全波整流公式分析：<br>1. 輸入電壓峰值：Vm = √2 × 110 ≈ 155.56 V。<br>2. 全波整流輸出直流平均值：Vdc = (2 / π) × Vm ≈ 0.636 × 155.56 ≈ 0.9 × 110 = 99 V。<br>3. 全波整流之輸出漣波頻率為輸入頻率之兩倍：fr = 2 × fin = 2 × 60 = 120 Hz。<br>故正確答案為 (A)。"
+    "explanation": "全波整流公式分析：<br>1. 輸入電壓峰值：Vm = √2 × 110 ≈ 155.56 V。<br>2. 全波整流輸出直流平均值：Vdc = (2 / π) × Vm ≈ 0.636 × 155.56 ≈ 0.9 × 110 = 99 V。<br>3. 全波整流之輸出漣波頻率為輸入頻率之兩倍：fr = 2 × fin = 2 × 60 = 120 Hz。<br>故正確答案為 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"310\" height=\"165\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"35\" cy=\"90\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <path d=\"M 27 90 Q 31 82 35 90 T 43 90\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"35\" y=\"122\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">110V AC</text>\n\n          <line x1=\"35\" y1=\"74\" x2=\"35\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"35\" y1=\"50\" x2=\"110\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"35\" y1=\"106\" x2=\"35\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"35\" y1=\"130\" x2=\"110\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,40 210,90 160,140 110,90\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"1.5\" stroke-dasharray=\"3,3\"/>\n          <text x=\"130\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\">D1</text>\n          <text x=\"185\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\">D2</text>\n          <text x=\"130\" y=\"130\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\">D3</text>\n          <text x=\"185\" y=\"130\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\">D4</text>\n\n          <line x1=\"160\" y1=\"40\" x2=\"270\" y2=\"40\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"140\" x2=\"270\" y2=\"140\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"270\" y1=\"40\" x2=\"270\" y2=\"65\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <rect x=\"260\" y=\"65\" width=\"20\" height=\"40\" fill=\"var(--bg-elevated)\" stroke=\"#16a34a\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"270\" y=\"88\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">RL</text>\n          <line x1=\"270\" y1=\"105\" x2=\"270\" y2=\"140\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <text x=\"295\" y=\"55\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"295\" y=\"135\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"305\" y=\"94\" font-size=\"11\" font-weight=\"bold\" fill=\"#16a34a\">Vout</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】橋式全波整流電路</div>\n      "
   },
   {
     "id": "109-s1-016",
@@ -594,7 +597,8 @@
       "+12.0 V"
     ],
     "answer": 0,
-    "explanation": "OPA 反相放大器公式：<br>Vo = -(Rf / R1) × Vi<br>Vo = -(50 kΩ / 10 kΩ) × 2.0 V = -5 × 2.0 V = -10.0 V。<br>未超過 ±15 V 飽和電壓，故輸出為 -10.0 V，選 (A)。"
+    "explanation": "OPA 反相放大器公式：<br>Vo = -(Rf / R1) × Vi<br>Vo = -(50 kΩ / 10 kΩ) × 2.0 V = -5 × 2.0 V = -10.0 V。<br>未超過 ±15 V 飽和電壓，故輸出為 -10.0 V，選 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=Vi</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=50k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo = ?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
   },
   {
     "id": "109-s1-021",
@@ -769,7 +773,8 @@
       "J = 1, K = 1"
     ],
     "answer": 3,
-    "explanation": "JK 正反器操作真值表：<br>- J = 0, K = 0：保持不變（No change）<br>- J = 0, K = 1：重置為 0（Reset）<br>- J = 1, K = 0：設定為 1（Set）<br>- J = 1, K = 1：狀態翻轉（Toggle）<br>因此將 J 與 K 同時接至高電位 1（或短接在一起當作 T 輸入），即成為 T 正反器。故選 (D)。"
+    "explanation": "JK 正反器操作真值表：<br>- J = 0, K = 0：保持不變（No change）<br>- J = 0, K = 1：重置為 0（Reset）<br>- J = 1, K = 0：設定為 1（Set）<br>- J = 1, K = 1：狀態翻轉（Toggle）<br>因此將 J 與 K 同時接至高電位 1（或短接在一起當作 T 輸入），即成為 T 正反器。故選 (D)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q'</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
   },
   {
     "id": "109-s2-031",
@@ -1208,24 +1213,19 @@
     "subject": "subject1",
     "scope": "mock2",
     "category": "基本電學",
-    "source": "【110 統測真題】",
-    "question": "如圖所示之惠斯登電橋，R1 = 25 Ω, R2 = 50 Ω, R3 = 40 Ω。當檢流計電流為零時，Rx 之阻值應為多少？",
-    "diagramType": "wheatstone",
-    "diagramParams": [
-      25,
-      50,
-      40,
-      80
-    ],
+    "source": "【110 模擬考】",
+    "question": "如圖所示之直流電路，包含一個 18 V 獨立電壓源與一個 3 A 獨立電流源。若電阻 R₁ = 6 Ω, R₂ = 3 Ω，利用「重疊定理 (Superposition Theorem)」求流經電阻 R₂ 的總電流 I₂ 為多少安培？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "80 Ω",
-      "40 Ω",
-      "60 Ω",
-      "100 Ω"
+      "2 A",
+      "3 A",
+      "4 A",
+      "6 A"
     ],
-    "answer": 0,
-    "explanation": "交叉臂乘積相等：R1 × Rx = R2 × R3。<br>25 × Rx = 50 × 40 = 2000。<br>Rx = 2000 / 25 = 80 Ω。<br>故選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=25Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=50Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=40Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=80Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
+    "answer": 2,
+    "explanation": "利用重疊定理分別計算各獨立電源單獨作用之響應：<br>1. 僅 18 V 電壓源單獨作用（3 A 電流源開路斷開）：<br>此時 18 V 電源直接驅動 R₁ 與 R₂ 之串聯迴路。<br>流經 R₂ 之電流 I₂' = E / (R₁ + R₂) = 18 / (6 + 3) = 18 / 9 = 2 A（向下）。<br>2. 僅 3 A 電流源單獨作用（18 V 電壓源短路接通）：<br>此時 3 A 電流由 R₁ 與 R₂ 並聯分流。<br>流經 R₂ 之分電流 I₂'' = Is × [ R₁ / (R₁ + R₂) ] = 3 × (6 / 9) = 2 A（向下）。<br>3. 總電流代數和：<br>I₂ = I₂' + I₂'' = 2 A + 2 A = 4 A。<br>故正確答案為 (C)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"90\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"42\" y1=\"84\" x2=\"58\" y2=\"84\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"50\" y1=\"76\" x2=\"50\" y2=\"92\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"44\" y1=\"102\" x2=\"56\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"2\"/><text x=\"50\" y=\"126\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">E = 18V</text><line x1=\"50\" y1=\"72\" x2=\"50\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"35\" x2=\"100\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"100\" y=\"25\" width=\"55\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/><text x=\"127\" y=\"39\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1 = 6Ω</text><line x1=\"155\" y1=\"35\" x2=\"200\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"35\" r=\"3.5\" fill=\"#2563eb\"/><line x1=\"200\" y1=\"35\" x2=\"200\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"185\" y=\"65\" width=\"30\" height=\"45\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/><text x=\"200\" y=\"90\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=3Ω</text><line x1=\"200\" y1=\"110\" x2=\"200\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M 225 75 L 225 100 M 221 95 L 225 102 L 229 95\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"238\" y=\"93\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\">I2</text><line x1=\"200\" y1=\"35\" x2=\"280\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"280\" y1=\"35\" x2=\"280\" y2=\"72\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"90\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M 280 80 L 280 100 M 276 94 L 280 101 L 284 94\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"2.2\"/><text x=\"280\" y=\"126\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Is = 3A</text><line x1=\"280\" y1=\"108\" x2=\"280\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"108\" x2=\"50\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"145\" x2=\"280\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"145\" r=\"3.5\" fill=\"#2563eb\"/></svg><div class=\"diagram-caption\">【電路圖】重疊定理直流雙電源分析電路</div>"
   },
   {
     "id": "110-s1-007",
@@ -1455,22 +1455,18 @@
     "scope": "mock4",
     "category": "電子學",
     "source": "【110 統測真題】",
-    "question": "如圖所示之理想運算放大器 (OPA) 反相放大電路中，R1 = 20 kΩ, Rf = 100 kΩ。若輸入電壓 Vi = +1.2 V，工作電源為 ±15 V，請問輸出電壓 Vo 為何？",
-    "diagramType": "opaInverting",
-    "diagramParams": [
-      20,
-      100,
-      1.2
-    ],
+    "question": "如圖所示之理想運算放大器 (OPA) 非反相放大電路中，接地電阻 R₁ = 10 kΩ，回授電阻 Rf = 30 kΩ。若輸入端輸入電壓 Vi = +1.5 V，工作電源為 ±15 V，請問輸出端電壓 Vo 為多少伏特？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "-6.0 V",
       "+6.0 V",
-      "-5.0 V",
-      "+5.0 V"
+      "-4.5 V",
+      "+4.5 V",
+      "-6.0 V"
     ],
     "answer": 0,
-    "explanation": "理想反相放大器閉迴路增益：Av = -Rf / R1 = -100 kΩ / 20 kΩ = -5。<br>輸出電壓 Vo = Av × Vi = (-5) × (+1.2 V) = -6.0 V。<br>未超過電源供應限制 ±15 V，故選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=1.2V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=20k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=100k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
+    "explanation": "1. 理想非反相放大器的閉迴路電壓增益：<br>Av = 1 + (Rf / R₁) = 1 + (30 kΩ / 10 kΩ) = 1 + 3 = +4。<br>2. 輸出端電壓：<br>Vo = Av × Vi = (+4) × (+1.5 V) = +6.0 V。<br>3. 檢驗：+6.0 V 介於工作電源 ±15 V 之內，OPA 處於線性放大區未飽和。<br>故正確答案為 (A)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"95\" r=\"3\" fill=\"#2563eb\"/><text x=\"30\" y=\"82\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=+1.5V</text><line x1=\"30\" y1=\"95\" x2=\"160\" y2=\"95\" stroke=\"#2563eb\" stroke-width=\"2\"/><polygon points=\"160,40 160,110 230,75\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/><text x=\"170\" y=\"60\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text><text x=\"170\" y=\"98\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text><line x1=\"160\" y1=\"55\" x2=\"130\" y2=\"55\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"130\" cy=\"55\" r=\"3\" fill=\"#2563eb\"/><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"115\" y=\"90\" width=\"30\" height=\"35\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"130\" y=\"112\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10k</text><line x1=\"130\" y1=\"125\" x2=\"130\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"118\" y1=\"145\" x2=\"142\" y2=\"145\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"122\" y1=\"150\" x2=\"138\" y2=\"150\" stroke=\"currentColor\" stroke-width=\"1.8\"/><line x1=\"126\" y1=\"155\" x2=\"134\" y2=\"155\" stroke=\"currentColor\" stroke-width=\"1.5\"/><line x1=\"130\" y1=\"55\" x2=\"130\" y2=\"22\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"130\" y1=\"22\" x2=\"165\" y2=\"22\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"165\" y=\"12\" width=\"55\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"192\" y=\"26\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=30k</text><line x1=\"220\" y1=\"22\" x2=\"260\" y2=\"22\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"260\" y1=\"22\" x2=\"260\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"230\" y1=\"75\" x2=\"305\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"260\" cy=\"75\" r=\"3\" fill=\"#2563eb\"/><circle cx=\"305\" cy=\"75\" r=\"3\" fill=\"#16a34a\"/><text x=\"305\" y=\"62\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo = ?</text></svg><div class=\"diagram-caption\">【電路圖】理想 OPA 非反相放大電路</div>"
   },
   {
     "id": "110-s1-021",
@@ -1751,15 +1747,18 @@
     "scope": "mock2",
     "category": "程式設計實習",
     "source": "【110 模擬考】",
-    "question": "執行下列 C 語言程式片段後，變數 sum 的數值為何？\n```c\nint sum = 0;\nfor (int i = 1; i <= 5; i++) {\n if (i == 3) break;\n sum += i;\n}\n```",
+    "question": "執行下列 C 語言程式片段後，終端機螢幕印出的輸出結果為何？\n```c\nchar str[] = \"Vocational\";\nprintf(\"%d %d\", (int)strlen(str), (int)sizeof(str));\n```",
     "options": [
-      "3",
-      "6",
-      "15",
-      "12"
+      "10 11",
+      "10 10",
+      "11 11",
+      "9 10"
     ],
     "answer": 0,
-    "explanation": "迴圈追蹤：<br>- i = 1：sum = 0 + 1 = 1<br>- i = 2：sum = 1 + 2 = 3<br>- i = 3：遇到 `break;` 立即強制跳離整個迴圈！<br>因此最終 sum = 3，故選 (A)。"
+    "explanation": "1. `strlen(str)`：計算字串的有效字元個數，直到遇到結束字元 `\\0` 為止（但不計算 `\\0`）。字串 `\"Vocational\"` 共有 10 個英文字母，因此 `strlen` 回傳 10。<br>2. `sizeof(str)`：計算該字元陣列在記憶體中所佔用的總位元組數（Bytes）。在 C 語言中，字串字面值結尾會自動加上空字元 `\\0`，故陣列實際包含 10 個字元加上 1 個 `\\0`，共 11 個位元組，`sizeof` 回傳 11。<br>因此終端機螢幕輸出為 `10 11`，故正確答案為 (A)。",
+    "diagramType": null,
+    "diagramParams": null,
+    "diagramSvg": null
   },
   {
     "id": "110-s2-038",
@@ -2040,21 +2039,18 @@
     "scope": "mock1",
     "category": "基本電學",
     "source": "【111 統測真題】",
-    "question": "如圖所示之直流電路，由 A、B 兩端看入之戴維寧等效電壓 Eth 與戴維寧等效電阻 Rth 分別為多少？",
-    "diagramType": "thevenin",
-    "diagramParams": [
-      null,
-      null
-    ],
+    "question": "如圖所示之直流電路，輸出端 A、B 兩端接上可變負載電阻 RL。已知由 A、B 兩端看入之戴維寧等效電壓為 Eth = 30 V，戴維寧等效電阻為 Rth = 15 Ω。若欲使負載電阻 RL 獲得最大功率，則 RL 應設定為多少？且負載能獲得之最大功率 Pmax 為多少？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "Eth = 12V, Rth = 6Ω",
-      "Eth = 24V, Rth = 12Ω",
-      "Eth = 6V, Rth = 3Ω",
-      "Eth = 18V, Rth = 9Ω"
+      "RL = 15 Ω, Pmax = 15 W",
+      "RL = 15 Ω, Pmax = 30 W",
+      "RL = 30 Ω, Pmax = 15 W",
+      "RL = 7.5 Ω, Pmax = 60 W"
     ],
     "answer": 0,
-    "explanation": "依戴維寧定理步驟：<br>1. 求開路電壓 Eth：A、B 兩端開路時測得之端電壓為 12 V。<br>2. 求等效電阻 Rth：將獨立電源關閉（獨立電壓源視為短路，電流源開路），由 A、B 端看入之總電阻為 6 Ω。<br>因此戴維寧等效模型為 Eth = 12 V, Rth = 6 Ω，選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 300 130\" width=\"280\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"45\" cy=\"65\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"36\" y1=\"65\" x2=\"54\" y2=\"65\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"56\" x2=\"45\" y2=\"74\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <text x=\"45\" y=\"105\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Eth = 12V</text>\n\n          <line x1=\"45\" y1=\"47\" x2=\"45\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"25\" x2=\"110\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"110\" y=\"15\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"135\" y=\"29\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rth = 6Ω</text>\n          <line x1=\"160\" y1=\"25\" x2=\"245\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <line x1=\"45\" y1=\"83\" x2=\"45\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"105\" x2=\"245\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <circle cx=\"245\" cy=\"25\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"29\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">A (+)</text>\n          <circle cx=\"245\" cy=\"105\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"109\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">B (-)</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】戴維寧等效模型電路</div>\n      "
+    "explanation": "最大功率轉移定理（Maximum Power Transfer Theorem）：<br>1. 負載獲得最大功率之條件為負載電阻等於戴維寧等效電阻：<br>RL = Rth = 15 Ω。<br>2. 負載所獲得之最大功率公式：<br>Pmax = Eth² / (4 × Rth) = (30)² / (4 × 15) = 900 / 60 = 15 W。<br>故正確答案為 (A)。",
+    "diagramSvg": "<svg viewBox=\"0 0 320 140\" width=\"300\" height=\"130\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"45\" cy=\"70\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"36\" y1=\"70\" x2=\"54\" y2=\"70\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"45\" y1=\"61\" x2=\"45\" y2=\"79\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"45\" y=\"108\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Eth = 30V</text><line x1=\"45\" y1=\"52\" x2=\"45\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"45\" y1=\"30\" x2=\"90\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"90\" y=\"20\" width=\"55\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"117\" y=\"34\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rth = 15Ω</text><line x1=\"145\" y1=\"30\" x2=\"200\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"30\" r=\"3.5\" fill=\"#16a34a\"/><text x=\"200\" y=\"18\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">A</text><line x1=\"200\" y1=\"30\" x2=\"250\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"250\" y1=\"30\" x2=\"250\" y2=\"45\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"238\" y=\"45\" width=\"24\" height=\"40\" fill=\"var(--bg-elevated)\" stroke=\"#dc2626\" stroke-width=\"2\" rx=\"2\"/><path d=\"M 230 92 L 270 40 M 264 40 L 270 40 L 270 46\" fill=\"none\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"278\" y=\"70\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\">RL</text><line x1=\"250\" y1=\"85\" x2=\"250\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"45\" y1=\"88\" x2=\"45\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"45\" y1=\"105\" x2=\"200\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"105\" r=\"3.5\" fill=\"#16a34a\"/><text x=\"200\" y=\"123\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">B</text><line x1=\"200\" y1=\"105\" x2=\"250\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/></svg><div class=\"diagram-caption\">【電路圖】最大功率轉移等效負載電路</div>"
   },
   {
     "id": "111-s1-005",
@@ -2096,7 +2092,7 @@
     ],
     "answer": 2,
     "explanation": "惠斯登電橋平衡條件為「交叉臂電阻相乘相等」：<br>R₁ × R_x = R₂ × R₃<br>10 × R_x = 20 × 30 = 600<br>R_x = (600 / 10) = 60 Ω。<br>因此當 R_x = 60 Ω 時電橋平衡，檢流計電流為零，故選 (C)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=20Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=30Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=60Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
+    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=20Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=30Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#dc2626\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">Rx = ?</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
   },
   {
     "id": "111-s1-007",
@@ -2343,22 +2339,18 @@
     "scope": "mock4",
     "category": "電子學",
     "source": "【111 統測真題】",
-    "question": "如圖所示之理想運算放大器 (OPA) 反相放大電路中，R₁ = 10 kΩ, R_f = 50 kΩ。若輸入電壓 Vᵢ = +0.6 V，且 OPA 之正負工作電源為 ± 15 V，請問輸出電壓 Vₒ 為何？",
-    "diagramType": "opaInverting",
-    "diagramParams": [
-      10,
-      50,
-      0.6
-    ],
+    "question": "一齊納二極體穩壓電路如圖所示，直流輸入電壓 Vin = 20 V，限流電阻 R = 200 Ω，齊納二極體崩潰穩壓值 Vz = 12 V，負載電阻 RL = 600 Ω。若齊納二極體正常工作於崩潰穩壓區，則流經齊納二極體的電流 Iz 為多少？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "-3.0 V",
-      "+3.0 V",
-      "-6.0 V",
-      "-15.0 V"
+      "10 mA",
+      "20 mA",
+      "30 mA",
+      "40 mA"
     ],
-    "answer": 0,
-    "explanation": "理想反相放大器的閉迴路電壓增益為：<br>A_v = -(R_f / R₁) = -(50 kΩ / 10 kΩ) = -5。<br>輸出電壓 Vₒ = A_v × Vᵢ = (-5) × (+0.6 V) = -3.0 V。<br>因為 -3.0 V 介於電源極限 ± 15 V 之間，未進入飽和，故答案為 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=0.6V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=50k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
+    "answer": 1,
+    "explanation": "1. 負載端電壓受齊納穩壓箝位：<br>VL = Vz = 12 V。<br>2. 負載電流 IL：<br>IL = VL / RL = 12 V / 600 Ω = 0.02 A = 20 mA。<br>3. 限流電阻 R 上承受的電壓 VR 及總電流 IR：<br>VR = Vin - Vz = 20 V - 12 V = 8 V。<br>IR = VR / R = 8 V / 200 Ω = 0.04 A = 40 mA。<br>4. 依 KCL（克希荷夫電流定律）：<br>IR = Iz + IL => Iz = IR - IL = 40 mA - 20 mA = 20 mA。<br>故正確答案為 (B)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 170\" width=\"310\" height=\"155\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"30\" cy=\"40\" r=\"3\" fill=\"#2563eb\"/><text x=\"30\" y=\"26\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vin=20V</text><line x1=\"30\" y1=\"40\" x2=\"80\" y2=\"40\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"80\" y=\"30\" width=\"60\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"110\" y=\"44\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R = 200Ω</text><line x1=\"140\" y1=\"40\" x2=\"200\" y2=\"40\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"200\" cy=\"40\" r=\"3.5\" fill=\"#2563eb\"/><line x1=\"200\" y1=\"40\" x2=\"200\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"188\" y1=\"62\" x2=\"192\" y2=\"60\" stroke=\"#dc2626\" stroke-width=\"2.2\"/><line x1=\"192\" y1=\"60\" x2=\"208\" y2=\"60\" stroke=\"#dc2626\" stroke-width=\"2.2\"/><line x1=\"208\" y1=\"60\" x2=\"212\" y2=\"58\" stroke=\"#dc2626\" stroke-width=\"2.2\"/><polygon points=\"190,75 210,75 200,60\" fill=\"var(--bg-elevated)\" stroke=\"#dc2626\" stroke-width=\"2\"/><text x=\"175\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#dc2626\">Vz=12V</text><line x1=\"200\" y1=\"75\" x2=\"200\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"200\" y1=\"40\" x2=\"275\" y2=\"40\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"275\" y1=\"40\" x2=\"275\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"263\" y=\"60\" width=\"24\" height=\"40\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"275\" y=\"84\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">RL=600Ω</text><line x1=\"275\" y1=\"100\" x2=\"275\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"30\" y1=\"130\" x2=\"275\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"30\" cy=\"130\" r=\"3\" fill=\"#2563eb\"/><circle cx=\"200\" cy=\"130\" r=\"3.5\" fill=\"#2563eb\"/></svg><div class=\"diagram-caption\">【電路圖】齊納二極體穩壓電路</div>"
   },
   {
     "id": "111-s1-022",
@@ -2551,7 +2543,7 @@
     ],
     "answer": 0,
     "explanation": "JK 正反器真值表：<br>- J=0, K=0 ⇒ Q(t+1) = Q(t)（保持不變）<br>- J=0, K=1 ⇒ Q(t+1) = 0（重置 Reset）<br>- J=1, K=0 ⇒ Q(t+1) = 1（設定 Set）<br>- J=1, K=1 ⇒ Q(t+1) = <span style=\"text-decoration: overline;\">Q(t)</span>（反相切換 Toggle）<br>因此當 J=1, K=0 時，時脈觸發後輸出必定設定為 1，故選 (A)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"38\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J=1</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"38\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K=1</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q'</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
+    "diagramSvg": "\n        <svg viewBox=\"0 0 260 160\" width=\"240\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect x=\"70\" y=\"20\" width=\"110\" height=\"120\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\" rx=\"4\"/>\n          <text x=\"125\" y=\"45\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">JK-FF</text>\n\n          <line x1=\"20\" y1=\"50\" x2=\"70\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">J=1</text>\n\n          <line x1=\"20\" y1=\"80\" x2=\"70\" y2=\"80\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <polyline points=\"70,72 82,80 70,88\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"30\" y=\"75\" font-size=\"10\" font-weight=\"bold\" fill=\"#d97706\">CLK ⏰</text>\n\n          <line x1=\"20\" y1=\"110\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"42\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">K=0</text>\n\n          <line x1=\"180\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"44\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q(t+1)</text>\n\n          <circle cx=\"184\" cy=\"110\" r=\"3.5\" fill=\"var(--bg-surface)\" stroke=\"#16a34a\" stroke-width=\"1.8\"/>\n          <line x1=\"188\" y1=\"110\" x2=\"230\" y2=\"110\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <text x=\"198\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">Q'</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】負緣觸發 JK 正反器結構圖</div>\n      "
   },
   {
     "id": "111-s2-033",
@@ -2628,15 +2620,18 @@
     "scope": "mock2",
     "category": "程式設計實習",
     "source": "【111 統測真題】",
-    "question": "執行下列 C 語言迴圈程式片段後，變數 `sum` 的最終數值為何？\n```c\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n if (i % 3 == 0) continue;\n sum += i;\n}\n```",
+    "question": "執行下列 C 語言程式碼後，螢幕印出的整數數值為何？\n```c\nint matrix[2][3] = {{10, 20, 30}, {40, 50, 60}};\nint *ptr = &matrix[0][0];\nprintf(\"%d\", *(ptr + 4));\n```",
     "options": [
-      "37",
-      "55",
-      "18",
-      "45"
+      "50",
+      "40",
+      "30",
+      "60"
     ],
     "answer": 0,
-    "explanation": "1. 1 到 10 的所有整數總和原本為：1 + 2 + dots + 10 = 55。<br>2. 迴圈中有 `if (i % 3 == 0) continue;`，表示只要是 3 的倍數就會被略過，不加入總和。<br>3. 在 1 到 10 之間 3 的倍數為：3, 6, 9，其總和為 3 + 6 + 9 = 18。<br>4. 因此最終 `sum = 55 - 18 = 37`。<br>故正確答案為 (A)。"
+    "explanation": "C 語言多維陣列在記憶體中以以列為主（Row-Major）的順序連續存放：<br>- `ptr + 0` 指向 `matrix[0][0]` = 10<br>- `ptr + 1` 指向 `matrix[0][1]` = 20<br>- `ptr + 2` 指向 `matrix[0][2]` = 30<br>- `ptr + 3` 指向 `matrix[1][0]` = 40<br>- `ptr + 4` 指向 `matrix[1][1]` = 50<br>- `ptr + 5` 指向 `matrix[1][2]` = 60<br>因此 `*(ptr + 4)` 取出的是 `matrix[1][1]` 之值 50。<br>故正確答案為 (A)。",
+    "diagramType": null,
+    "diagramParams": null,
+    "diagramSvg": null
   },
   {
     "id": "111-s2-038",
@@ -3053,23 +3048,18 @@
     "scope": "mock4",
     "category": "基本電學",
     "source": "【112 模擬考】",
-    "question": "如圖所示之惠斯登電橋電路，電阻 R₁ = 15 Ω, R₂ = 45 Ω, R₃ = 20 Ω。若欲使檢流計電流為零，未知臂電阻 R_x 應為何？",
-    "diagramType": "wheatstone",
-    "diagramParams": [
-      15,
-      45,
-      20,
-      60
-    ],
+    "question": "一階無源 RC 低通濾波器電路如圖所示，電阻 R = 1.59 kΩ，電容 C = 0.1 μF。當輸入弦波交流訊號時，該電路的半功率截止頻率 fc 約為多少？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "30 Ω",
-      "60 Ω",
-      "45 Ω",
-      "90 Ω"
+      "500 Hz",
+      "1000 Hz",
+      "1590 Hz",
+      "2000 Hz"
     ],
     "answer": 1,
-    "explanation": "交叉臂平衡相乘：<br>R₁ × R_x = R₂ × R₃<br>15 × R_x = 45 × 20 = 900<br>R_x = (900 / 15) = 60 Ω。<br>故正確答案為 (B)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=15Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=45Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=20Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=60Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
+    "explanation": "一階 RC 低通濾波電路的截止頻率（半功率點，增益降為 -3dB 即 1/√2 倍）公式為：<br>fc = 1 / (2 × π × R × C)<br>代入數值：<br>fc = 1 / [ 2 × 3.1416 × (1.59 × 10³ Ω) × (0.1 × 10⁻⁶ F) ]<br>fc ≈ 1 / [ 6.2832 × 1.59 × 10⁻⁴ ] = 1 / (10⁻³ s) = 1000 Hz = 1 kHz。<br>故正確答案為 (B)。",
+    "diagramSvg": "<svg viewBox=\"0 0 320 160\" width=\"300\" height=\"150\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"35\" cy=\"45\" r=\"3\" fill=\"#2563eb\"/><text x=\"35\" y=\"32\" font-size=\"11\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vin</text><line x1=\"35\" y1=\"45\" x2=\"80\" y2=\"45\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"80\" y=\"35\" width=\"70\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/><text x=\"115\" y=\"49\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R=1.59kΩ</text><line x1=\"150\" y1=\"45\" x2=\"210\" y2=\"45\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"210\" cy=\"45\" r=\"3.5\" fill=\"#2563eb\"/><line x1=\"210\" y1=\"45\" x2=\"210\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"195\" y1=\"70\" x2=\"225\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"3\"/><line x1=\"195\" y1=\"78\" x2=\"225\" y2=\"78\" stroke=\"#2563eb\" stroke-width=\"3\"/><text x=\"248\" y=\"78\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\">C=0.1μF</text><line x1=\"210\" y1=\"78\" x2=\"210\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"210\" y1=\"45\" x2=\"280\" y2=\"45\" stroke=\"#16a34a\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"45\" r=\"3.5\" fill=\"#16a34a\"/><text x=\"298\" y=\"49\" font-size=\"11\" font-weight=\"bold\" fill=\"#16a34a\">Vo (+)</text><line x1=\"35\" y1=\"120\" x2=\"280\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"35\" cy=\"120\" r=\"3\" fill=\"#2563eb\"/><circle cx=\"280\" cy=\"120\" r=\"3.5\" fill=\"#16a34a\"/><text x=\"298\" y=\"124\" font-size=\"11\" font-weight=\"bold\" fill=\"#16a34a\">Vo (-)</text></svg><div class=\"diagram-caption\">【電路圖】一階無源 RC 低通濾波電路</div>"
   },
   {
     "id": "112-s1-013",
@@ -3197,22 +3187,18 @@
     "scope": "mock4",
     "category": "電子學",
     "source": "【112 模擬考】",
-    "question": "如圖所示之理想 OPA 反相放大電路，R₁ = 15 kΩ, R_f = 45 kΩ。若輸入電壓 Vᵢ = +2 V，工作電源為 ± 15 V，請問輸出電壓 Vₒ 為多少？",
-    "diagramType": "opaInverting",
-    "diagramParams": [
-      15,
-      45,
-      2
-    ],
+    "question": "如圖所示之理想運算放大器反相加法電路，回授電阻 Rf = 60 kΩ，兩輸入端電阻分別為 R₁ = 20 kΩ 與 R₂ = 30 kΩ。若輸入電壓分別為 V₁ = +1.0 V 與 V₂ = +2.0 V，工作電源為 ±15 V，請問輸出電壓 Vo 為多少伏特？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "+6 V",
-      "-6 V",
-      "-2 V",
-      "+3 V"
+      "+7.0 V",
+      "-7.0 V",
+      "-5.0 V",
+      "+5.0 V"
     ],
     "answer": 1,
-    "explanation": "反相放大電壓增益：<br>A_v = -(R_f / R₁) = -(45 kΩ / 15 kΩ) = -3。<br>輸出電壓 Vₒ = A_v × Vᵢ = (-3) × 2 V = -6 V。<br>未超出 ± 15 V 範圍，故正確答案為 (B)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=2V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=15k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=45k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
+    "explanation": "理想反相加法放大電路輸出電壓公式：<br>Vo = - [ (Rf / R₁) × V₁ + (Rf / R₂) × V₂ ]<br>代入數值：<br>Vo = - [ (60 kΩ / 20 kΩ) × 1.0 V + (60 kΩ / 30 kΩ) × 2.0 V ]<br>Vo = - [ 3 × 1.0 + 2 × 2.0 ] = - [ 3.0 + 4.0 ] = -7.0 V。<br>未超過電源飽和極限 ±15 V，故正確答案為 (B)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 190\" width=\"320\" height=\"175\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"25\" cy=\"35\" r=\"3\" fill=\"#2563eb\"/><text x=\"25\" y=\"24\" font-size=\"10\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">V1=1.0V</text><line x1=\"25\" y1=\"35\" x2=\"60\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"60\" y=\"26\" width=\"45\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"82\" y=\"39\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=20k</text><line x1=\"105\" y1=\"35\" x2=\"140\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"25\" cy=\"75\" r=\"3\" fill=\"#2563eb\"/><text x=\"25\" y=\"64\" font-size=\"10\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">V2=2.0V</text><line x1=\"25\" y1=\"75\" x2=\"60\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"60\" y=\"66\" width=\"45\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"82\" y=\"79\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=30k</text><line x1=\"105\" y1=\"75\" x2=\"140\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"140\" y1=\"35\" x2=\"140\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"140\" cy=\"55\" r=\"3.5\" fill=\"#2563eb\"/><line x1=\"140\" y1=\"55\" x2=\"160\" y2=\"55\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"140\" y1=\"35\" x2=\"140\" y2=\"12\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"140\" y1=\"12\" x2=\"175\" y2=\"12\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"175\" y=\"3\" width=\"50\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"200\" y=\"16\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=60k</text><line x1=\"225\" y1=\"12\" x2=\"265\" y2=\"12\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"265\" y1=\"12\" x2=\"265\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><polygon points=\"160,40 160,110 230,75\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/><text x=\"170\" y=\"60\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text><text x=\"170\" y=\"98\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text><line x1=\"160\" y1=\"95\" x2=\"135\" y2=\"95\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"135\" y1=\"95\" x2=\"135\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"123\" y1=\"120\" x2=\"147\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"127\" y1=\"125\" x2=\"143\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.8\"/><line x1=\"230\" y1=\"75\" x2=\"305\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"265\" cy=\"75\" r=\"3\" fill=\"#2563eb\"/><circle cx=\"305\" cy=\"75\" r=\"3\" fill=\"#16a34a\"/><text x=\"305\" y=\"62\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo = ?</text></svg><div class=\"diagram-caption\">【電路圖】理想 OPA 反相加法放大電路</div>"
   },
   {
     "id": "112-s1-021",
@@ -3308,7 +3294,7 @@
     "source": "【112 統測真題】",
     "question": "將十進制小數 0.625 轉換為二進制表示法，其結果為何？",
     "options": [
-      "0.101",
+      "0.1001",
       "0.101",
       "0.11",
       "0.011"
@@ -3817,23 +3803,18 @@
     "scope": "mock2",
     "category": "基本電學",
     "source": "【113 統測真題】",
-    "question": "如圖所示之惠斯登電橋電路，電阻 R₁ = 30 Ω, R₂ = 60 Ω, R₃ = 20 Ω。當電路平衡且檢流計讀數為 0 時，R_x 之阻值應為多少？",
-    "diagramType": "wheatstone",
-    "diagramParams": [
-      30,
-      60,
-      20,
-      40
-    ],
+    "question": "如圖所示之直流電路，節點 A 連接三條支路：左支路接 24 V 電壓源串聯 6 Ω 電阻，中支路接 3 Ω 電阻接地，右支路接 2 A 理想電流源流入節點 A。利用「節點電壓法 (Node Voltage Method)」求節點 A 的電位 VA 為多少伏特？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "20 Ω",
-      "30 Ω",
-      "40 Ω",
-      "50 Ω"
+      "6 V",
+      "8 V",
+      "12 V",
+      "18 V"
     ],
     "answer": 2,
-    "explanation": "惠斯登電橋交叉相乘平衡定理：<br>R₁ × R_x = R₂ × R₃<br>30 × R_x = 60 × 20 = 1200<br>R_x = (1200 / 30) = 40 Ω。<br>故選 (C)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=30Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=60Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=20Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=40Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
+    "explanation": "依克希荷夫電流定律 (KCL) 對節點 A 列出節點電壓方程式（令流出節點之電流和等於 0）：<br>1. 左支路流出電流：(VA - 24) / 6<br>2. 中支路流出電流：VA / 3<br>3. 右支路電流為流入 2 A，流出即為 -2 A。<br>列式：(VA - 24) / 6 + VA / 3 - 2 = 0<br>等號兩側同乘以 6：<br>(VA - 24) + 2 × VA - 12 = 0<br>3 × VA - 36 = 0 => 3 × VA = 36 => VA = 12 V。<br>故節點 A 之電位為 12 V，正確答案為 (C)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"50\" cy=\"90\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"42\" y1=\"84\" x2=\"58\" y2=\"84\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"50\" y1=\"76\" x2=\"50\" y2=\"92\" stroke=\"#dc2626\" stroke-width=\"2\"/><line x1=\"44\" y1=\"102\" x2=\"56\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"2\"/><text x=\"50\" y=\"126\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">24V</text><line x1=\"50\" y1=\"72\" x2=\"50\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"35\" x2=\"100\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"100\" y=\"25\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/><text x=\"125\" y=\"39\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">6Ω</text><line x1=\"150\" y1=\"35\" x2=\"195\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"195\" cy=\"35\" r=\"4\" fill=\"#dc2626\"/><text x=\"195\" y=\"22\" font-size=\"12\" font-weight=\"bold\" fill=\"#dc2626\" text-anchor=\"middle\">節點 A (VA=?)</text><line x1=\"195\" y1=\"35\" x2=\"195\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"180\" y=\"65\" width=\"30\" height=\"40\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/><text x=\"195\" y=\"89\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">3Ω</text><line x1=\"195\" y1=\"105\" x2=\"195\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"195\" y1=\"35\" x2=\"280\" y2=\"35\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"280\" y1=\"35\" x2=\"280\" y2=\"72\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"280\" cy=\"90\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/><path d=\"M 280 100 L 280 80 M 276 86 L 280 79 L 284 86\" fill=\"none\" stroke=\"#16a34a\" stroke-width=\"2.2\"/><text x=\"280\" y=\"126\" font-size=\"11\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">2A (流入)</text><line x1=\"280\" y1=\"108\" x2=\"280\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"108\" x2=\"50\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"50\" y1=\"145\" x2=\"280\" y2=\"145\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"195\" cy=\"145\" r=\"3\" fill=\"#2563eb\"/><line x1=\"183\" y1=\"153\" x2=\"207\" y2=\"153\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"187\" y1=\"157\" x2=\"203\" y2=\"157\" stroke=\"currentColor\" stroke-width=\"1.8\"/></svg><div class=\"diagram-caption\">【電路圖】節點電壓分析法電路</div>"
   },
   {
     "id": "113-s1-007",
@@ -4051,22 +4032,18 @@
     "scope": "mock4",
     "category": "電子學",
     "source": "【113 模擬考】",
-    "question": "如圖所示之理想 OPA 反相放大電路，R₁ = 5 kΩ, R_f = 20 kΩ。若輸入電壓 Vᵢ = +1.5 V，工作電源為 ± 15 V，請問輸出電壓 Vₒ 為何？",
-    "diagramType": "opaInverting",
-    "diagramParams": [
-      5,
-      20,
-      1.5
-    ],
+    "question": "如圖所示之理想運算放大器差動放大電路，各電阻阻值分別為 R₁ = R₃ = 10 kΩ，R₂ = R₄ = 40 kΩ。若反相輸入端電壓 V₁ = +2.0 V，同相輸入端電壓 V₂ = +3.5 V，工作電源為 ±15 V，請問輸出端電壓 Vo 為多少伏特？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "+6.0 V",
-      "-4.0 V",
+      "+3.0 V",
       "-6.0 V",
-      "-7.5 V"
+      "+6.0 V",
+      "+14.0 V"
     ],
     "answer": 2,
-    "explanation": "反相放大電壓增益：<br>A_v = -(R_f / R₁) = -(20 kΩ / 5 kΩ) = -4。<br>輸出電壓 Vₒ = A_v × Vᵢ = (-4) × 1.5 V = -6.0 V。<br>故正確答案為 (C)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=1.5V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=5k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=20k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
+    "explanation": "標準對稱差動放大器（減法器）在電阻匹配 R₂/R₁ = R₄/R₃ = 40 kΩ / 10 kΩ = 4 的條件下：<br>輸出電壓公式為：<br>Vo = (R₂ / R₁) × (V₂ - V₁)<br>代入數值：<br>Vo = 4 × (3.5 V - 2.0 V) = 4 × 1.5 V = +6.0 V。<br>未超過電源飽和電壓 ±15 V，故正確答案為 (C)。",
+    "diagramSvg": "<svg viewBox=\"0 0 340 190\" width=\"320\" height=\"175\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"25\" cy=\"45\" r=\"3\" fill=\"#2563eb\"/><text x=\"25\" y=\"32\" font-size=\"10\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">V1=2.0V</text><line x1=\"25\" y1=\"45\" x2=\"60\" y2=\"45\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"60\" y=\"36\" width=\"45\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"82\" y=\"49\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10k</text><line x1=\"105\" y1=\"45\" x2=\"160\" y2=\"45\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"135\" cy=\"45\" r=\"3\" fill=\"#2563eb\"/><line x1=\"135\" y1=\"45\" x2=\"135\" y2=\"15\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"135\" y1=\"15\" x2=\"175\" y2=\"15\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"175\" y=\"6\" width=\"50\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"200\" y=\"19\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=40k</text><line x1=\"225\" y1=\"15\" x2=\"265\" y2=\"15\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"265\" y1=\"15\" x2=\"265\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><polygon points=\"160,35 160,115 230,75\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/><text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text><text x=\"170\" y=\"103\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text><circle cx=\"25\" cy=\"100\" r=\"3\" fill=\"#2563eb\"/><text x=\"25\" y=\"88\" font-size=\"10\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">V2=3.5V</text><line x1=\"25\" y1=\"100\" x2=\"60\" y2=\"100\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"60\" y=\"91\" width=\"45\" height=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"82\" y=\"104\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=10k</text><line x1=\"105\" y1=\"100\" x2=\"160\" y2=\"100\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"135\" cy=\"100\" r=\"3\" fill=\"#2563eb\"/><line x1=\"135\" y1=\"100\" x2=\"135\" y2=\"130\" stroke=\"#2563eb\" stroke-width=\"2\"/><rect x=\"115\" y=\"130\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/><text x=\"135\" y=\"144\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R4=40k</text><line x1=\"135\" y1=\"150\" x2=\"135\" y2=\"168\" stroke=\"#2563eb\" stroke-width=\"2\"/><line x1=\"123\" y1=\"168\" x2=\"147\" y2=\"168\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"230\" y1=\"75\" x2=\"305\" y2=\"75\" stroke=\"#2563eb\" stroke-width=\"2\"/><circle cx=\"265\" cy=\"75\" r=\"3\" fill=\"#2563eb\"/><circle cx=\"305\" cy=\"75\" r=\"3\" fill=\"#16a34a\"/><text x=\"305\" y=\"62\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo = ?</text></svg><div class=\"diagram-caption\">【電路圖】理想 OPA 差動放大（減法）電路</div>"
   },
   {
     "id": "113-s1-020",
@@ -4226,7 +4203,7 @@
     ],
     "answer": 2,
     "explanation": "電路分析：<br>1. 下方及閘（AND Gate）輸入為 B=1 與 C=1，及閘輸出為 1 · 1 = 1。<br>2. 上方反或閘（NOR Gate）之兩輸入端分別為：A=0 與及閘輸出 1。<br>3. NOR 運算：<span style=\"text-decoration: overline;\">0 + 1</span> = <span style=\"text-decoration: overline;\">1</span> = 0。<br>因此最終輸出端 F = 0，故選 (C)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 160\" width=\"310\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <text x=\"20\" y=\"35\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">A</text>\n          <line x1=\"35\" y1=\"30\" x2=\"180\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"20\" y=\"90\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">B</text>\n          <line x1=\"35\" y1=\"85\" x2=\"80\" y2=\"85\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"20\" y=\"125\" font-size=\"13\" font-weight=\"bold\" fill=\"currentColor\">C</text>\n          <line x1=\"35\" y1=\"120\" x2=\"80\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 80 70 L 105 70 A 25 25 0 0 1 105 135 L 80 135 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"96\" y=\"107\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">AND</text>\n          <line x1=\"130\" y1=\"102\" x2=\"160\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"102\" x2=\"160\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"60\" x2=\"180\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 180 20 Q 195 45 180 70 Q 215 70 235 45 Q 215 20 180 20 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"239\" cy=\"45\" r=\"4\" fill=\"var(--bg-surface)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"49\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\">NOR</text>\n\n          <line x1=\"243\" y1=\"45\" x2=\"300\" y2=\"45\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <circle cx=\"300\" cy=\"45\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"312\" y=\"49\" font-size=\"13\" font-weight=\"bold\" fill=\"#16a34a\">F</text>\n        </svg>\n        <div class=\"diagram-caption\">【邏輯電路】組合邏輯電路圖</div>\n      "
+    "diagramSvg": "\n        <svg viewBox=\"0 0 340 160\" width=\"310\" height=\"145\" xmlns=\"http://www.w3.org/2000/svg\">\n          <text x=\"16\" y=\"35\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">A=0</text>\n          <line x1=\"42\" y1=\"30\" x2=\"180\" y2=\"30\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"16\" y=\"90\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">B=1</text>\n          <line x1=\"42\" y1=\"85\" x2=\"80\" y2=\"85\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <text x=\"16\" y=\"125\" font-size=\"12\" font-weight=\"bold\" fill=\"currentColor\">C=1</text>\n          <line x1=\"42\" y1=\"120\" x2=\"80\" y2=\"120\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 80 70 L 105 70 A 25 25 0 0 1 105 135 L 80 135 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"96\" y=\"107\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">AND</text>\n          <line x1=\"130\" y1=\"102\" x2=\"160\" y2=\"102\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"102\" x2=\"160\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"60\" x2=\"180\" y2=\"60\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <path d=\"M 180 20 Q 195 45 180 70 Q 215 70 235 45 Q 215 20 180 20 Z\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"239\" cy=\"45\" r=\"4\" fill=\"var(--bg-surface)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <text x=\"195\" y=\"49\" font-size=\"9\" font-weight=\"bold\" fill=\"currentColor\">NOR</text>\n\n          <line x1=\"243\" y1=\"45\" x2=\"300\" y2=\"45\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <circle cx=\"300\" cy=\"45\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"312\" y=\"49\" font-size=\"13\" font-weight=\"bold\" fill=\"#16a34a\">F = ?</text>\n        </svg>\n        <div class=\"diagram-caption\">【邏輯電路】組合邏輯電路圖</div>\n      "
   },
   {
     "id": "113-s2-029",
@@ -4643,23 +4620,18 @@
     "scope": "mock1",
     "category": "基本電學",
     "source": "【114 全國模考】",
-    "question": "有一電橋電路如圖所示，R₁ = 20 Ω, R₂ = 40 Ω, R₃ = 50 Ω。若檢流計指示為零，則未知電阻 R_x 之阻值應為多少？",
-    "diagramType": "wheatstone",
-    "diagramParams": [
-      20,
-      40,
-      50,
-      100
-    ],
+    "question": "一純電感器 L = 50 mH 接於交流電壓源 v(t) = 100 sin(1000 t + 30°) V，請問流經該電感器的交流穩態電流 i(t) 表示式為何？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "25 Ω",
-      "50 Ω",
-      "80 Ω",
-      "100 Ω"
+      "i(t) = 2 sin(1000 t + 120°) A",
+      "i(t) = 2 sin(1000 t + 30°) A",
+      "i(t) = 2 sin(1000 t - 60°) A",
+      "i(t) = 4 sin(1000 t - 60°) A"
     ],
-    "answer": 3,
-    "explanation": "惠斯登電橋交叉乘積相等：<br>R₁ × R_x = R₂ × R₃<br>20 × R_x = 40 × 50 = 2000<br>R_x = (2000 / 20) = 100 Ω。<br>故選 (D)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=20Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=40Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=50Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=100Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
+    "answer": 2,
+    "explanation": "1. 計算感抗 XL：<br>角頻率 ω = 1000 rad/s。<br>XL = ω × L = 1000 × (50 × 10⁻³ H) = 50 Ω。<br>2. 計算電流最大值 Im：<br>Im = Vm / XL = 100 V / 50 Ω = 2 A。<br>3. 相位關係：純電感器之電流滯後電壓 90°（-90°）：<br>θi = θv - 90° = 30° - 90° = -60°。<br>因此交流穩態電流為 i(t) = 2 sin(1000 t - 60°) A。<br>故選 (C)。",
+    "diagramSvg": null
   },
   {
     "id": "114-s1-004",
@@ -4827,15 +4799,18 @@
     "scope": "mock4",
     "category": "基本電學",
     "source": "【114 全國模考】",
-    "question": "使用兩瓦特計法（Two-Wattmeter Method）測量三相平衡負載功率，兩瓦特計讀數分別為 W₁ = 4000 W 與 W₂ = 2000 W。請問該三相負載消耗的總實功率 P3φ 為多少？",
+    "question": "三個相同阻值之純電阻 R 接於平衡三相交流對稱電源端。若將此三相負載由原本的「Y 形連接」改接為「Δ 形連接」，而電源線電壓 VL 維持不變，則負載所消耗之三相總實功率將變為原來的多少倍？",
     "options": [
-      "2000 W",
-      "3000 W",
-      "4000 W",
-      "6000 W"
+      "1/3 倍",
+      "1 倍（維持不變）",
+      "√(3) 倍",
+      "3 倍"
     ],
     "answer": 3,
-    "explanation": "兩瓦特計法基本原理：<br>不論負載為 Y 接或 Δ 接、不論平衡或不平衡，三相總平均實功率均恆等於兩瓦特計讀數之代數和：<br>P3φ = W₁ + W₂ = 4000 + 2000 = 6000 W。<br>故正確答案為 (D)。"
+    "explanation": "1. Y 形連接時：<br>每相相電壓 Vp_Y = VL / √(3)。<br>每相實功率 P1φ_Y = (Vp_Y)² / R = (VL² / 3R)。<br>三相總實功率 P(Y) = 3 × P1φ_Y = VL² / R。<br>2. Δ 形連接時：<br>每相相電壓 Vp_Δ = VL。<br>每相實功率 P1φ_Δ = (VL)² / R。<br>三相總實功率 P(Δ) = 3 × (VL² / R)。<br>3. 兩者比值：<br>P(Δ) / P(Y) = [ 3 × (VL² / R) ] / [ VL² / R ] = 3 倍。<br>故正確答案為 (D)。",
+    "diagramType": null,
+    "diagramParams": null,
+    "diagramSvg": null
   },
   {
     "id": "114-s1-014",
@@ -4946,22 +4921,18 @@
     "scope": "mock4",
     "category": "電子學",
     "source": "【114 統測精準預試】",
-    "question": "如圖所示之理想 OPA 反相放大電路，R₁ = 10 kΩ, R_f = 100 kΩ。若輸入電壓 Vᵢ = +0.8 V，工作電源為 ± 15 V，請問輸出電壓 Vₒ 為何？",
-    "diagramType": "opaInverting",
-    "diagramParams": [
-      10,
-      100,
-      0.8
-    ],
+    "question": "一反相史密特觸發器 (Schmitt Trigger) 電路中，OPA 之正負飽和輸出電壓為 ±12 V。若正回授電阻 R₂ = 50 kΩ，同相輸入端接地電阻 R₁ = 10 kΩ。請問該電路的上臨界電壓 V(UT) 與下臨界電壓 V(LT) 之磁滯電壓寬度 VH 為多少伏特？",
+    "diagramType": null,
+    "diagramParams": null,
     "options": [
-      "+8.0 V",
-      "-0.8 V",
-      "+10.0 V",
-      "-8.0 V"
+      "2.0 V",
+      "4.0 V",
+      "6.0 V",
+      "12.0 V"
     ],
-    "answer": 3,
-    "explanation": "反相放大電壓增益：<br>A_v = -(R_f / R₁) = -(100 kΩ / 10 kΩ) = -10。<br>輸出電壓 Vₒ = A_v × Vᵢ = (-10) × 0.8 V = -8.0 V。<br>未超出 ± 15 V 飽和電壓，故選 (D)。",
-    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=0.8V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=10k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=100k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
+    "answer": 1,
+    "explanation": "反相史密特觸發器利用輸出端經分壓電阻正回授至同相端：<br>1. 上臨界電壓（Upper Trigger Level）：<br>V(UT) = +Vsat × [ R₁ / (R₁ + R₂) ] = +12 V × [ 10 kΩ / (10 + 50) kΩ ] = +12 × (1/6) = +2.0 V。<br>2. 下臨界電壓（Lower Trigger Level）：<br>V(LT) = -Vsat × [ R₁ / (R₁ + R₂) ] = -12 V × (1/6) = -2.0 V。<br>3. 磁滯電壓寬度（Hysteresis Voltage, VH）：<br>VH = V(UT) - V(LT) = (+2.0 V) - (-2.0 V) = 4.0 V。<br>故正確答案為 (B)。",
+    "diagramSvg": null
   },
   {
     "id": "114-s1-021",
@@ -5395,15 +5366,18 @@
     "scope": "mock3",
     "category": "微處理機",
     "source": "【114 統測精準預試】",
-    "question": "執行下列 8051 組合語言乘法指令後，累加器 A 與暫存器 B 的內容分別為何？\n```asm\nMOV A, #50H\nMOV B, #04H\nMUL AB\n```",
+    "question": "執行下列 8051 組合語言除法指令後，累加器 A 與暫存器 B 的內容分別為何？\n```asm\nMOV A, #65H\nMOV B, #08H\nDIV AB\n```",
     "options": [
-      "A = 00H, B = 00H",
-      "A = 40H, B = 01H",
-      "A = 20H, B = 00H",
-      "A = 40H, B = 01H (乘積為 0140H)"
+      "A = 0CH, B = 05H",
+      "A = 05H, B = 0CH",
+      "A = 08H, B = 01H",
+      "A = 0CH, B = 00H"
     ],
-    "answer": 3,
-    "explanation": "8051 無符號整數乘法指令 `MUL AB`：<br>1. 計算 50H × 4H：<br> 50(16) = 80(10)；80 × 4 = 320(10) = 0140(16)。<br>2. 規則：**乘積之低 8 位存入累加器 A**，**高 8 位存入暫存器 B**。<br>因此 A = 40H, B = 01H。<br>故正確答案為 (D)。"
+    "answer": 0,
+    "explanation": "8051 無符號整數除法指令 `DIV AB` 執行規則：<br>1. 被除數存於累加器 A，除數存於暫存器 B。<br>65H 轉換為十進制為：6 × 16 + 5 = 101。<br>08H 轉換為十進制為：8。<br>2. 進行整數除法運算：<br>101 ÷ 8 = 12 餘 5。<br>3. 轉換為十六進制並存回暫存器：<br>- **商數存入累加器 A**：12(10) = 0CH。<br>- **餘數存入暫存器 B**：5(10) = 05H。<br>因此 A = 0CH, B = 05H，故正確答案為 (A)。",
+    "diagramType": null,
+    "diagramParams": null,
+    "diagramSvg": null
   },
   {
     "id": "114-s2-047",
@@ -5474,6 +5448,7 @@
     "explanation": "電位轉換晶片：<br>MAX232 內部具備電荷泵（Charge Pump）升壓電路，只需單一 +5V 直流供電，即可在內部產生 ± 10 V 的 RS-232 雙極性雙向準位轉換，是微控制器連接 PC COM 埠或 RS-232 串列通訊標準的必備驅動 IC。故選 (D)。"
   }
 ];
+
   // =========================================================================
   // 動態綁定 SVG 示意圖
   // =========================================================================
