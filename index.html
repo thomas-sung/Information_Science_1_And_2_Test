@@ -30,6 +30,9 @@
           <span class="user-avatar">👤</span>
           <span id="user-display-name">訪客 (點擊登入)</span>
         </div>
+        <button id="browse-all-btn" class="btn-pill" title="直接瀏覽所有題目與詳細解答">
+          📚 題庫詳解總覽
+        </button>
         <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
           📊 歷次成績
         </button>
@@ -152,8 +155,11 @@
           <button id="btn-start-exam" class="btn-start-exam" style="flex: 2; min-width: 220px;">
             🚀 開始測驗
           </button>
-          <button id="btn-wrong-review" class="btn-pill" style="flex: 1; min-width: 180px; justify-content: center; font-size: 1rem; border-color: var(--danger-border); color: var(--danger); background: var(--danger-bg);">
+          <button id="btn-wrong-review" class="btn-pill" style="flex: 1; min-width: 170px; justify-content: center; font-size: 1rem; border-color: var(--danger-border); color: var(--danger); background: var(--danger-bg);">
             🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
+          </button>
+          <button id="btn-home-browse" class="btn-pill" style="flex: 1; min-width: 170px; justify-content: center; font-size: 1rem; color: var(--primary); border-color: var(--primary-border); background: var(--primary-light);">
+            📖 瀏覽全科題庫與解析
           </button>
         </div>
       </div>
@@ -322,6 +328,76 @@
         <div id="review-list">
           <!-- 由 JS 渲染每一題題目、選項標記與完整解析 -->
         </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 4: 題庫與詳細解析總覽 (view-browse)
+         ======================================================================= -->
+    <section id="view-browse" class="view-panel">
+      <div class="browse-header-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span class="hero-tag">📖 免測驗 · 隨選隨看 · 考前衝刺</span>
+            <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 0.35rem;">全題庫與詳細解析總覽</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.25rem;">
+              收錄 108 課綱統測與歷屆模擬考題目，完整展示每題推導步驟、核心考點與電路示意圖。
+            </p>
+          </div>
+          <button id="btn-browse-back-home" class="btn-pill primary">
+            🏠 回測驗模式
+          </button>
+        </div>
+
+        <!-- 篩選與搜尋工具列 -->
+        <div class="browse-toolbar">
+          <div class="browse-filter-group">
+            <label for="browse-subject-filter">考科：</label>
+            <select id="browse-subject-filter" class="select-custom" style="width: auto; min-width: 150px;">
+              <option value="all" selected>全部科目</option>
+              <option value="subject1">專業科目(一)</option>
+              <option value="subject2">專業科目(二)</option>
+            </select>
+          </div>
+
+          <div class="browse-filter-group">
+            <label for="browse-category-filter">單元：</label>
+            <select id="browse-category-filter" class="select-custom" style="width: auto; min-width: 140px;">
+              <option value="all" selected>全部單元</option>
+              <option value="基本電學">基本電學</option>
+              <option value="電子學">電子學</option>
+              <option value="微處理機">微處理機</option>
+              <option value="數位邏輯設計">數位邏輯設計</option>
+              <option value="程式設計實習">程式設計實習</option>
+            </select>
+          </div>
+
+          <div class="browse-filter-group">
+            <label for="browse-scope-filter">範圍：</label>
+            <select id="browse-scope-filter" class="select-custom" style="width: auto; min-width: 150px;">
+              <option value="all" selected>全部模考與真題</option>
+              <option value="mock1">第 1 次模考</option>
+              <option value="mock2">第 2 次模考</option>
+              <option value="mock3">第 3 次模考</option>
+              <option value="mock4">第 4 次模考</option>
+              <option value="past_exam">歷屆統測真題</option>
+            </select>
+          </div>
+
+          <div class="browse-search-group" style="flex: 1; min-width: 220px;">
+            <input type="text" id="browse-search-input" class="input-custom" placeholder="🔍 搜尋題目或關鍵字 (例如：戴維寧、OPA、指標、卡諾圖)...">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.88rem; color: var(--text-muted); flex-wrap: wrap; gap: 0.5rem;">
+          <span>共找到 <strong id="browse-total-count" style="color: var(--primary); font-size: 1.05rem;">0</strong> 題題目與詳解</span>
+          <span>💡 隨機題可點擊題目右上角「🎲 換組好算數字」即刻查看不同數字推導過程！</span>
+        </div>
+      </div>
+
+      <!-- 題庫清單容器 -->
+      <div id="browse-questions-container" class="browse-list">
+        <!-- 由 JS 動態注入所有題目、選項、電路圖與詳細解答 -->
       </div>
     </section>
 

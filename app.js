@@ -111,6 +111,18 @@
     btnRetakeExam: document.getElementById('btn-retake-exam'),
     btnBackHome: document.getElementById('btn-back-home'),
     
+    // 瀏覽全題庫
+    browseAllBtn: document.getElementById('browse-all-btn'),
+    btnHomeBrowse: document.getElementById('btn-home-browse'),
+    viewBrowse: document.getElementById('view-browse'),
+    btnBrowseBackHome: document.getElementById('btn-browse-back-home'),
+    browseSubjectFilter: document.getElementById('browse-subject-filter'),
+    browseCategoryFilter: document.getElementById('browse-category-filter'),
+    browseScopeFilter: document.getElementById('browse-scope-filter'),
+    browseSearchInput: document.getElementById('browse-search-input'),
+    browseTotalCount: document.getElementById('browse-total-count'),
+    browseQuestionsContainer: document.getElementById('browse-questions-container'),
+    
     // 歷史彈窗
     historyTableBody: document.getElementById('history-table-body'),
     historyEmptyState: document.getElementById('history-empty-state'),
@@ -252,6 +264,7 @@
     elements.viewSetup.classList.remove('active');
     elements.viewExam.classList.remove('active');
     elements.viewResult.classList.remove('active');
+    if (elements.viewBrowse) elements.viewBrowse.classList.remove('active');
 
     if (viewName === 'setup') {
       elements.viewSetup.classList.add('active');
@@ -260,6 +273,11 @@
       elements.viewExam.classList.add('active');
     } else if (viewName === 'result') {
       elements.viewResult.classList.add('active');
+    } else if (viewName === 'browse') {
+      if (elements.viewBrowse) {
+        elements.viewBrowse.classList.add('active');
+        renderBrowseQuestions();
+      }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -400,6 +418,37 @@
 
     // 匯入資料
     elements.importFileInput.addEventListener('change', importDataFromJson);
+
+    // 瀏覽全題庫與詳解導航按鈕
+    if (elements.browseAllBtn) {
+      elements.browseAllBtn.addEventListener('click', () => {
+        switchView('browse');
+      });
+    }
+    if (elements.btnHomeBrowse) {
+      elements.btnHomeBrowse.addEventListener('click', () => {
+        switchView('browse');
+      });
+    }
+    if (elements.btnBrowseBackHome) {
+      elements.btnBrowseBackHome.addEventListener('click', () => {
+        switchView('setup');
+      });
+    }
+
+    // 瀏覽篩選器與搜尋
+    if (elements.browseSubjectFilter) {
+      elements.browseSubjectFilter.addEventListener('change', renderBrowseQuestions);
+    }
+    if (elements.browseCategoryFilter) {
+      elements.browseCategoryFilter.addEventListener('change', renderBrowseQuestions);
+    }
+    if (elements.browseScopeFilter) {
+      elements.browseScopeFilter.addEventListener('change', renderBrowseQuestions);
+    }
+    if (elements.browseSearchInput) {
+      elements.browseSearchInput.addEventListener('input', renderBrowseQuestions);
+    }
   }
 
   // ==========================================
@@ -899,6 +948,206 @@
     if (elements.reviewList.children.length === 0) {
       elements.reviewList.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--text-muted);">此篩選條件下沒有題目。</div>`;
     }
+  }
+
+  // ==========================================
+  // 全題庫與詳細解析瀏覽模式 (Browse All Mode)
+  // ==========================================
+  const browseInstancesCache = new Map();
+
+  function getBrowseInstance(rawQ) {
+    if (rawQ.isDynamic && typeof rawQ.generate === 'function') {
+      if (!browseInstancesCache.has(rawQ.id)) {
+        browseInstancesCache.set(rawQ.id, rawQ.generate());
+      }
+      return browseInstancesCache.get(rawQ.id);
+    }
+    return {
+      question: (rawQ.source ? `${rawQ.source} ` : '') + rawQ.question,
+      options: rawQ.options,
+      answer: rawQ.answer,
+      explanation: rawQ.explanation,
+      diagramSvg: rawQ.diagramSvg || null,
+      diagramHtml: rawQ.diagramHtml || null
+    };
+  }
+
+  function rerollBrowseQuestion(qId) {
+    const rawBank = window.RAW_QUESTION_BANK || [];
+    const rawQ = rawBank.find(q => q.id === qId);
+    if (rawQ && rawQ.isDynamic && typeof rawQ.generate === 'function') {
+      browseInstancesCache.set(rawQ.id, rawQ.generate());
+      renderBrowseQuestions();
+    }
+  }
+
+  function getScopeLabelText(scopeKey) {
+    const map = {
+      mock1: '第1次模考',
+      mock2: '第2次模考',
+      mock3: '第3次模考',
+      mock4: '第4次模考',
+      past_exam: '歷屆統測真題'
+    };
+    return map[scopeKey] || '統測範圍';
+  }
+
+  function renderBrowseQuestions() {
+    if (!elements.browseQuestionsContainer) return;
+
+    const rawBank = window.RAW_QUESTION_BANK || [];
+    const filterSubject = elements.browseSubjectFilter ? elements.browseSubjectFilter.value : 'all';
+    const filterCategory = elements.browseCategoryFilter ? elements.browseCategoryFilter.value : 'all';
+    const filterScope = elements.browseScopeFilter ? elements.browseScopeFilter.value : 'all';
+    const searchQuery = elements.browseSearchInput ? elements.browseSearchInput.value.trim().toLowerCase() : '';
+
+    const letters = ['A', 'B', 'C', 'D'];
+
+    // 篩選題目
+    const matched = rawBank.filter(rawQ => {
+      // 科目過濾
+      if (filterSubject !== 'all' && rawQ.subject !== filterSubject) {
+        return false;
+      }
+      // 單元過濾
+      if (filterCategory !== 'all' && rawQ.category !== filterCategory) {
+        return false;
+      }
+      // 範圍過濾
+      if (filterScope !== 'all') {
+        if (filterScope === 'past_exam') {
+          if (rawQ.scope !== 'past_exam') return false;
+        } else {
+          if (rawQ.scope !== filterScope) return false;
+        }
+      }
+
+      // 關鍵字搜尋
+      if (searchQuery) {
+        const inst = getBrowseInstance(rawQ);
+        const searchPool = [
+          rawQ.id,
+          rawQ.category,
+          rawQ.source || '',
+          inst.question,
+          inst.explanation,
+          ...(inst.options || [])
+        ].join(' ').toLowerCase();
+
+        if (!searchPool.includes(searchQuery)) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+    if (elements.browseTotalCount) {
+      elements.browseTotalCount.textContent = matched.length;
+    }
+
+    elements.browseQuestionsContainer.innerHTML = '';
+
+    if (matched.length === 0) {
+      elements.browseQuestionsContainer.innerHTML = `
+        <div style="text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-color); color: var(--text-muted);">
+          <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔍</div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-primary);">查無符合條件的題目與詳解</h4>
+          <p>請嘗試放寬科目、單元或範圍篩選，或嘗試不同的關鍵字（例如：「OPA」、「戴維寧」、「指標」等）。</p>
+        </div>
+      `;
+      return;
+    }
+
+    // 依序渲染題目卡片
+    matched.forEach((rawQ, index) => {
+      const inst = getBrowseInstance(rawQ);
+      const card = document.createElement('div');
+      card.className = 'browse-item-card';
+
+      const subjectBadgeText = rawQ.subject === 'subject1' ? '專一' : '專二';
+      const scopeBadgeText = getScopeLabelText(rawQ.scope);
+      const sourceBadgeHtml = rawQ.source ? `<span style="font-size: 0.75rem; background: var(--bg-elevated); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid var(--border-color);">${escapeHtml(rawQ.source)}</span>` : '';
+
+      // 題幹文字與電路/邏輯圖
+      let questionHtml = formatContentWithCode(inst.question);
+      if (inst.diagramSvg || inst.diagramHtml) {
+        questionHtml += `<div class="question-diagram-wrapper">${inst.diagramSvg || inst.diagramHtml}</div>`;
+      }
+
+      // 選項列表 (清晰標註正確答案)
+      let optionsHtml = '<div class="review-options" style="margin-top: 1.25rem;">';
+      inst.options.forEach((optText, optIdx) => {
+        const isCorrect = optIdx === inst.answer;
+        const optClass = isCorrect ? 'review-opt is-correct-answer' : 'review-opt';
+        const badge = isCorrect ? ' <strong style="color: var(--success); font-weight: 700;">(✓ 正確答案)</strong>' : '';
+
+        optionsHtml += `
+          <div class="${optClass}">
+            <strong style="margin-right: 0.35rem;">${letters[optIdx]}.</strong>
+            <span>${escapeHtml(optText)}${badge}</span>
+          </div>
+        `;
+      });
+      optionsHtml += '</div>';
+
+      // 隨機題換數字按鈕
+      let rerollBtnHtml = '';
+      if (rawQ.isDynamic) {
+        rerollBtnHtml = `
+          <button class="btn-clean-number-reroll" data-qid="${rawQ.id}" title="點擊切換一組漂亮好算的數值與對應推導步驟">
+            🎲 換組好算數字
+          </button>
+        `;
+      }
+
+      // 詳細解析區塊
+      const explanationHtml = `
+        <div class="explanation-box" style="margin-top: 1.25rem;">
+          <div class="explanation-title" style="color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.6rem;">
+            <span>💡</span>
+            <span>【題目詳解與破題關鍵】：</span>
+          </div>
+          <div class="explanation-body" style="color: var(--text-primary); line-height: 1.7;">
+            ${formatContentWithCode(inst.explanation)}
+          </div>
+        </div>
+      `;
+
+      card.innerHTML = `
+        <div class="review-header" style="flex-wrap: wrap; gap: 0.6rem; align-items: flex-start;">
+          <div class="question-meta" style="flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+            <span class="q-num">#${index + 1}</span>
+            <span class="exam-badge" style="font-size: 0.78rem;">${subjectBadgeText}</span>
+            <span class="q-cat">${escapeHtml(rawQ.category)}</span>
+            <span class="status-tag" style="background: var(--primary-light); color: var(--primary); font-size: 0.75rem;">${scopeBadgeText}</span>
+            ${sourceBadgeHtml}
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            ${rerollBtnHtml}
+          </div>
+        </div>
+
+        <div class="review-question" style="font-size: 1.02rem; line-height: 1.6; margin-top: 0.75rem;">
+          ${questionHtml}
+        </div>
+
+        ${optionsHtml}
+        ${explanationHtml}
+      `;
+
+      // 綁定動態換數字事件
+      if (rawQ.isDynamic) {
+        const rerollBtn = card.querySelector('.btn-clean-number-reroll');
+        if (rerollBtn) {
+          rerollBtn.addEventListener('click', () => {
+            rerollBrowseQuestion(rawQ.id);
+          });
+        }
+      }
+
+      elements.browseQuestionsContainer.appendChild(card);
+    });
   }
 
   // ==========================================
