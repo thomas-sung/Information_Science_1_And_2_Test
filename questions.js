@@ -5481,6 +5481,10 @@
         if (filterScope === 'past_exam') {
           return q.scope === 'past_exam' || (q.source && q.source.includes('統測'));
         }
+        if (filterScope.endsWith('_only')) {
+          const baseScope = filterScope.replace('_only', '');
+          return q.scope === baseScope;
+        }
         const scopeOrder = { mock1: 1, mock2: 2, mock3: 3, mock4: 4, past_exam: 5 };
         const targetLevel = scopeOrder[filterScope] || 4;
         const qLevel = scopeOrder[q.scope] || 1;

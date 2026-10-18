@@ -65,6 +65,7 @@
     // 設定區
     subjectCards: document.querySelectorAll('.subject-card'),
     scopeSelect: document.getElementById('scope-select'),
+    scopeDescBox: document.getElementById('scope-desc-box'),
     modeSelect: document.getElementById('mode-select'),
     countSelect: document.getElementById('count-select'),
     timeSelect: document.getElementById('time-select'),
@@ -404,6 +405,9 @@
     }
 
     // 清除歷史
+    if (elements.scopeSelect) {
+      elements.scopeSelect.addEventListener('change', updateScopeDescription);
+    }
     elements.btnClearHistory.addEventListener('click', () => {
       if (confirm('確定要清除所有歷史成績與錯題紀錄嗎？此動作無法復原。')) {
         state.examHistory = [];
@@ -458,7 +462,27 @@
   // ==========================================
   // 考試啟動與準備 (Start Exam)
   // ==========================================
-  function startExam(modeOverride) {
+    function updateScopeDescription() {
+    if (!elements.scopeDescBox || !elements.scopeSelect) return;
+    const val = elements.scopeSelect.value;
+    const descMap = {
+      all: '💡 <strong>統測全範圍總複習：</strong>收錄 109~114 年六大年度所有專業科目單元，共 300 題（專一 150 題 + 專二 150 題），完整涵蓋電路圖、程式碼與詳細解析！',
+      year_114: '💡 <strong>114 年度試卷：</strong>包含最新年度 50 題全卷模擬與衝刺試題（專一 25 題 + 專二 25 題）。',
+      year_113: '💡 <strong>113 年度試卷：</strong>包含 113 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
+      year_112: '💡 <strong>112 年度試卷：</strong>包含 112 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
+      year_111: '💡 <strong>111 年度試卷：</strong>包含 111 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
+      year_110: '💡 <strong>110 年度試卷：</strong>包含 110 年度統測真題與模擬考全卷 50 題（專一 25 題 + 專二 25 題）。',
+      year_109: '💡 <strong>109 年度試卷：</strong>包含 109 年度統測真題與精選全卷 50 題（專一 25 題 + 專二 25 題）。',
+      mock1: '💡 <strong>第一次模考進度：</strong>涵蓋基電 1~4章、電子 1~4章、微處 1~3章、數邏 1~4章、程式 1~4章，共 95 題（專一 41 題 + 專二 54 題）。',
+      mock2: '💡 <strong>第二次模考進度（累計涵蓋第 1 次＋第 2 次）：</strong>涵蓋基電 1~7章、電子 1~7章、微處 1~6章、數邏 1~6章、程式 1~7章，題庫共 173 題（含第 1 次 95 題 ＋ 第 2 次新增 78 題，練習與考試均會包含第 1 次題目）。',
+      mock3: '💡 <strong>第三次模考進度（累計涵蓋第 1~3 次）：</strong>涵蓋基電 1~10章、電子 1~10章、微處 1~7章、數邏 1~7章、程式 1~8章，題庫共 249 題。',
+      mock4: '💡 <strong>第四、五次模考 / 統測總複習：</strong>各考科全部單元完整範圍，題庫共 300 題。',
+      past_exam: '💡 <strong>歷屆統測真題精選：</strong>歷年統測經典命題與代表性考題精華。'
+    };
+    elements.scopeDescBox.innerHTML = descMap[val] || descMap.all;
+  }
+
+function startExam(modeOverride) {
     if (!window.QUESTION_BANK || window.QUESTION_BANK.length === 0) {
       alert('題庫尚未載入完成，請確認 questions.js 是否存在！');
       return;
@@ -1029,8 +1053,14 @@
       if (filterScope !== 'all') {
         if (filterScope === 'past_exam') {
           if (rawQ.scope !== 'past_exam' && (!rawQ.source || !rawQ.source.includes('統測'))) return false;
+        } else if (filterScope.endsWith('_only')) {
+          const baseScope = filterScope.replace('_only', '');
+          if (rawQ.scope !== baseScope) return false;
         } else {
-          if (rawQ.scope !== filterScope) return false;
+          const scopeOrder = { mock1: 1, mock2: 2, mock3: 3, mock4: 4, past_exam: 5 };
+          const targetLevel = scopeOrder[filterScope] || 4;
+          const qLevel = scopeOrder[rawQ.scope] || 1;
+          if (qLevel > targetLevel) return false;
         }
       }
 
