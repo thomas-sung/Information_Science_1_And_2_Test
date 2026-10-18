@@ -1,7 +1,7 @@
 /**
  * 高職資訊科 (電機與電子群資電類) 統測與模擬考全方位題庫
- * 108課綱標準 · 歷屆統測 (110~114年度) 及各次模擬考全收錄
- * 總題數：250 題 (每年各收錄 50 題：專一 25 題 + 專二 25 題，全文字符號乾淨排版無斜線)
+ * 108課綱標準 · 歷屆統測 (109~114年度) 及各次模擬考全收錄
+ * 總題數：300 題 (6 個年度各收錄 50 題：專一 25 題 + 專二 25 題，全文字符號乾淨排版無斜線)
  */
 
 (function (root) {
@@ -226,6 +226,879 @@
   // 題庫資料陣列 (250 題)
   const RAW_QUESTIONS = [
   {
+    "id": "109-s1-001",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "有一電熱器接於 100 V 直流電源時，消耗電功率為 1000 W。若將此電熱器的電阻線剪去 20% 的長度，再重新接回相同的 100 V 直流電源，則此時該電熱器消耗的電功率變為多少瓦特 (W)？",
+    "options": [
+      "800 W",
+      "1000 W",
+      "1250 W",
+      "1500 W"
+    ],
+    "answer": 2,
+    "explanation": "1. 原電熱器電阻：R = V² / P = 100² / 1000 = 10 Ω。<br>2. 導線長度與電阻成正比，剪去 20% 長度後：新電阻 R' = 10 × (1 - 0.2) = 8 Ω。<br>3. 接回原 100 V 電源，新消耗功率：P' = V² / R' = 100² / 8 = 10000 / 8 = 1250 W。<br>故正確答案為 (C)。"
+  },
+  {
+    "id": "109-s1-002",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "question": "將 6 Ω、12 Ω 與 4 Ω 三個電阻相互並聯，並連接至 24 V 之理想直流電壓源兩端。請問該電路供應之總電流 I 及 12 Ω 電阻上所消耗之功率 P12 分別為何？",
+    "options": [
+      "I = 12 A, P12 = 48 W",
+      "I = 8 A, P12 = 24 W",
+      "I = 10 A, P12 = 36 W",
+      "I = 12 A, P12 = 96 W"
+    ],
+    "answer": 0,
+    "explanation": "1. 並聯總等效電阻：1 / Rtotal = (1 / 6) + (1 / 12) + (1 / 4) = (2 + 1 + 3) / 12 = 6 / 12 = 1 / 2 ⇒ Rtotal = 2 Ω。<br>2. 總電流：I = E / Rtotal = 24 V / 2 Ω = 12 A。<br>3. 並聯電壓均為 24 V，12 Ω 電阻消耗功率：P12 = V² / R = 24² / 12 = 576 / 12 = 48 W。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s1-003",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "diagramType": "thevenin",
+    "diagramParams": [
+      24,
+      8
+    ],
+    "question": "如圖所示之直流電路，自負載端點 a-b 向左看入，請問其戴維寧等效電壓 Eth 及戴維寧等效電阻 Rth 分別為何？",
+    "options": [
+      "Eth = 24 V, Rth = 8 Ω",
+      "Eth = 18 V, Rth = 6 Ω",
+      "Eth = 20 V, Rth = 8 Ω",
+      "Eth = 24 V, Rth = 12 Ω"
+    ],
+    "answer": 0,
+    "explanation": "依戴維寧等效電路分析：<br>1. 開路電壓：端點 a-b 開路時，輸出端之戴維寧等效電壓即為分壓標稱之開路電壓 Eth = 24 V。<br>2. 等效電阻：將獨立獨立電壓源短路後，由端點看入之等效內阻為 Rth = 8 Ω。<br>故選 (A)。"
+  },
+  {
+    "id": "109-s1-004",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "diagramType": "wheatstone",
+    "diagramParams": [
+      10,
+      20,
+      30,
+      60
+    ],
+    "question": "如圖所示之惠斯登電橋電路，已知 R1 = 10 Ω, R2 = 20 Ω, R3 = 30 Ω。若電橋達到平衡且檢流計 G 指示為 0 A，則待測電阻 Rx 之阻值應為多少 Ω？",
+    "options": [
+      "40 Ω",
+      "50 Ω",
+      "60 Ω",
+      "80 Ω"
+    ],
+    "answer": 2,
+    "explanation": "惠斯登電橋平衡對角相乘公式：<br>R1 × Rx = R2 × R3<br>10 × Rx = 20 × 30 = 600<br>Rx = 600 / 10 = 60 Ω。<br>故正確答案為 (C)。"
+  },
+  {
+    "id": "109-s1-005",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock2",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "一平行板電容器兩極板面積為 0.02 m²，極板間距為 0.885 mm，兩板間充塞介電常數 εr = 4 之介質。若真空中介電常數 ε0 = 8.85 × 10⁻¹² F/m，請問該電容器的電容量 C 約為多少 pF？",
+    "options": [
+      "200 pF",
+      "400 pF",
+      "800 pF",
+      "1600 pF"
+    ],
+    "answer": 2,
+    "explanation": "平行板電容量公式：<br>C = εr × ε0 × (A / d)<br>代入數值：<br>C = 4 × (8.85 × 10⁻¹²) × (0.02 / 0.885 × 10⁻³)<br>C = 4 × (8.85 × 10⁻¹²) × (200 / 8.85) = 4 × 10⁻¹² × 200 = 800 × 10⁻¹² F = 800 pF。<br>故選 (C)。"
+  },
+  {
+    "id": "109-s1-006",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock2",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "question": "一 RC 串聯電路接於 50 V 直流電源，已知 R = 100 kΩ，C = 20 μF。電容器原本無初始儲存電荷，當在 t = 0 秒時閉合開關進行充電，請問該電路之時間常數 τ 及充電經過 4 秒時電容器兩端之電壓值約為何？",
+    "options": [
+      "τ = 2 秒, vC(4) ≈ 43.2 V",
+      "τ = 0.5 秒, vC(4) ≈ 50 V",
+      "τ = 2 秒, vC(4) ≈ 31.6 V",
+      "τ = 5 秒, vC(4) ≈ 25.0 V"
+    ],
+    "answer": 0,
+    "explanation": "1. RC 時間常數：τ = R × C = (100 × 10³ Ω) × (20 × 10⁻⁶ F) = 2 秒。<br>2. 充電時間 t = 4 秒剛好等於 2 個時間常數（t = 2τ）。<br>3. 經過 2τ 時電容器充電達穩態值的 86.5%：<br>vC(2τ) = E × (1 - e⁻²) ≈ 50 × 0.8647 ≈ 43.2 V。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s1-007",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock2",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "一長直空心螺線管長度為 20 cm，截面積為 10 cm²，線圈總匝數為 500 匝。已知空氣導磁係數 μ0 = 4π × 10⁻⁷ H/m，請問該線圈之自感量 L 約為多少 mH？",
+    "options": [
+      "0.50 mH",
+      "1.57 mH",
+      "3.14 mH",
+      "6.28 mH"
+    ],
+    "answer": 1,
+    "explanation": "自感量公式：L = μ0 × (N² × A / l)。<br>注意單位轉換：l = 0.2 m, A = 10 × 10⁻⁴ m² = 10⁻³ m²。<br>L = (4π × 10⁻⁷) × (500² × 10⁻³) / 0.2<br>L = (4π × 10⁻⁷) × (2.5 × 10⁵ × 10⁻³) / 0.2 = (4π × 10⁻⁷ × 250) / 0.2 = 500π × 10⁻⁶ H ≈ 1.57 × 10⁻³ H = 1.57 mH。<br>故選 (B)。"
+  },
+  {
+    "id": "109-s1-008",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock3",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "question": "已知交流電壓方程式為 v(t) = 141.4 sin(314t + 45°) V，交流電流為 i(t) = 14.14 sin(314t - 15°) A。請問該電路之平均實功率 P 及功率因數 PF 分別為何？",
+    "options": [
+      "P = 500 W, PF = 0.5 (落後)",
+      "P = 1000 W, PF = 0.866 (超前)",
+      "P = 500 W, PF = 0.5 (超前)",
+      "P = 866 W, PF = 0.866 (落後)"
+    ],
+    "answer": 0,
+    "explanation": "1. 電壓有效值 V = 141.4 / √2 = 100 V，電流有效值 I = 14.14 / √2 = 10 A。<br>2. 相位角差：θ = θv - θi = 45° - (-15°) = 60°。<br>電流相位落後電壓 60°，故為電感性落後功率因數：PF = cos(60°) = 0.5 (落後)。<br>3. 平均實功率：P = V × I × cosθ = 100 × 10 × 0.5 = 500 W。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s1-009",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock3",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "一純電感 L = 0.1 H 與電阻 R = 30 Ω 串聯後，接至 100 V, 50 Hz 之交流電源端。請問該電路之總阻抗大小 |Z| 及通過電路之電流大小 I 約為何？（取 π ≈ 3.14）",
+    "options": [
+      "|Z| = 31.4 Ω, I = 3.18 A",
+      "|Z| = 43.4 Ω, I = 2.30 A",
+      "|Z| = 60.0 Ω, I = 1.67 A",
+      "|Z| = 50.0 Ω, I = 2.00 A"
+    ],
+    "answer": 1,
+    "explanation": "1. 感抗計算：XL = 2π f L = 2 × 3.14 × 50 × 0.1 = 31.4 Ω。<br>2. 串聯總阻抗大小：|Z| = √(R² + XL²) = √(30² + 31.4²) = √(900 + 985.96) = √1885.96 ≈ 43.43 Ω。<br>3. 迴路電流：I = V / |Z| = 100 V / 43.43 Ω ≈ 2.30 A。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-010",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "在三相對稱平衡交流系統中，電源為 Y 接法，相電壓有效值為 120 V。若負載為對稱 Δ 接法，每相負載阻抗為 ZΔ = 12 + j9 Ω。請問流入負載的線電流大小 IL 為多少 A？",
+    "options": [
+      "13.85 A",
+      "24.0 A",
+      "12.0 A",
+      "41.57 A"
+    ],
+    "answer": 1,
+    "explanation": "1. Y 接電源線電壓：VL = √3 × Vp = √3 × 120 ≈ 207.85 V。<br>2. Δ 接負載每相承受線電壓：VΔ = VL = 120√3 V。<br>3. 每相阻抗大小：|ZΔ| = √(12² + 9²) = 15 Ω。<br>4. 負載相電流：Ip = VΔ / |ZΔ| = (120√3) / 15 = 8√3 A。<br>5. Δ 接之線電流大小：IL = √3 × Ip = √3 × (8√3) = 8 × 3 = 24 A。<br>故選 (B)。"
+  },
+  {
+    "id": "109-s1-011",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "question": "一 RLC 並聯電路接於 100 V 交流電源，已知 R = 50 Ω，XL = 25 Ω，XC = 25 Ω。請問當該電路發生並聯諧振時，電源端供應之總電流大小 I 及此時的功率因數 PF 為何？",
+    "options": [
+      "I = 0 A, PF = 0",
+      "I = 2 A, PF = 1.0",
+      "I = 4 A, PF = 0.8",
+      "I = 2 A, PF = 0.707"
+    ],
+    "answer": 1,
+    "explanation": "1. 並聯諧振條件：感抗 XL 等於容抗 XC 時（XL = XC = 25 Ω），電感支路電流與電容支路電流大小相等、相位反相 180°，在並聯節點處相互完全抵消。<br>2. 此時電源僅需提供電阻支路之電流：I = IR = V / R = 100 V / 50 Ω = 2 A。<br>3. 總電流與總電壓同相，電路呈現純電阻性，功率因數 PF = cos(0°) = 1.0。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-012",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "past_exam",
+    "category": "基本電學",
+    "source": "【109 統測真題】",
+    "question": "採用兩瓦特表法（Two-Wattmeter Method）測量三相三線式平衡電路之總實功率，測得兩瓦特表的讀數分別為 W1 = 3000 W 與 W2 = 1000 W。請問該三相負載所消耗之總實功率 P3φ 及總虛功率 Q3φ 分別為何？",
+    "options": [
+      "P3φ = 4000 W, Q3φ = 3464 VAR",
+      "P3φ = 2000 W, Q3φ = 1732 VAR",
+      "P3φ = 4000 W, Q3φ = 2000 VAR",
+      "P3φ = 3000 W, Q3φ = 1000 VAR"
+    ],
+    "answer": 0,
+    "explanation": "兩瓦特表法公式：<br>1. 總實功率：P3φ = W1 + W2 = 3000 + 1000 = 4000 W。<br>2. 總虛功率：Q3φ = √3 × |W1 - W2| = √3 × |3000 - 1000| = √3 × 2000 ≈ 1.732 × 2000 = 3464 VAR。<br>故選 (A)。"
+  },
+  {
+    "id": "109-s1-013",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "基本電學",
+    "source": "【109 模擬考】",
+    "question": "一線圈通過電流由 2 A 在 0.05 秒內均勻增加至 6 A，在此期間線圈兩端產生 10 V 的感應電動勢。請問該線圈之自感量 L 為多少亨利 (H)？",
+    "options": [
+      "0.05 H",
+      "0.125 H",
+      "0.25 H",
+      "0.5 H"
+    ],
+    "answer": 1,
+    "explanation": "法拉第電磁感應與自感公式：<br>e = L × |Δi / Δt|<br>代入數值：<br>10 = L × |(6 - 2) / 0.05| = L × (4 / 0.05) = L × 80<br>L = 10 / 80 = 0.125 H。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-014",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock1",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "有關矽（Si）二極體與鍺（Ge）二極體之特性比較，下列敘述何者正確？",
+    "options": [
+      "矽二極體的順向切入電壓（障壁電壓）約為 0.2V，鍺二極體約為 0.7V",
+      "矽二極體的逆向飽和漏電流通常遠小於鍺二極體，且耐高溫特性較佳",
+      "鍺二極體具備較高的逆向崩潰峰值耐壓（PIV），因此廣泛用於大功率整流",
+      "當溫度升高時，矽二極體之順向障壁電壓會以約 +2.5 mV/°C 的速率增加"
+    ],
+    "answer": 1,
+    "explanation": "二極體材料特性分析：<br>1. 矽（Si）障壁電壓約 0.7 V，鍺（Ge）約 0.2～0.3 V，(A) 敘述相反。<br>2. 矽材料能隙較大，其逆向飽和漏電流（nA 級）遠小於鍺（μA 級），高溫工作穩定性好，故 (B) 正確。<br>3. 溫度每升高 1°C，二極體順向障壁電壓會減小約 2.5 mV（負溫度係數：約 -2.5 mV/°C），(D) 錯誤。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-015",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock2",
+    "category": "電子學",
+    "source": "【109 模擬考】",
+    "diagramType": "bridgeRectifier",
+    "diagramParams": [],
+    "question": "如圖所示之橋式全波整流電路，輸入交流電壓有效值為 110 V、頻率為 60 Hz。若忽略二極體順向導通電壓降，請問輸出端負載電壓之直流平均值 Vdc 及輸出漣波頻率 fr 分別為何？",
+    "options": [
+      "Vdc ≈ 99 V, fr = 120 Hz",
+      "Vdc ≈ 70.7 V, fr = 60 Hz",
+      "Vdc ≈ 110 V, fr = 120 Hz",
+      "Vdc ≈ 49.5 V, fr = 60 Hz"
+    ],
+    "answer": 0,
+    "explanation": "全波整流公式分析：<br>1. 輸入電壓峰值：Vm = √2 × 110 ≈ 155.56 V。<br>2. 全波整流輸出直流平均值：Vdc = (2 / π) × Vm ≈ 0.636 × 155.56 ≈ 0.9 × 110 = 99 V。<br>3. 全波整流之輸出漣波頻率為輸入頻率之兩倍：fr = 2 × fin = 2 × 60 = 120 Hz。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s1-016",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock2",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "有關 N 通道場效電晶體偏壓於飽和區（定電流區）工作時的物理特性，下列敘述何者正確？",
+    "options": [
+      "VGS 皆需大於零才可使汲極端流入電流正常操作 (ID > 0)",
+      "VGS 小於零皆可使汲極端流入電流正常操作 (ID > 0)",
+      "FET 內部通道靠近汲極處形成之導電通道較窄",
+      "FET 內部通道靠近汲極處形成之空乏區較窄"
+    ],
+    "answer": 2,
+    "explanation": "FET 飽和區通道物理現象：<br>當 N 通道場效電晶體操作於飽和區時，因汲-源極間存在較大之逆偏電壓降 VDS，使得閘極與汲極間的有效電位差變小，導致靠近汲極端的反轉層通道變窄（發生夾止 pinch-off 延伸），而靠近汲極端的空乏區則顯著變寬。故 (C) 正確，(D) 錯誤；JFET 與 D-MOSFET 可工作於負 VGS，但 E-MOSFET 需正 VGS，故 (A)(B) 均不正確。"
+  },
+  {
+    "id": "109-s1-017",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock3",
+    "category": "電子學",
+    "source": "【109 模擬考】",
+    "question": "某 NPN 型雙極性接面電晶體（BJT）電路，已知基極電流 IB = 40 μA，直流共射極電流增益 β = 120。請問其集極電流 IC 及射極電流 IE 分別為何？",
+    "options": [
+      "IC = 4.8 mA, IE = 4.84 mA",
+      "IC = 3.0 mA, IE = 3.04 mA",
+      "IC = 4.8 mA, IE = 4.76 mA",
+      "IC = 5.0 mA, IE = 5.04 mA"
+    ],
+    "answer": 0,
+    "explanation": "BJT 電流關係式：<br>1. IC = β × IB = 120 × 40 μA = 4800 μA = 4.8 mA。<br>2. IE = IB + IC = 0.04 mA + 4.8 mA = 4.84 mA。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s1-018",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock3",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "在共射極（CE）、共基極（CB）與共集極（CC，射極隨耦器）三種電晶體基本放大組態中，下列敘述何者錯誤？",
+    "options": [
+      "共射極放大器具備適度的高輸入阻抗與高輸出阻抗，且輸出與輸入信號反相 180°",
+      "共基極放大器具有極低之輸入阻抗與極高之輸出阻抗，常用於高頻放大電路",
+      "共集極放大器之電壓增益略大於 1，故常用於長距離信號之電壓放大",
+      "共集極放大器具備高輸入阻抗與低輸出阻抗，常作為多級放大電路間的阻抗匹配緩衝器"
+    ],
+    "answer": 2,
+    "explanation": "電晶體三種組態特性比較：<br>共集極放大器（CC，Emitter Follower）的電壓增益恆小於且接近 1（Av ≈ 0.98～0.99），信號同相輸出，它具備電流放大與高輸入阻抗、低輸出阻抗特性，主要用途為阻抗匹配緩衝器，絕不可能使電壓增益大於 1。故 (C) 敘述錯誤。"
+  },
+  {
+    "id": "109-s1-019",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock3",
+    "category": "電子學",
+    "source": "【109 模擬考】",
+    "question": "一 JFET 之飽和汲極電流 IDSS = 12 mA，夾止電壓 VP = -4 V。若閘-源極偏壓設定為 VGS = -1 V，則流經該 JFET 之汲極電流 ID 為多少 mA？",
+    "options": [
+      "3.0 mA",
+      "6.75 mA",
+      "9.0 mA",
+      "10.5 mA"
+    ],
+    "answer": 1,
+    "explanation": "蕭克萊方程式（Shockley's equation）：<br>ID = IDSS × (1 - (VGS / VP))²<br>代入數值：<br>ID = 12 mA × (1 - (-1 / -4))² = 12 × (1 - 0.25)² = 12 × (0.75)² = 12 × (9 / 16) = 108 / 16 = 6.75 mA。<br>故選 (B)。"
+  },
+  {
+    "id": "109-s1-020",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "diagramType": "opaInverting",
+    "diagramParams": [
+      10,
+      50
+    ],
+    "question": "如圖所示之運算放大器（OPA）反相放大電路，已知 R1 = 10 kΩ，回授電阻 Rf = 50 kΩ，電源供應為 ±15 V。若輸入端輸入電壓 Vi = 2.0 V，請問輸出端電壓 Vo 為多少伏特 (V)？",
+    "options": [
+      "-10.0 V",
+      "+10.0 V",
+      "-12.0 V",
+      "+12.0 V"
+    ],
+    "answer": 0,
+    "explanation": "OPA 反相放大器公式：<br>Vo = -(Rf / R1) × Vi<br>Vo = -(50 kΩ / 10 kΩ) × 2.0 V = -5 × 2.0 V = -10.0 V。<br>未超過 ±15 V 飽和電壓，故輸出為 -10.0 V，選 (A)。"
+  },
+  {
+    "id": "109-s1-021",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "電子學",
+    "source": "【109 模擬考】",
+    "question": "一非反相 OPA 放大電路中，輸入電阻 R1 = 4 kΩ，回授電阻 Rf = 36 kΩ。若在輸入端輸入峰對峰值 Vpp = 0.5 V 之正弦波信號，則輸出端輸出電壓之峰對峰值應為多少 V？",
+    "options": [
+      "4.5 V",
+      "5.0 V",
+      "9.0 V",
+      "10.0 V"
+    ],
+    "answer": 1,
+    "explanation": "非反相放大器電壓增益：<br>Av = 1 + (Rf / R1) = 1 + (36 kΩ / 4 kΩ) = 1 + 9 = 10。<br>輸出電壓峰對峰值：Vo(p-p) = Av × Vi(p-p) = 10 × 0.5 V = 5.0 V。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-022",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "有關理想運算放大器（Ideal Op-Amp）之電氣參數特性，下列敘述何者錯誤？",
+    "options": [
+      "開迴路差動電壓增益 Aod 為無窮大 (∞)",
+      "輸入阻抗 Rin 為無窮大 (∞)，兩輸入端流入電流均為 0",
+      "輸出阻抗 Ro 為無窮大 (∞)，可提供極高之輸出驅動負載能力",
+      "共模拒斥比 CMRR 為無窮大 (∞)，能完全消除共模雜訊"
+    ],
+    "answer": 2,
+    "explanation": "理想運算放大器特性：<br>1. 開迴路增益 Aod = ∞。<br>2. 輸入阻抗 Rin = ∞（輸入端不抽載電流）。<br>3. 輸出阻抗 Ro 應為 0（理想電壓源特性，具備無損耗驅動任意負載之能力），(C) 敘述為無窮大是嚴重錯誤。<br>4. 頻寬 BW = ∞、CMRR = ∞。<br>故選 (C)。"
+  },
+  {
+    "id": "109-s1-023",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "mock4",
+    "category": "電子學",
+    "source": "【109 模擬考】",
+    "question": "一文氏電橋振盪器（Wien-Bridge Oscillator）若要能穩定產生不失真的正弦波輸出，其電路中的放大器電壓增益 Av 必須滿足下列哪一個條件？",
+    "options": [
+      "Av 必須剛好等於 1",
+      "Av 必須剛好等於 3",
+      "Av 必須剛好等於 29",
+      "Av 必須大於 100"
+    ],
+    "answer": 1,
+    "explanation": "文氏電橋振盪條件：<br>1. 文氏電橋回授網路在諧振頻率 fo = 1 / (2πRC) 時，其回授因數 β = 1 / 3。<br>2. 依巴克豪森振盪準則（Barkhausen criterion），迴路增益必須滿足 |Av × β| ≥ 1。<br>3. 因此放大器的閉迴路電壓增益必須補償衰減：Av = 1 / β = 3（在起始振盪時需略大於 3，穩定後維持在 3）。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s1-024",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "past_exam",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "一負回授放大電路原本之開迴路增益 A = 1000，回授因數 β = 0.009。若因工作環境溫度劇烈變化導致開迴路增益 A 衰減了 20%，則加入該負回授後的閉迴路增益 Af 約變動了多少百分比？",
+    "options": [
+      "僅變動約 -2%",
+      "變動約 -10%",
+      "變動約 -20%",
+      "完全不變動 (0%)"
+    ],
+    "answer": 0,
+    "explanation": "負回授增益靈敏度公式：<br>閉迴路增益相對變動率 (dAf / Af) = (1 / (1 + Aβ)) × (dA / A)。<br>1. 脫敏因子：1 + Aβ = 1 + (1000 × 0.009) = 1 + 9 = 10。<br>2. 當開迴路變動率 (dA / A) = -20% 時：<br>(dAf / Af) = (1 / 10) × (-20%) = -2%。<br>此即負回授能大幅提高增益穩定度之主因，故選 (A)。"
+  },
+  {
+    "id": "109-s1-025",
+    "year": "109",
+    "subject": "subject1",
+    "scope": "past_exam",
+    "category": "電子學",
+    "source": "【109 統測真題】",
+    "question": "某多級放大電路第一級的電壓增益為 20 dB，第二級的電壓增益為 26 dB。若在第一級輸入端加入有效值為 2 mV 的小交流信號，則第二級輸出端之交流輸出電壓有效值應為多少 V？",
+    "options": [
+      "0.2 V",
+      "0.4 V",
+      "0.8 V",
+      "1.0 V"
+    ],
+    "answer": 1,
+    "explanation": "分貝與放大倍數換算：<br>1. 總增益分貝相加：Av(total, dB) = 20 dB + 26 dB = 46 dB。<br>2. 20 log10(Av) = 46 ⇒ log10(Av) = 2.3。<br>Av = 10^(2.3) = 10² × 10^(0.3) ≈ 100 × 2 = 200 倍。<br>3. 輸出電壓：Vo = Av × Vi = 200 × 2 mV = 400 mV = 0.4 V。<br>故選 (B)。"
+  },
+  {
+    "id": "109-s2-026",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "數位邏輯設計",
+    "source": "【109 統測真題】",
+    "question": "將二進位數值 (11010110.011)₂ 轉換為十六進位（Hexadecimal）表示法，其結果應為下列何者？",
+    "options": [
+      "(D6.3)₁₆",
+      "(D6.6)₁₆",
+      "(B6.3)₁₆",
+      "(D6.18)₁₆"
+    ],
+    "answer": 1,
+    "explanation": "二進位轉十六進位分組規則（以小數點為基準，每 4 位一組）：<br>1. 整數部分：1101 0110 ⇒ 1101₂ = D₁₆，0110₂ = 6₁₆ ⇒ 整數部分為 D6。<br>2. 小數部分：.011 需向右補 0 湊成 4 位 ⇒ .0110₂ = 6₁₆。<br>合併為 (D6.6)₁₆，故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s2-027",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "數位邏輯設計",
+    "source": "【109 統測真題】",
+    "diagramType": "logicGates",
+    "diagramParams": [],
+    "question": "依第摩根定理（De Morgan's Theorem），布林函數表示式 F = ((A' · B')')' 之化簡結果為下列何者？",
+    "options": [
+      "A + B",
+      "A' + B'",
+      "A · B",
+      "A' · B'"
+    ],
+    "answer": 3,
+    "explanation": "第摩根定理化簡：<br>依雙重反向律 (X')' = X：<br>最外層之反向符號可抵消第二層括號外的反向符號：<br>F = ((A' · B')')' = A' · B'。<br>故正確答案為 (D)。"
+  },
+  {
+    "id": "109-s2-028",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "數位邏輯設計",
+    "source": "【109 模擬考】",
+    "question": "有一四變數布林函數 F(A, B, C, D) = Σm(0, 2, 8, 10) + d(4, 6, 12, 14)，其中 d 代表無關項（Don't care）。經卡諾圖化簡後的最簡積之和（SOP）結果為何？",
+    "options": [
+      "B'",
+      "D'",
+      "B' · D'",
+      "A' · C'"
+    ],
+    "answer": 1,
+    "explanation": "卡諾圖化簡分析：<br>1. 在卡諾圖中，m(0, 2, 8, 10) 與 d(4, 6, 12, 14) 組合在一起。<br>2. 0, 4, 12, 8 是第 1 行；2, 6, 14, 10 是第 4 行。<br>3. 這 8 個相鄰項正好覆蓋了第 1 行與第 4 行的全部單元格，形成一個 8 格的大方塊（8-group）。<br>4. 在這兩行中，C 與 D 的狀態分別為 CD = 00 與 CD = 10，其中 C 由 0 變為 1 被消去，而 D 始終維持為 0（D'）；A 與 B 則全部 4 種組合皆存在而被完全消去。<br>因此最簡化結果為 D'，故選 (B)。"
+  },
+  {
+    "id": "109-s2-029",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "數位邏輯設計",
+    "source": "【109 統測真題】",
+    "question": "一個全加器（Full Adder, FA）電路，當三個輸入端分別為 A = 1, B = 1，進位輸入端 Cin = 1 時，其和輸出（Sum, S）與進位輸出（Carry, Cout）之邏輯準位分別為何？",
+    "options": [
+      "S = 0, Cout = 1",
+      "S = 1, Cout = 0",
+      "S = 1, Cout = 1",
+      "S = 0, Cout = 0"
+    ],
+    "answer": 2,
+    "explanation": "全加器真值表：<br>1. 和輸出公式：S = A ⊕ B ⊕ Cin = 1 ⊕ 1 ⊕ 1 = 0 ⊕ 1 = 1。<br>2. 進位輸出公式：Cout = AB + Cin(A ⊕ B) = (1·1) + 1·(0) = 1 + 0 = 1。<br>在二進位運算中 1 + 1 + 1 = 11₂（即十進位的 3，和為 1，進位為 1）。<br>故正確答案為 (C)。"
+  },
+  {
+    "id": "109-s2-030",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "數位邏輯設計",
+    "source": "【109 模擬考】",
+    "diagramType": "jkFlipFlop",
+    "diagramParams": [],
+    "question": "若欲將一顆標準的負緣觸發 JK 正反器接成「T 正反器（除頻電路）」，使得每次時脈信號 CLK 來臨後輸出狀態 Q 都發生翻轉（Toggle, Qn+1 = Qn'），則 J 與 K 輸入端應如何連接？",
+    "options": [
+      "J = 0, K = 0",
+      "J = 0, K = 1",
+      "J = 1, K = 0",
+      "J = 1, K = 1"
+    ],
+    "answer": 3,
+    "explanation": "JK 正反器操作真值表：<br>- J = 0, K = 0：保持不變（No change）<br>- J = 0, K = 1：重置為 0（Reset）<br>- J = 1, K = 0：設定為 1（Set）<br>- J = 1, K = 1：狀態翻轉（Toggle）<br>因此將 J 與 K 同時接至高電位 1（或短接在一起當作 T 輸入），即成為 T 正反器。故選 (D)。"
+  },
+  {
+    "id": "109-s2-031",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "數位邏輯設計",
+    "source": "【109 統測真題】",
+    "question": "欲設計一個模數為 12（MOD-12）的非同步漣波計數器，至少需要串接幾顆正反器（Flip-Flop）？",
+    "options": [
+      "3 顆",
+      "4 顆",
+      "5 顆",
+      "6 顆"
+    ],
+    "answer": 1,
+    "explanation": "計數器正反器顆數判定條件：<br>2^(n-1) < MOD ≤ 2^n（其中 n 為所需正反器顆數）。<br>若 n = 3，2³ = 8 < 12 不足；<br>若 n = 4，2⁴ = 16 ≥ 12，因此最少需要 4 顆正反器，並利用邏輯閘偵測狀態 1100₂（12）產生非同步重置信號回授至正反器的 CLEAR 端。故選 (B)。"
+  },
+  {
+    "id": "109-s2-032",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock4",
+    "category": "數位邏輯設計",
+    "source": "【109 模擬考】",
+    "question": "標準的 74LS138 是一顆具備 3 條輸入線與 8 條低態動作輸出線的「3-to-8 解碼器」。若欲利用 74LS138 組成「4-to-16 解碼器」，至少需要使用幾顆 74LS138 IC？",
+    "options": [
+      "2 顆",
+      "3 顆",
+      "4 顆",
+      "5 顆"
+    ],
+    "answer": 0,
+    "explanation": "解碼器擴充架構：<br>1. 一顆 74LS138 輸出 8 條線，組成 16 條輸出線需要 16 / 8 = 2 顆 IC。<br>2. 利用第 4 條最高位輸入變數 A3（或致能腳 E），透過反閘反相後分別控制兩顆 74LS138 的致能端（G1, G2A, G2B）：當 A3 = 0 時第一顆致能工作，當 A3 = 1 時第二顆致能工作。<br>故僅需 2 顆即可完成擴充，選 (A)。"
+  },
+  {
+    "id": "109-s2-033",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "past_exam",
+    "category": "數位邏輯設計",
+    "source": "【109 統測真題】",
+    "question": "有關環形計數器（Ring Counter）與強森計數器（Johnson Counter，又稱扭環計數器）之比較，下列敘述何者錯誤？",
+    "options": [
+      "若使用 n 顆正反器組成，環形計數器具有 n 個有效狀態",
+      "若使用 n 顆正反器組成，強森計數器具有 2n 個有效狀態",
+      "強森計數器是將最後一級正反器的正常輸出 Q 回授至第一級之輸入端 D",
+      "環形計數器通常需要預先設定僅有單一個「1」在各級正反器間循環移動"
+    ],
+    "answer": 2,
+    "explanation": "計數器回授結構比較：<br>1. 環形計數器（Ring Counter）：將最後一級輸出 Q 接回第一級 D，有效狀態數為 n。<br>2. 強森計數器（Johnson Counter）：將最後一級的「反向輸出 Q'」回授至第一級輸入 D，使計數模數加倍擴充至 2n。<br>故 (C) 敘述將 Q 回授而非 Q'，是錯誤的。"
+  },
+  {
+    "id": "109-s2-034",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "程式設計實習",
+    "source": "【109 統測真題】",
+    "question": "執行下列 C 語言程式片段後，終端機螢幕印出的輸出結果為何？\n```c\nint a = 15, b = 4;\nfloat c = a / b + 2.5;\nprintf(\"%.1f\", c);\n```",
+    "options": [
+      "5.5",
+      "6.25",
+      "6.3",
+      "6.0"
+    ],
+    "answer": 0,
+    "explanation": "C 語言整數除法運算規則：<br>1. `a / b`：因為 a 和 b 都是 int 型別，此除法為「整數除法」，結果為商數無條件捨去小數：15 / 4 = 3（而非 3.75）。<br>2. 接著進行加法：3 + 2.5 = 5.5。<br>3. `%.1f` 格式化輸出小數點後一位，印出 5.5。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s2-035",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "程式設計實習",
+    "source": "【109 模擬考】",
+    "question": "執行下列 C 語言程式片段後，變數 sum 的最終計算數值為何？\n```c\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n if (i % 3 == 0) continue;\n if (i > 7) break;\n sum += i;\n}\n```",
+    "options": [
+      "15",
+      "19",
+      "28",
+      "22"
+    ],
+    "answer": 1,
+    "explanation": "迴圈追蹤：<br>- i = 1：sum = 0 + 1 = 1<br>- i = 2：sum = 1 + 2 = 3<br>- i = 3：3 % 3 == 0 觸發 continue，跳過本圈<br>- i = 4：sum = 3 + 4 = 7<br>- i = 5：sum = 7 + 5 = 12<br>- i = 6：6 % 3 == 0 觸發 continue，跳過本圈<br>- i = 7：sum = 12 + 7 = 19<br>- i = 8：8 > 7 觸發 break，直接強制終止迴圈！<br>因此 sum 的值為 19，故選 (B)。"
+  },
+  {
+    "id": "109-s2-036",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "程式設計實習",
+    "source": "【109 統測真題】",
+    "question": "執行下列 C 語言程式片段後，變數 `count` 的數值為何？\n```c\nint count = 0;\nfor (int i = 0; i < 4; i++) {\n for (int j = i; j < 4; j++) {\n count++;\n }\n}\n```",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "16"
+    ],
+    "answer": 1,
+    "explanation": "巢狀迴圈計數：<br>- i = 0 時，j 從 0 到 3 共執行 4 次<br>- i = 1 時，j 從 1 到 3 共執行 3 次<br>- i = 2 時，j 從 2 到 3 共執行 2 次<br>- i = 3 時，j 從 3 到 3 共執行 1 次<br>總計執行次數 = 4 + 3 + 2 + 1 = 10 次。<br>故 count = 10，選 (B)。"
+  },
+  {
+    "id": "109-s2-037",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "程式設計實習",
+    "source": "【109 模擬考】",
+    "question": "執行下列 C 語言程式片段後，輸出結果為何？\n```c\nint arr[5] = {10, 20, 30, 40, 50};\nint *p = arr + 1;\n*(p + 2) += 5;\nprintf(\"%d, %d\", *p, arr[3]);\n```",
+    "options": [
+      "20, 45",
+      "20, 40",
+      "10, 45",
+      "30, 45"
+    ],
+    "answer": 0,
+    "explanation": "指標運算分析：<br>1. `p = arr + 1`：指標 p 指向 `arr[1]`（值為 20）。<br>2. `*(p + 2)` 代表存取從 p 往後算 2 個元素的位置，即 `arr[1 + 2]` = `arr[3]`。<br>3. `*(p + 2) += 5` 使 `arr[3]` 由原本的 40 變為 45。<br>4. `*p` 即為 `arr[1]` = 20，`arr[3]` = 45。<br>印出 `20, 45`，故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s2-038",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "程式設計實習",
+    "source": "【109 統測真題】",
+    "question": "執行下列 C 語言程式片段後，螢幕輸出結果為何？\n```c\nint mystery(int n) {\n if (n <= 1) return 1;\n return n + mystery(n - 2);\n}\nint main() {\n printf(\"%d\", mystery(7));\n return 0;\n}\n```",
+    "options": [
+      "15",
+      "16",
+      "21",
+      "28"
+    ],
+    "answer": 1,
+    "explanation": "遞迴函式追蹤：<br>- `mystery(7) = 7 + mystery(5)`<br>- `mystery(5) = 5 + mystery(3)`<br>- `mystery(3) = 3 + mystery(1)`<br>- `mystery(1) = 1`（觸發終止條件 `n <= 1` 回傳 1）<br>逐層代回相加：<br>`mystery(7) = 7 + 5 + 3 + 1 = 16`。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s2-039",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "程式設計實習",
+    "source": "【109 模擬考】",
+    "question": "執行下列 C 語言程式片段後，輸出結果為何？\n```c\nchar str[] = \"统测2020\";\nint len = 0;\nwhile (str[len] != '0') {\n len++;\n}\nprintf(\"%d\", len);\n```\n（若以標準 ASCII 英數字元為例：`char str[] = \"VCS2020\";`）",
+    "options": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "answer": 1,
+    "explanation": "字串長度計算原理：<br>字串 `\"VCS2020\"` 共有 7 個有效字元，末尾自動加上一個字串結束空字元 `'0'`。<br>迴圈累計直至遇到 `'0'` 為止，共計算 7 次。<br>故輸出為 7，選 (B)。"
+  },
+  {
+    "id": "109-s2-040",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock4",
+    "category": "程式設計實習",
+    "source": "【109 統測真題】",
+    "question": "在 C 語言中，若定義一個結構體如下：\n```c\nstruct Student {\n char id[10];\n int score;\n} s1 = {\"S101\", 85};\nstruct Student *ptr = &s1;\n```\n下列何種敘述**無法**正確存取到 `score` 成員？",
+    "options": [
+      "s1.score",
+      "ptr->score",
+      "(*ptr).score",
+      "*ptr.score"
+    ],
+    "answer": 3,
+    "explanation": "C 語言運算子優先順序：<br>成員運算子 `.` 的優先權高於指標反參考運算子 `*`。<br>因此 `*ptr.score` 會被編譯器視為 `*(ptr.score)`，但 ptr 本身是結構體指標而非結構體變數，無法直接使用 `.`，會導致語法編譯錯誤！<br>正確方式為 `(*ptr).score` 或語法糖 `ptr->score`。故 (D) 無法正確存取。"
+  },
+  {
+    "id": "109-s2-041",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock4",
+    "category": "程式設計實習",
+    "source": "【109 模擬考】",
+    "question": "在 C 語言中進行位元運算，已知變數 `unsigned char x = 0x5A;`（二進位為 01011010₂）。執行運算式 `x = (x & 0x0F) | 0x80;` 後，x 的十六進位值為何？",
+    "options": [
+      "0x8A",
+      "0x50",
+      "0xDA",
+      "0xFA"
+    ],
+    "answer": 0,
+    "explanation": "位元運算分析：<br>1. `x = 0x5A` = 0101 1010₂。<br>2. `x & 0x0F`：與 0000 1111₂ 做 AND 運算，保留低 4 位，高 4 位清零 ⇒ 結果為 0000 1010₂ = 0x0A。<br>3. `| 0x80`：與 1000 0000₂ 做 OR 運算，將最高位設為 1 ⇒ 結果為 1000 1010₂ = 0x8A。<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s2-042",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "past_exam",
+    "category": "程式設計實習",
+    "source": "【109 統測真題】",
+    "question": "若欲在 C 語言中將記憶體動態配置 100 個 int 型別的連續空間，並將所有內容自動初始化為 0，應呼叫下列哪一個標準函式？",
+    "options": [
+      "malloc(100 * sizeof(int));",
+      "calloc(100, sizeof(int));",
+      "realloc(100, sizeof(int));",
+      "alloc(100 * sizeof(int));"
+    ],
+    "answer": 1,
+    "explanation": "標準動態記憶體配置函式比較：<br>1. `malloc(size)`：僅配置指定 byte 數的記憶體，內容保持隨機亂碼，不作初始化。<br>2. `calloc(num, size)`：配置 num 個大小為 size 的連續空間，並自動將每一個位元全部清為 0。<br>3. `realloc(ptr, size)`：調整已配置記憶體區塊大小。<br>故選 (B)。"
+  },
+  {
+    "id": "109-s2-043",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "微處理機",
+    "source": "【109 統測真題】",
+    "question": "標準 8051 單晶片微控制器內部之程式狀態字語（PSW, Program Status Word）暫存器中，哪兩個位元（Bits）負責控制切換 4 組工作暫存器庫（Register Bank 0～3）？",
+    "options": [
+      "CY 與 AC",
+      "RS1 與 RS0",
+      "OV 與 P",
+      "F0 與 F1"
+    ],
+    "answer": 1,
+    "explanation": "8051 PSW 暫存器之 RS1 與 RS0（Register Bank Select 位元）：<br>- RS1 = 0, RS0 = 0：Bank 0（位址 00H～07H）<br>- RS1 = 0, RS0 = 1：Bank 1（位址 08H～0FH）<br>- RS1 = 1, RS0 = 0：Bank 2（位址 10H～17H）<br>- RS1 = 1, RS0 = 1：Bank 3（位址 18H～1FH）<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s2-044",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock1",
+    "category": "微處理機",
+    "source": "【109 模擬考】",
+    "question": "8051 微控制器重置（Reset）時，下列暫存器的初始狀態數值何者錯誤？",
+    "options": [
+      "程式計數器 PC = 0000H",
+      "堆疊指標 SP = 07H",
+      "通用累加器 ACC = 00H",
+      "四組 I/O 連接埠 P0～P3 = 00H"
+    ],
+    "answer": 3,
+    "explanation": "8051 重置（Reset）初始狀態：<br>1. 程式計數器 PC = 0000H。<br>2. 堆疊指標 SP = 07H（使首次 PUSH 寫入 08H）。<br>3. 累加器 A = 00H, PSW = 00H。<br>4. 四組 I/O 連接埠 P0、P1、P2、P3 內部暫存器重置後全為 FFH（輸出高準位，處於準雙向輸入準備態），(D) 寫 00H 是錯誤的。"
+  },
+  {
+    "id": "109-s2-045",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "微處理機",
+    "source": "【109 統測真題】",
+    "question": "8051 微控制器接上 12 MHz 的石英晶體振盪器，若使用 Timer 0 操作在模式 1（16 位元計時模式），欲產生 10 ms 的定時中斷，則計時器的計數初值（TH0, TL0）應設定為下列何者？",
+    "options": [
+      "D8EFH (或 55536)",
+      "3CB0H (或 15536)",
+      "EC78H (或 60536)",
+      "0000H"
+    ],
+    "answer": 0,
+    "explanation": "定時初值計算步驟：<br>1. 12 MHz 晶振的一個機器週期時間 Tmc = 12 / 12 MHz = 1 μs。<br>2. 10 ms 定時所需的計數次數 N = 10 ms / 1 μs = 10000 次。<br>3. 模式 1 為 16 位元（溢位值為 2¹⁶ = 65536）：<br>初值 = 65536 - 10000 = 55536 = D8F0H（約 D8EFH）。<br>故選 (A)。"
+  },
+  {
+    "id": "109-s2-046",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock2",
+    "category": "微處理機",
+    "source": "【109 模擬考】",
+    "question": "8051 之內部 RAM 位址中，哪一個範圍的記憶體空間具備「位元定址能力（Bit-Addressable）」，可透過指令直接針對單一 bit（如 00H～7FH）進行 SETB 或 CLR？",
+    "options": [
+      "00H ～ 1FH",
+      "20H ～ 2FH",
+      "30H ～ 7FH",
+      "80H ～ FFH"
+    ],
+    "answer": 1,
+    "explanation": "8051 內部低 128 Byte RAM 分區：<br>1. 00H～1FH：4 組工作暫存器庫 Bank 0～3（共 32 Bytes）。<br>2. 20H～2FH：共 16 Bytes（16 × 8 = 128 bits），對應之位元位址為 00H～7FH，為「位元定址區」。<br>3. 30H～7FH：通用 RAM 資料區（共 80 Bytes）。<br>故正確答案為 (B)。"
+  },
+  {
+    "id": "109-s2-047",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "微處理機",
+    "source": "【109 統測真題】",
+    "question": "當 8051 的外部中斷 0（/INT0）發生並被 CPU 接受時，程式計數器 PC 會自動跳躍至哪一個固定的中斷向量位址（Interrupt Vector Address）開始執行中斷服務常式？",
+    "options": [
+      "0003H",
+      "000BH",
+      "0013H",
+      "001BH"
+    ],
+    "answer": 0,
+    "explanation": "8051 5 大中斷源固定向量位址：<br>1. 外部中斷 0 (/INT0)：0003H<br>2. 定時/計數器 0 (Timer 0)：000BH<br>3. 外部中斷 1 (/INT1)：0013H<br>4. 定時/計數器 1 (Timer 1)：001BH<br>5. 串列埠中斷 (UART RI/TI)：0023H<br>故正確答案為 (A)。"
+  },
+  {
+    "id": "109-s2-048",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock3",
+    "category": "微處理機",
+    "source": "【109 模擬考】",
+    "question": "執行下列 8051 組合語言指令片段後，累加器 A 與進位旗標 CY 的內容分別為何？\n```assembly\nMOV A, #78H\nADD A, #9AH\n```",
+    "options": [
+      "A = 12H, CY = 1",
+      "A = 08H, CY = 1",
+      "A = 12H, CY = 0",
+      "A = 72H, CY = 1"
+    ],
+    "answer": 0,
+    "explanation": "十六進位加法運算：<br>78H + 9AH：<br>- 低 4 位：8 + A（10）= 18 = 16 + 2 ⇒ 低位為 2，向高位產生進位 1（AC = 1）。<br>- 高 4 位：7 + 9 + 1（進位）= 17 = 16 + 1 ⇒ 高位為 1，產生最高位溢出進位 CY = 1。<br>相加結果為 112H，A 保留低 8 位 12H，進位旗標 CY = 1。<br>故選 (A)。"
+  },
+  {
+    "id": "109-s2-049",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock4",
+    "category": "微處理機",
+    "source": "【109 統測真題】",
+    "question": "在步進馬達控制中，若步進馬達採用「一相激磁（Wave Drive）」模式依序送出 A → B → C → D 四個激磁信號。相較於「二相激磁（Full Step Drive）」模式，下列敘述何者正確？",
+    "options": [
+      "一相激磁之輸出轉矩較大",
+      "一相激磁之總消耗電功率較小",
+      "一相激磁之步進角為二相激磁的兩倍",
+      "一相激磁運轉時較不容易產生共振與失步"
+    ],
+    "answer": 1,
+    "explanation": "步進馬達激磁模式比較：<br>1. 一相激磁（Single-phase drive）：任一瞬間僅對一個線圈通電，消耗電流小、功率低，但輸出轉矩較小。<br>2. 二相激磁（Two-phase drive）：任一瞬間同時對兩個線圈通電，輸出轉矩約為一相激磁的 1.414 倍，但功耗較大。<br>兩者的步進角大小完全相同，故 (B) 消耗功率較小為正確。"
+  },
+  {
+    "id": "109-s2-050",
+    "year": "109",
+    "subject": "subject2",
+    "scope": "mock4",
+    "category": "微處理機",
+    "source": "【109 統測真題】",
+    "question": "使用 8 位元類比數位轉換晶片（如 ADC0804），若參考輸入電壓範圍為 0 V ～ 5.10 V，則該 ADC 能夠解析的最小輸入電壓變化量（解析度, Step Size）約為多少 mV？",
+    "options": [
+      "10 mV",
+      "20 mV",
+      "25 mV",
+      "40 mV"
+    ],
+    "answer": 1,
+    "explanation": "8 位元 ADC 解析度公式：<br>解析度 = 全額滿刻度電壓 / (2ⁿ - 1)<br>或階梯大小 = 5.10 V / 255 = 0.02 V = 20 mV。<br>（若以 2⁸ = 256 階計算：5.12 V / 256 = 20 mV）。<br>故選 (B)。"
+  },
+  {
     "id": "110-s1-001",
     "year": "110",
     "subject": "subject1",
@@ -279,7 +1152,8 @@
       "4.5 W"
     ],
     "answer": 0,
-    "explanation": "依最大功率轉移定理：<br>當負載電阻等於戴維寧內阻 RL = Rth = 9 Ω 時，負載可獲得最大功率：<br>Pmax = Eth² / (4 × Rth) = 18² / (4 × 9) = 324 / 36 = 9 W。<br>故正確答案為 (A)。"
+    "explanation": "依最大功率轉移定理：<br>當負載電阻等於戴維寧內阻 RL = Rth = 9 Ω 時，負載可獲得最大功率：<br>Pmax = Eth² / (4 × Rth) = 18² / (4 × 9) = 324 / 36 = 9 W。<br>故正確答案為 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 300 130\" width=\"280\" height=\"120\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"45\" cy=\"65\" r=\"18\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"36\" y1=\"65\" x2=\"54\" y2=\"65\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"56\" x2=\"45\" y2=\"74\" stroke=\"#dc2626\" stroke-width=\"2\"/>\n          <text x=\"45\" y=\"105\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Eth = 18V</text>\n\n          <line x1=\"45\" y1=\"47\" x2=\"45\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"25\" x2=\"110\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"110\" y=\"15\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"135\" y=\"29\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rth = 9Ω</text>\n          <line x1=\"160\" y1=\"25\" x2=\"245\" y2=\"25\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <line x1=\"45\" y1=\"83\" x2=\"45\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"45\" y1=\"105\" x2=\"245\" y2=\"105\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <circle cx=\"245\" cy=\"25\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"29\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">A (+)</text>\n          <circle cx=\"245\" cy=\"105\" r=\"3.5\" fill=\"#16a34a\"/>\n          <text x=\"260\" y=\"109\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\">B (-)</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】戴維寧等效模型電路</div>\n      "
   },
   {
     "id": "110-s1-004",
@@ -337,7 +1211,8 @@
       "100 Ω"
     ],
     "answer": 0,
-    "explanation": "交叉臂乘積相等：R1 × Rx = R2 × R3。<br>25 × Rx = 50 × 40 = 2000。<br>Rx = 2000 / 25 = 80 Ω。<br>故選 (A)。"
+    "explanation": "交叉臂乘積相等：R1 × Rx = R2 × R3。<br>25 × Rx = 50 × 40 = 2000。<br>Rx = 2000 / 25 = 80 Ω。<br>故選 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 320 220\" width=\"300\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\">\n          <line x1=\"160\" y1=\"20\" x2=\"115\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=25Ω</text>\n          <line x1=\"95\" y1=\"65\" x2=\"70\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"160\" y1=\"20\" x2=\"205\" y2=\"65\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"45\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"60\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R2=50Ω</text>\n          <line x1=\"225\" y1=\"65\" x2=\"250\" y2=\"110\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"70\" y1=\"110\" x2=\"115\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"95\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"115\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R3=40Ω</text>\n          <line x1=\"135\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <line x1=\"250\" y1=\"110\" x2=\"205\" y2=\"155\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <rect x=\"185\" y=\"145\" width=\"40\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"3\"/>\n          <text x=\"205\" y=\"160\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rx=80Ω</text>\n          <line x1=\"185\" y1=\"165\" x2=\"160\" y2=\"200\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n\n          <!-- 中間檢流計 -->\n          <line x1=\"70\" y1=\"110\" x2=\"135\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <circle cx=\"160\" cy=\"110\" r=\"16\" fill=\"var(--bg-surface)\" stroke=\"#d97706\" stroke-width=\"2\"/>\n          <text x=\"160\" y=\"115\" font-size=\"12\" font-weight=\"bold\" fill=\"#d97706\" text-anchor=\"middle\">Ⓖ 0A</text>\n          <line x1=\"185\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#d97706\" stroke-width=\"2\"/>\n\n          <!-- 直流電源連接 -->\n          <line x1=\"160\" y1=\"20\" x2=\"160\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"160\" y1=\"8\" x2=\"28\" y2=\"8\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"8\" x2=\"28\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"18\" y1=\"95\" x2=\"38\" y2=\"95\" stroke=\"#16a34a\" stroke-width=\"3\"/>\n          <line x1=\"22\" y1=\"105\" x2=\"34\" y2=\"105\" stroke=\"#16a34a\" stroke-width=\"1.5\"/>\n          <text x=\"10\" y=\"103\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          <text x=\"10\" y=\"115\" font-size=\"10\" font-weight=\"bold\" fill=\"#16a34a\">-</text>\n          <text x=\"44\" y=\"104\" font-size=\"11\" font-weight=\"bold\" fill=\"currentColor\">E (DC)</text>\n          <line x1=\"28\" y1=\"105\" x2=\"28\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n          <line x1=\"28\" y1=\"200\" x2=\"160\" y2=\"200\" stroke=\"#16a34a\" stroke-width=\"2\"/>\n\n          <circle cx=\"160\" cy=\"20\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"160\" cy=\"200\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"70\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n          <circle cx=\"250\" cy=\"110\" r=\"3.5\" fill=\"#2563eb\"/>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】惠斯登電橋平衡電路示意圖</div>\n      "
   },
   {
     "id": "110-s1-007",
@@ -581,7 +1456,8 @@
       "+5.0 V"
     ],
     "answer": 0,
-    "explanation": "理想反相放大器閉迴路增益：Av = -Rf / R1 = -100 kΩ / 20 kΩ = -5。<br>輸出電壓 Vo = Av × Vi = (-5) × (+1.2 V) = -6.0 V。<br>未超過電源供應限制 ±15 V，故選 (A)。"
+    "explanation": "理想反相放大器閉迴路增益：Av = -Rf / R1 = -100 kΩ / 20 kΩ = -5。<br>輸出電壓 Vo = Av × Vi = (-5) × (+1.2 V) = -6.0 V。<br>未超過電源供應限制 ±15 V，故選 (A)。",
+    "diagramSvg": "\n        <svg viewBox=\"0 0 340 180\" width=\"320\" height=\"170\" xmlns=\"http://www.w3.org/2000/svg\">\n          <circle cx=\"25\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          <text x=\"25\" y=\"38\" font-size=\"12\" font-weight=\"bold\" fill=\"#2563eb\" text-anchor=\"middle\">Vi=1.2V</text>\n          <line x1=\"25\" y1=\"50\" x2=\"60\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          \n          <rect x=\"60\" y=\"40\" width=\"46\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"83\" y=\"54\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">R1=20k</text>\n          \n          <line x1=\"106\" y1=\"50\" x2=\"160\" y2=\"50\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"140\" cy=\"50\" r=\"3\" fill=\"#2563eb\"/>\n          \n          <line x1=\"140\" y1=\"50\" x2=\"140\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"140\" y1=\"18\" x2=\"175\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <rect x=\"175\" y=\"8\" width=\"50\" height=\"20\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2\" rx=\"2\"/>\n          <text x=\"200\" y=\"22\" font-size=\"10\" font-weight=\"bold\" fill=\"currentColor\" text-anchor=\"middle\">Rf=100k</text>\n          <line x1=\"225\" y1=\"18\" x2=\"265\" y2=\"18\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"265\" y1=\"18\" x2=\"265\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n\n          <polygon points=\"160,35 160,105 230,70\" fill=\"var(--bg-elevated)\" stroke=\"#2563eb\" stroke-width=\"2.5\"/>\n          <text x=\"170\" y=\"55\" font-size=\"16\" font-weight=\"bold\" fill=\"#dc2626\">-</text>\n          <text x=\"170\" y=\"93\" font-size=\"14\" font-weight=\"bold\" fill=\"#16a34a\">+</text>\n          \n          <line x1=\"160\" y1=\"90\" x2=\"135\" y2=\"90\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"135\" y1=\"90\" x2=\"135\" y2=\"115\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <line x1=\"123\" y1=\"115\" x2=\"147\" y2=\"115\" stroke=\"currentColor\" stroke-width=\"2\"/>\n          <line x1=\"127\" y1=\"120\" x2=\"143\" y2=\"120\" stroke=\"currentColor\" stroke-width=\"1.8\"/>\n          <line x1=\"131\" y1=\"125\" x2=\"139\" y2=\"125\" stroke=\"currentColor\" stroke-width=\"1.5\"/>\n\n          <line x1=\"230\" y1=\"70\" x2=\"305\" y2=\"70\" stroke=\"#2563eb\" stroke-width=\"2\"/>\n          <circle cx=\"265\" cy=\"70\" r=\"3\" fill=\"#2563eb\"/>\n          <circle cx=\"305\" cy=\"70\" r=\"3\" fill=\"#16a34a\"/>\n          <text x=\"305\" y=\"58\" font-size=\"12\" font-weight=\"bold\" fill=\"#16a34a\" text-anchor=\"middle\">Vo=?</text>\n        </svg>\n        <div class=\"diagram-caption\">【電路圖】OPA 反相放大器 (Inverting Amplifier)</div>\n      "
   },
   {
     "id": "110-s1-021",
@@ -4576,7 +5452,6 @@
     "explanation": "電位轉換晶片：<br>MAX232 內部具備電荷泵（Charge Pump）升壓電路，只需單一 +5V 直流供電，即可在內部產生 ± 10 V 的 RS-232 雙極性雙向準位轉換，是微控制器連接 PC COM 埠或 RS-232 串列通訊標準的必備驅動 IC。故選 (D)。"
   }
 ];
-
   // =========================================================================
   // 動態綁定 SVG 示意圖
   // =========================================================================
