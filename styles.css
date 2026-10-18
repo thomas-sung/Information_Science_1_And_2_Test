@@ -2152,3 +2152,33 @@ button, .btn-pill, .btn-nav, .option-btn, .sheet-num-btn, .subject-card {
     white-space: nowrap;
   }
 }
+
+
+/* 響應式雙重防護公用類別 (Breakpoint: 900px) */
+@media (max-width: 900px) {
+  .desktop-only,
+  .desktop-header-actions,
+  .desktop-setup-actions {
+    display: none !important;
+  }
+  .mobile-only,
+  .mobile-nav-select-wrapper {
+    display: flex !important;
+  }
+  .mobile-setup-dropdown-box {
+    display: block !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .mobile-only,
+  .mobile-nav-select-wrapper,
+  .mobile-setup-dropdown-box {
+    display: none !important;
+  }
+  .desktop-only,
+  .desktop-header-actions,
+  .desktop-setup-actions {
+    display: flex !important;
+  }
+}

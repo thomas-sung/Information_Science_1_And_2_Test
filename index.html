@@ -9,7 +9,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261018_v3">
+  <style>
+    /* 立即生效防快取行動端切換規則 */
+    @media (max-width: 900px) {
+      .desktop-only,
+      .desktop-header-actions,
+      .desktop-setup-actions {
+        display: none !important;
+      }
+      .mobile-only,
+      .mobile-nav-select-wrapper,
+      .mobile-setup-dropdown-box {
+        display: block !important;
+      }
+      .mobile-nav-select-wrapper {
+        display: flex !important;
+      }
+    }
+    @media (min-width: 901px) {
+      .mobile-only,
+      .mobile-nav-select-wrapper,
+      .mobile-setup-dropdown-box {
+        display: none !important;
+      }
+      .desktop-only,
+      .desktop-header-actions,
+      .desktop-setup-actions {
+        display: flex !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -27,7 +57,7 @@
       </div>
       <div class="header-actions">
         <!-- 桌面版按鈕組 -->
-        <div class="desktop-header-actions">
+        <div class="desktop-header-actions desktop-only">
           <div id="user-profile-btn" class="user-profile-badge" title="點擊設定或切換考生身分">
             <span class="user-avatar">👤</span>
             <span id="user-display-name">訪客 (點擊登入)</span>
@@ -41,7 +71,7 @@
         </div>
 
         <!-- 手機端功能下拉式選單 (解決按鈕太長或折行破版問題) -->
-        <div class="mobile-nav-select-wrapper">
+        <div class="mobile-nav-select-wrapper mobile-only">
           <select id="mobile-nav-select" class="select-custom mobile-nav-select" aria-label="手機功能選單">
             <option value="" disabled selected>☰ 功能選單 ▼</option>
             <option value="profile">👤 考生身分登入</option>
@@ -183,7 +213,7 @@
           </button>
 
           <!-- 桌面端並排按鈕列 -->
-          <div class="desktop-setup-actions">
+          <div class="desktop-setup-actions desktop-only">
             <button id="btn-wrong-review" class="btn-pill btn-action-wrong">
               🎯 錯題本專攻 (<span id="wrong-count-badge">0</span> 題)
             </button>
@@ -193,7 +223,7 @@
           </div>
 
           <!-- 手機端功能下拉式選單 (取代超長橫幅按鈕) -->
-          <div class="mobile-setup-dropdown-box">
+          <div class="mobile-setup-dropdown-box mobile-only">
             <label for="mobile-setup-action-select" class="mobile-setup-action-label">⚡ 或選擇其他學習模式：</label>
             <select id="mobile-setup-action-select" class="select-custom mobile-setup-action-select">
               <option value="" disabled selected>📂 更多功能（錯題本 / 題庫總覽 / 歷史紀錄）▼</option>

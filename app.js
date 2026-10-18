@@ -452,6 +452,8 @@
         state.wrongQuestionIds.clear();
         persistHistory();
         renderHistoryTable();
+    syncResponsiveElements();
+    window.addEventListener('resize', syncResponsiveElements);
         updateWrongCountDisplay();
       }
     });
