@@ -109,17 +109,25 @@
         <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">⚙️ 測驗模式設定</h4>
         <div class="settings-grid">
           <div class="setting-group" style="grid-column: 1 / -1;">
-            <label for="scope-select">🎯 測驗範圍 / 模擬考次別</label>
+            <label for="scope-select">🎯 測驗範圍 / 年度與模擬考次別</label>
             <select id="scope-select" class="select-custom">
-              <option value="all" selected>🌟 統測全範圍 (第 1~4 次模考全收錄)</option>
-              <option value="mock1">📝 第一次模擬考範圍 (基電直流電路 / 邏輯閘布林代數 / C語言基礎)</option>
-              <option value="mock2">📝 第二次模擬考範圍 (電容電感暫態 / 二極體整流 / 組合邏輯 / 迴圈陣列)</option>
-              <option value="mock3">📝 第三次模擬考範圍 (交流電路 / BJT電晶體 / 正反器計數器 / 指標函式)</option>
-              <option value="mock4">📝 第四次模擬考範圍 (諧振OPA運算放大器 / 遞迴結構體 / 串列通訊中斷)</option>
-              <option value="past_exam">🏆 歷屆統測 108 課綱精選真題 (111~114年度)</option>
+              <option value="all" selected>🌟 統測全範圍 (111~114 年 200 題全收錄)</option>
+              <optgroup label="📅 依統測年度全卷測驗 (每年 50 題)">
+                <option value="year_114">🏆 114 年度最新模考與衝刺試卷 (50 題)</option>
+                <option value="year_113">🏆 113 年度統測與各次模考精選 (50 題)</option>
+                <option value="year_112">🏆 112 年度統測與各次模考精選 (50 題)</option>
+                <option value="year_111">🏆 111 年度統測與各次模考精選 (50 題)</option>
+              </optgroup>
+              <optgroup label="📝 依模擬考進度範圍測驗">
+                <option value="mock1">📝 第一次模擬考範圍 (基電直流電路 / 邏輯閘布林代數 / C語言基礎)</option>
+                <option value="mock2">📝 第二次模擬考範圍 (電容電感暫態 / 二極體整流 / 組合邏輯 / 迴圈陣列)</option>
+                <option value="mock3">📝 第三次模擬考範圍 (交流電路 / BJT電晶體 / 正反器計數器 / 指標函式)</option>
+                <option value="mock4">📝 第四次模擬考範圍 (諧振OPA運算放大器 / 遞迴結構體 / 串列通訊中斷)</option>
+                <option value="past_exam">🏆 歷屆統測真題精選</option>
+              </optgroup>
             </select>
             <div id="scope-desc-box" style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--text-secondary); background: var(--bg-elevated); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--primary);">
-              💡 <strong>隨機題目特色：</strong>包含歷屆與模考題型，計算題採用<strong>隨機好算數字 (Clean Numbers)</strong>，確保整數推導不卡關！
+              💡 <strong>完整題庫特色：</strong>收錄 111~114 四個年度、每年各 50 題（專一 25 題 + 專二 25 題），共 200+ 題，完整涵蓋電路圖、程式碼、漂亮計算數字與詳細解析！
             </div>
           </div>
 
@@ -134,9 +142,10 @@
           <div class="setting-group">
             <label for="count-select">測驗題數</label>
             <select id="count-select" class="select-custom">
-              <option value="10">隨機抽取 10 題 (快速自我檢測)</option>
-              <option value="20">隨機抽取 20 題 (標準評量)</option>
-              <option value="all" selected>該科所有題目 (完整地毯式複習)</option>
+              <option value="10">隨機 10 題 (快速自我檢測)</option>
+              <option value="25" selected>標準 25 題 (統測單科題數)</option>
+              <option value="50">完整 50 題 (全年度試卷)</option>
+              <option value="all">該科全部題目 (地毯式刷題)</option>
             </select>
           </div>
 
@@ -351,6 +360,17 @@
 
         <!-- 篩選與搜尋工具列 -->
         <div class="browse-toolbar">
+          <div class="browse-filter-group">
+            <label for="browse-year-filter">年度：</label>
+            <select id="browse-year-filter" class="select-custom" style="width: auto; min-width: 140px;">
+              <option value="all" selected>全部年度 (200題)</option>
+              <option value="114">114 年度 (50題)</option>
+              <option value="113">113 年度 (50題)</option>
+              <option value="112">112 年度 (50題)</option>
+              <option value="111">111 年度 (50題)</option>
+            </select>
+          </div>
+
           <div class="browse-filter-group">
             <label for="browse-subject-filter">考科：</label>
             <select id="browse-subject-filter" class="select-custom" style="width: auto; min-width: 150px;">

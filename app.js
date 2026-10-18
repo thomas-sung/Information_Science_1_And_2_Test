@@ -116,6 +116,7 @@
     btnHomeBrowse: document.getElementById('btn-home-browse'),
     viewBrowse: document.getElementById('view-browse'),
     btnBrowseBackHome: document.getElementById('btn-browse-back-home'),
+    browseYearFilter: document.getElementById('browse-year-filter'),
     browseSubjectFilter: document.getElementById('browse-subject-filter'),
     browseCategoryFilter: document.getElementById('browse-category-filter'),
     browseScopeFilter: document.getElementById('browse-scope-filter'),
@@ -437,6 +438,9 @@
     }
 
     // 瀏覽篩選器與搜尋
+    if (elements.browseYearFilter) {
+      elements.browseYearFilter.addEventListener('change', renderBrowseQuestions);
+    }
     if (elements.browseSubjectFilter) {
       elements.browseSubjectFilter.addEventListener('change', renderBrowseQuestions);
     }
@@ -996,6 +1000,7 @@
     if (!elements.browseQuestionsContainer) return;
 
     const rawBank = window.RAW_QUESTION_BANK || [];
+    const filterYear = elements.browseYearFilter ? elements.browseYearFilter.value : 'all';
     const filterSubject = elements.browseSubjectFilter ? elements.browseSubjectFilter.value : 'all';
     const filterCategory = elements.browseCategoryFilter ? elements.browseCategoryFilter.value : 'all';
     const filterScope = elements.browseScopeFilter ? elements.browseScopeFilter.value : 'all';
@@ -1005,6 +1010,10 @@
 
     // 篩選題目
     const matched = rawBank.filter(rawQ => {
+      // 年度過濾
+      if (filterYear !== 'all' && rawQ.year !== filterYear) {
+        return false;
+      }
       // 科目過濾
       if (filterSubject !== 'all' && rawQ.subject !== filterSubject) {
         return false;
@@ -1016,7 +1025,7 @@
       // 範圍過濾
       if (filterScope !== 'all') {
         if (filterScope === 'past_exam') {
-          if (rawQ.scope !== 'past_exam') return false;
+          if (rawQ.scope !== 'past_exam' && (!rawQ.source || !rawQ.source.includes('統測'))) return false;
         } else {
           if (rawQ.scope !== filterScope) return false;
         }
@@ -1067,6 +1076,7 @@
 
       const subjectBadgeText = rawQ.subject === 'subject1' ? '專一' : '專二';
       const scopeBadgeText = getScopeLabelText(rawQ.scope);
+      const yearBadgeHtml = rawQ.year ? `<span class="status-tag" style="background: var(--bg-elevated); color: var(--text-primary); font-size: 0.75rem; font-weight: 700; border: 1px solid var(--border-color);">${rawQ.year} 年度</span>` : '';
       const sourceBadgeHtml = rawQ.source ? `<span style="font-size: 0.75rem; background: var(--bg-elevated); padding: 0.2rem 0.5rem; border-radius: 4px; border: 1px solid var(--border-color);">${escapeHtml(rawQ.source)}</span>` : '';
 
       // 題幹文字與電路/邏輯圖
@@ -1118,6 +1128,7 @@
         <div class="review-header" style="flex-wrap: wrap; gap: 0.6rem; align-items: flex-start;">
           <div class="question-meta" style="flex-wrap: wrap; gap: 0.5rem; align-items: center;">
             <span class="q-num">#${index + 1}</span>
+            ${yearBadgeHtml}
             <span class="exam-badge" style="font-size: 0.78rem;">${subjectBadgeText}</span>
             <span class="q-cat">${escapeHtml(rawQ.category)}</span>
             <span class="status-tag" style="background: var(--primary-light); color: var(--primary); font-size: 0.75rem;">${scopeBadgeText}</span>
@@ -1258,6 +1269,10 @@
     if (mode === 'wrong_review') return '歷史錯題重練';
     const subj = subjectKey === 'subject1' ? '專業科目(一)' : (subjectKey === 'subject2' ? '專業科目(二)' : '專一與專二綜合');
     const scopeNames = {
+      year_114: '114年度試卷',
+      year_113: '113年度試卷',
+      year_112: '112年度試卷',
+      year_111: '111年度試卷',
       mock1: '第1次模考',
       mock2: '第2次模考',
       mock3: '第3次模考',
