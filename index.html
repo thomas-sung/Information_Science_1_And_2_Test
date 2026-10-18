@@ -26,6 +26,10 @@
         </div>
       </div>
       <div class="header-actions">
+        <div id="user-profile-btn" class="user-profile-badge" title="點擊設定或切換考生身分">
+          <span class="user-avatar">👤</span>
+          <span id="user-display-name">訪客 (點擊登入)</span>
+        </div>
         <button id="history-btn" class="btn-pill" title="檢視歷史測驗紀錄">
           📊 歷次成績
         </button>
@@ -149,6 +153,8 @@
         <div class="exam-subject-indicator">
           <span id="exam-mode-badge" class="exam-badge">模擬考</span>
           <strong id="exam-subject-title">專業科目(一)</strong>
+          <span style="color: var(--text-muted); margin: 0 0.2rem;">|</span>
+          <span style="font-size: 0.88rem; color: var(--text-secondary);">考生：<strong id="exam-candidate-name">訪客</strong></span>
         </div>
 
         <div id="exam-timer-box" class="exam-timer-box" title="剩餘考試時間">
@@ -236,6 +242,12 @@
       <div class="results-header-card">
         <h2 style="font-size: 1.5rem; font-weight: 800;">🎉 測驗完成！成績結算</h2>
         
+        <div class="candidate-info-card" style="margin-top: 0.75rem;">
+          <span>👤 考生姓名：</span><strong id="result-candidate-name" class="candidate-name-highlight">訪客</strong>
+          <span style="margin: 0 0.5rem; color: var(--border-color);">|</span>
+          <span>📅 測驗時間：</span><span id="result-timestamp">--</span>
+        </div>
+
         <div class="score-display">
           <div class="score-number" id="score-number">85</div>
           <div class="score-total">總分 100 分</div>
@@ -318,6 +330,7 @@
           <thead>
             <tr>
               <th>測驗日期</th>
+              <th>考生身分</th>
               <th>測驗科目</th>
               <th>得分</th>
               <th>答對題數</th>
@@ -340,6 +353,37 @@
         <button id="btn-clear-history" class="btn-pill" style="color: var(--danger); border-color: var(--danger-border);">
           🗑️ 清除所有紀錄
         </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: 學生登入 / 考生身分登記 (login-modal)
+       ========================================================================= -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>👤 考生身分登入 / 設定</h3>
+        <button id="login-modal-close-btn" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          請輸入您的姓名與班級學號，系統會將測驗成績與作答紀錄歸檔於您的名下。
+        </p>
+        <form id="login-form" onsubmit="return false;">
+          <div class="login-form-group">
+            <label for="input-student-name">學生姓名 <span style="color: var(--danger);">*</span></label>
+            <input type="text" id="input-student-name" class="input-custom" placeholder="例如：王小明" required autocomplete="name">
+          </div>
+          <div class="login-form-group">
+            <label for="input-student-id">班級 / 座號或學號 (選填)</label>
+            <input type="text" id="input-student-id" class="input-custom" placeholder="例如：資三甲 15號 或 410201">
+            <div class="hint">方便教師批核或辨識成績歸屬</div>
+          </div>
+          <button type="submit" id="btn-submit-login" class="btn-start-exam" style="margin-top: 1rem; width: 100%;">
+            💾 儲存並登入
+          </button>
+        </form>
       </div>
     </div>
   </div>

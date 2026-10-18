@@ -27,13 +27,30 @@
     wrongQuestionIds: new Set(), // 歷史錯題庫 ID 集合
     
     resultFilter: 'all',         // 'all' | 'wrong' | 'correct'
-    isDarkTheme: false           // 暗黑模式
+    isDarkTheme: false,          // 暗黑模式
+    
+    // 學生身分登入紀錄
+    currentUser: {
+      name: '',
+      studentId: ''
+    },
+    pendingStartAction: null     // 登入後預備執行的動作
   };
 
   // ==========================================
   // DOM 元素引用
   // ==========================================
   const elements = {
+    // 學生身分與登入彈窗
+    userProfileBtn: document.getElementById('user-profile-btn'),
+    userDisplayName: document.getElementById('user-display-name'),
+    loginModal: document.getElementById('login-modal'),
+    loginModalCloseBtn: document.getElementById('login-modal-close-btn'),
+    loginForm: document.getElementById('login-form'),
+    inputStudentName: document.getElementById('input-student-name'),
+    inputStudentId: document.getElementById('input-student-id'),
+    btnSubmitLogin: document.getElementById('btn-submit-login'),
+
     // 主題與面板
     themeToggleBtn: document.getElementById('theme-toggle-btn'),
     historyBtn: document.getElementById('history-btn'),
@@ -56,6 +73,7 @@
     // 考試區
     examSubjectTitle: document.getElementById('exam-subject-title'),
     examModeBadge: document.getElementById('exam-mode-badge'),
+    examCandidateName: document.getElementById('exam-candidate-name'),
     examTimerBox: document.getElementById('exam-timer-box'),
     examTimerText: document.getElementById('exam-timer-text'),
     
@@ -77,6 +95,8 @@
     btnSubmitExam: document.getElementById('btn-submit-exam'),
     
     // 結果區
+    resultCandidateName: document.getElementById('result-candidate-name'),
+    resultTimestamp: document.getElementById('result-timestamp'),
     scoreNumber: document.getElementById('score-number'),
     gradeBadge: document.getElementById('grade-badge'),
     statCorrect: document.getElementById('stat-correct'),
@@ -102,6 +122,7 @@
   // ==========================================
   function init() {
     loadLocalData();
+    updateUserDisplay();
     setupEventListeners();
     updateWrongCountDisplay();
     applyTheme(state.isDarkTheme);
@@ -110,6 +131,10 @@
   // 讀取 LocalStorage
   function loadLocalData() {
     try {
+      const savedUser = localStorage.getItem('vcs_current_user');
+      if (savedUser) {
+        state.currentUser = JSON.parse(savedUser);
+      }
       const savedHistory = localStorage.getItem('vcs_exam_history');
       if (savedHistory) {
         state.examHistory = JSON.parse(savedHistory);
@@ -124,6 +149,62 @@
       }
     } catch (e) {
       console.error('載入本機資料失敗:', e);
+    }
+  }
+
+  // 考生身分顯示與登入管理
+  function updateUserDisplay() {
+    if (state.currentUser && state.currentUser.name) {
+      const label = state.currentUser.name + (state.currentUser.studentId ? ` (${state.currentUser.studentId})` : '');
+      elements.userDisplayName.textContent = label;
+      elements.userProfileBtn.title = `目前登入考生：${label} (點擊修改或切換)`;
+    } else {
+      elements.userDisplayName.textContent = '訪客 (點擊登入)';
+      elements.userProfileBtn.title = '點擊設定或登入考生身分';
+    }
+  }
+
+  function openLoginModal(actionCallback) {
+    state.pendingStartAction = actionCallback || null;
+    if (state.currentUser) {
+      elements.inputStudentName.value = state.currentUser.name || '';
+      elements.inputStudentId.value = state.currentUser.studentId || '';
+    }
+    elements.loginModal.classList.add('active');
+    setTimeout(() => {
+      elements.inputStudentName.focus();
+    }, 100);
+  }
+
+  function closeLoginModal() {
+    elements.loginModal.classList.remove('active');
+    state.pendingStartAction = null;
+  }
+
+  function handleLoginSubmit() {
+    const name = elements.inputStudentName.value.trim();
+    const studentId = elements.inputStudentId.value.trim();
+
+    if (!name) {
+      alert('請輸入學生姓名！');
+      elements.inputStudentName.focus();
+      return;
+    }
+
+    state.currentUser = { name, studentId };
+    try {
+      localStorage.setItem('vcs_current_user', JSON.stringify(state.currentUser));
+    } catch (e) {
+      console.error(e);
+    }
+
+    updateUserDisplay();
+    elements.loginModal.classList.remove('active');
+
+    if (typeof state.pendingStartAction === 'function') {
+      const cb = state.pendingStartAction;
+      state.pendingStartAction = null;
+      cb();
     }
   }
 
@@ -274,6 +355,33 @@
       });
     });
 
+    // 考生身分登入事件
+    if (elements.userProfileBtn) {
+      elements.userProfileBtn.addEventListener('click', () => {
+        openLoginModal();
+      });
+    }
+    if (elements.loginModalCloseBtn) {
+      elements.loginModalCloseBtn.addEventListener('click', closeLoginModal);
+    }
+    if (elements.loginModal) {
+      elements.loginModal.addEventListener('click', (e) => {
+        if (e.target === elements.loginModal) closeLoginModal();
+      });
+    }
+    if (elements.loginForm) {
+      elements.loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        handleLoginSubmit();
+      });
+    }
+    if (elements.btnSubmitLogin) {
+      elements.btnSubmitLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        handleLoginSubmit();
+      });
+    }
+
     // 清除歷史
     elements.btnClearHistory.addEventListener('click', () => {
       if (confirm('確定要清除所有歷史成績與錯題紀錄嗎？此動作無法復原。')) {
@@ -298,6 +406,14 @@
   function startExam(modeOverride) {
     if (!window.QUESTION_BANK || window.QUESTION_BANK.length === 0) {
       alert('題庫尚未載入完成，請確認 questions.js 是否存在！');
+      return;
+    }
+
+    // 檢查是否已填寫考生姓名，若尚未登記則引導登入
+    if (!state.currentUser || !state.currentUser.name) {
+      openLoginModal(() => {
+        startExam(modeOverride);
+      });
       return;
     }
 
@@ -382,6 +498,13 @@
 
     elements.examSubjectTitle.textContent = subjectTitleText;
     elements.examModeBadge.textContent = state.examMode === 'practice' ? '刷題模式' : '模擬考模式';
+
+    const candidateStr = state.currentUser && state.currentUser.name
+      ? state.currentUser.name + (state.currentUser.studentId ? ` (${state.currentUser.studentId})` : '')
+      : '訪客';
+    if (elements.examCandidateName) {
+      elements.examCandidateName.textContent = candidateStr;
+    }
 
     // 渲染答題卡與第一題
     renderSheetGrid();
@@ -599,9 +722,17 @@
       ? state.timeRemaining
       : (state.timeLimitMinutes * 60) - state.timeRemaining;
 
+    // 考生身分字串
+    const candidateStr = state.currentUser && state.currentUser.name
+      ? state.currentUser.name + (state.currentUser.studentId ? ` (${state.currentUser.studentId})` : '')
+      : '訪客';
+
     // 建立歷史紀錄物件
     const record = {
       id: 'rec_' + Date.now(),
+      studentName: state.currentUser && state.currentUser.name ? state.currentUser.name : '訪客',
+      studentId: state.currentUser && state.currentUser.studentId ? state.currentUser.studentId : '',
+      candidateLabel: candidateStr,
       date: new Date().toLocaleString('zh-TW', { hour12: false }),
       subjectName: getSubjectLabel(state.selectedSubject, state.examMode),
       score: score,
@@ -615,6 +746,8 @@
     persistHistory();
 
     // 渲染成績資訊
+    if (elements.resultCandidateName) elements.resultCandidateName.textContent = candidateStr;
+    if (elements.resultTimestamp) elements.resultTimestamp.textContent = record.date;
     elements.scoreNumber.textContent = score;
     elements.statCorrect.textContent = correctCount;
     elements.statWrong.textContent = wrongCount;
@@ -772,8 +905,10 @@
     state.examHistory.forEach((rec, idx) => {
       const tr = document.createElement('tr');
       const scoreColor = rec.score >= 80 ? 'var(--success)' : (rec.score >= 60 ? 'var(--primary)' : 'var(--danger)');
+      const candidate = rec.candidateLabel || rec.studentName || '訪客';
       tr.innerHTML = `
         <td>${rec.date}</td>
+        <td><strong>${escapeHtml(candidate)}</strong></td>
         <td><strong>${escapeHtml(rec.subjectName)}</strong></td>
         <td><strong style="color: ${scoreColor}; font-size: 1.1rem;">${rec.score}</strong> 分</td>
         <td>${rec.correct} / ${rec.total} (${rec.accuracy}%)</td>
@@ -787,7 +922,8 @@
   function exportDataAsJson() {
     const backupData = {
       exportDate: new Date().toISOString(),
-      version: '1.0',
+      version: '1.1',
+      currentUser: state.currentUser,
       examHistory: state.examHistory,
       wrongQuestionIds: Array.from(state.wrongQuestionIds)
     };
@@ -810,6 +946,13 @@
     reader.onload = function (event) {
       try {
         const imported = JSON.parse(event.target.result);
+        if (imported.currentUser && imported.currentUser.name) {
+          state.currentUser = imported.currentUser;
+          try {
+            localStorage.setItem('vcs_current_user', JSON.stringify(state.currentUser));
+          } catch (e) {}
+          updateUserDisplay();
+        }
         if (Array.isArray(imported.examHistory)) {
           state.examHistory = imported.examHistory;
         }
