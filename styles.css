@@ -535,6 +535,26 @@ body {
   border-radius: var(--radius-sm);
 }
 
+.q-concept-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.28);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .q-concept-badge {
+  background: rgba(56, 189, 248, 0.16);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
 .btn-flag {
   background: transparent;
   border: 1px solid var(--border-color);
@@ -1657,6 +1677,14 @@ button, .btn-pill, .btn-nav, .option-btn, .sheet-num-btn, .subject-card {
   .q-cat {
     font-size: 0.75rem;
     padding: 0.15rem 0.45rem;
+  }
+
+  .q-concept-badge {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.45rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .btn-flag {

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261019_v1">
+  <link rel="stylesheet" href="styles.css?v=20261022_v1">
   <style>
     /* 立即生效防快取行動端切換規則 */
     @media (max-width: 900px) {
@@ -101,7 +101,7 @@
           <select id="mobile-nav-select" class="select-custom mobile-nav-select" aria-label="手機功能選單">
             <option value="" disabled selected>☰ 功能選單 ▼</option>
             <option value="profile">👤 考生身分登入</option>
-            <option value="browse">📚 題庫詳解總覽 (300題)</option>
+            <option value="browse">📚 題庫詳解總覽 (600題)</option>
             <option value="history">📊 歷次成績與紀錄</option>
             <option value="wrong">🎯 錯題本專攻模式</option>
           </select>
@@ -182,25 +182,25 @@
           <div class="setting-group" style="grid-column: 1 / -1;">
             <label for="scope-select">🎯 測驗範圍 / 年度與模擬考次別</label>
             <select id="scope-select" class="select-custom">
-              <option value="all" selected>🌟 統測全範圍 (109~114 年 300 題完整收錄)</option>
-              <optgroup label="📅 依統測年度全卷測驗 (每年 50 題)">
-                <option value="year_114">🏆 114 年度最新模考與衝刺試卷 (50 題)</option>
-                <option value="year_113">🏆 113 年度統測與各次模考精選 (50 題)</option>
-                <option value="year_112">🏆 112 年度統測與各次模考精選 (50 題)</option>
-                <option value="year_111">🏆 111 年度統測與各次模考精選 (50 題)</option>
-                <option value="year_110">🏆 110 年度統測真題與模擬考全卷 (50 題)</option>
-                <option value="year_109">🏆 109 年度統測真題與精選全卷 (50 題)</option>
+              <option value="all" selected>🌟 統測全範圍 (109~114 年 600 題完整收錄)</option>
+              <optgroup label="📅 依統測年度全卷測驗 (每年 100 題全卷)">
+                <option value="year_114">🏆 114 年度最新模考與衝刺試卷 (100 題)</option>
+                <option value="year_113">🏆 113 年度統測與各次模考精選 (100 題)</option>
+                <option value="year_112">🏆 112 年度統測與各次模考精選 (100 題)</option>
+                <option value="year_111">🏆 111 年度統測與各次模考精選 (100 題)</option>
+                <option value="year_110">🏆 110 年度統測真題與模擬考全卷 (100 題)</option>
+                <option value="year_109">🏆 109 年度統測真題與精選全卷 (100 題)</option>
               </optgroup>
               <optgroup label="📝 依 108 課綱模擬考各次累計進度測驗">
-                <option value="mock1">📝 第一次模考 (基電 1~4章 / 電子 1~4章 / 微處 1~3章 / 數邏 1~4章 / 程式 1~4章 · 共 95 題)</option>
-                <option value="mock2">📝 第二次模考 (累計含第 1 次！基電 1~7章 / 電子 1~7章 / 微處 1~6章 / 數邏 1~6章 / 程式 1~7章 · 共 173 題)</option>
-                <option value="mock3">📝 第三次模考 (累計含第 1~2 次！基電 1~10章 / 電子 1~10章 / 微處 1~7章 / 數邏 1~7章 / 程式 1~8章 · 共 249 題)</option>
-                <option value="mock4">📝 第四、五次模考 / 統測總複習 (各考科全部單元完整範圍 · 共 300 題)</option>
+                <option value="mock1">📝 第一次模考 (基電 1~4章 / 電子 1~4章 / 微處 1~3章 / 數邏 1~4章 / 程式 1~4章 · 共 233 題)</option>
+                <option value="mock2">📝 第二次模考 (累計含第 1 次！基電 1~7章 / 電子 1~7章 / 微處 1~6章 / 數邏 1~6章 / 程式 1~7章 · 共 419 題)</option>
+                <option value="mock3">📝 第三次模考 (累計含第 1~2 次！基電 1~10章 / 電子 1~10章 / 微處 1~7章 / 數邏 1~7章 / 程式 1~8章 · 共 543 題)</option>
+                <option value="mock4">📝 第四、五次模考 / 統測總複習 (各考科全部單元完整範圍 · 共 600 題)</option>
                 <option value="past_exam">🏆 歷屆統測真題精選</option>
               </optgroup>
             </select>
             <div id="scope-desc-box" style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--text-secondary); background: var(--bg-elevated); padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); border-left: 3px solid var(--primary);">
-              💡 <strong>完整題庫特色：</strong>收錄 109~114 六個年度、每年各 50 題（專一 25 題 + 專二 25 題），共 300 題，完整涵蓋電路圖、程式碼、漂亮計算數字、純淨符號排版與詳細解析！
+              💡 <strong>完整題庫特色：</strong>收錄 109~114 六個年度、每年各 100 題（專一 50 題 + 專二 50 題），全庫共 600 題！結合 114+ 微考點防撞題演算法、電路圖、程式碼、乾淨計算數字、純淨布林代數排版與詳細解析！
             </div>
           </div>
 
@@ -254,7 +254,7 @@
             <select id="mobile-setup-action-select" class="select-custom mobile-setup-action-select">
               <option value="" disabled selected>📂 更多功能（錯題本 / 題庫總覽 / 歷史紀錄）▼</option>
               <option value="wrong">🎯 錯題本專攻複習 (<span id="mobile-wrong-count-badge">0</span> 題)</option>
-              <option value="browse">📖 瀏覽全部 300 題題目與解析</option>
+              <option value="browse">📖 瀏覽全部 600 題題目與解析</option>
               <option value="history">📊 查看歷史成績與答題紀錄</option>
               <option value="profile">👤 切換 / 設定考生身分與姓名</option>
             </select>
@@ -291,6 +291,7 @@
               <span class="q-num">第 <span id="q-index-num">1</span> 題</span>
               <span style="color: var(--text-muted);">/ 共 <span id="q-total-num">10</span> 題</span>
               <span id="q-category-tag" class="q-cat">基本電學</span>
+              <span id="q-concept-tag" class="q-concept-badge" style="display: none;"></span>
             </div>
             <button id="btn-flag-question" class="btn-flag" title="標記稍後複查">
               ☆ 標記複核
@@ -452,13 +453,13 @@
           <div class="browse-filter-group">
             <label for="browse-year-filter">年度：</label>
             <select id="browse-year-filter" class="select-custom">
-              <option value="all" selected>全部年度 (300題)</option>
-              <option value="114">114 年度 (50題)</option>
-              <option value="113">113 年度 (50題)</option>
-              <option value="112">112 年度 (50題)</option>
-              <option value="111">111 年度 (50題)</option>
-              <option value="110">110 年度 (50題)</option>
-              <option value="109">109 年度 (50題)</option>
+              <option value="all" selected>全部年度 (600題)</option>
+              <option value="114">114 年度 (100題)</option>
+              <option value="113">113 年度 (100題)</option>
+              <option value="112">112 年度 (100題)</option>
+              <option value="111">111 年度 (100題)</option>
+              <option value="110">110 年度 (100題)</option>
+              <option value="109">109 年度 (100題)</option>
             </select>
           </div>
 
@@ -486,14 +487,14 @@
           <div class="browse-filter-group">
             <label for="browse-scope-filter">範圍：</label>
             <select id="browse-scope-filter" class="select-custom">
-              <option value="all" selected>全部模考與真題 (300 題)</option>
-              <option value="mock1">第 1 次模考範圍 (95 題)</option>
-              <option value="mock2">第 2 次模考範圍 (含第 1 次，共 173 題)</option>
-              <option value="mock2_only">↳ 僅看第 2 次模考新單元 (78 題)</option>
-              <option value="mock3">第 3 次模考範圍 (含第 1~2 次，共 249 題)</option>
-              <option value="mock3_only">↳ 僅看第 3 次模考新單元 (76 題)</option>
-              <option value="mock4">第 4 次模考 / 統測全範圍 (300 題)</option>
-              <option value="mock4_only">↳ 僅看第 4 次模考新單元 (51 題)</option>
+              <option value="all" selected>全部模考與真題 (600 題)</option>
+              <option value="mock1">第 1 次模考範圍 (233 題)</option>
+              <option value="mock2">第 2 次模考範圍 (含第 1 次，共 419 題)</option>
+              <option value="mock2_only">↳ 僅看第 2 次模考新單元 (186 題)</option>
+              <option value="mock3">第 3 次模考範圍 (含第 1~2 次，共 543 題)</option>
+              <option value="mock3_only">↳ 僅看第 3 次模考新單元 (124 題)</option>
+              <option value="mock4">第 4 次模考 / 統測全範圍 (600 題)</option>
+              <option value="mock4_only">↳ 僅看第 4 次模考新單元 (57 題)</option>
               <option value="past_exam">歷屆統測真題精選</option>
             </select>
           </div>

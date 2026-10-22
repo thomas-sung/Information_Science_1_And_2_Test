@@ -83,6 +83,7 @@
     qIndexNum: document.getElementById('q-index-num'),
     qTotalNum: document.getElementById('q-total-num'),
     qCategoryTag: document.getElementById('q-category-tag'),
+    qConceptTag: document.getElementById('q-concept-tag'),
     btnFlagQuestion: document.getElementById('btn-flag-question'),
     questionText: document.getElementById('question-text'),
     optionsContainer: document.getElementById('options-container'),
@@ -506,17 +507,17 @@
     if (!elements.scopeDescBox || !elements.scopeSelect) return;
     const val = elements.scopeSelect.value;
     const descMap = {
-      all: '💡 <strong>統測全範圍總複習：</strong>收錄 109~114 年六大年度所有專業科目單元，共 300 題（專一 150 題 + 專二 150 題），完整涵蓋電路圖、程式碼與詳細解析！',
-      year_114: '💡 <strong>114 年度試卷：</strong>包含最新年度 50 題全卷模擬與衝刺試題（專一 25 題 + 專二 25 題）。',
-      year_113: '💡 <strong>113 年度試卷：</strong>包含 113 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
-      year_112: '💡 <strong>112 年度試卷：</strong>包含 112 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
-      year_111: '💡 <strong>111 年度試卷：</strong>包含 111 年度統測與各次模考精選 50 題（專一 25 題 + 專二 25 題）。',
-      year_110: '💡 <strong>110 年度試卷：</strong>包含 110 年度統測真題與模擬考全卷 50 題（專一 25 題 + 專二 25 題）。',
-      year_109: '💡 <strong>109 年度試卷：</strong>包含 109 年度統測真題與精選全卷 50 題（專一 25 題 + 專二 25 題）。',
-      mock1: '💡 <strong>第一次模考進度：</strong>涵蓋基電 1~4章、電子 1~4章、微處 1~3章、數邏 1~4章、程式 1~4章，共 95 題（專一 41 題 + 專二 54 題）。',
-      mock2: '💡 <strong>第二次模考進度（累計涵蓋第 1 次＋第 2 次）：</strong>涵蓋基電 1~7章、電子 1~7章、微處 1~6章、數邏 1~6章、程式 1~7章，題庫共 173 題（含第 1 次 95 題 ＋ 第 2 次新增 78 題，練習與考試均會包含第 1 次題目）。',
-      mock3: '💡 <strong>第三次模考進度（累計涵蓋第 1~3 次）：</strong>涵蓋基電 1~10章、電子 1~10章、微處 1~7章、數邏 1~7章、程式 1~8章，題庫共 249 題。',
-      mock4: '💡 <strong>第四、五次模考 / 統測總複習：</strong>各考科全部單元完整範圍，題庫共 300 題。',
+      all: '💡 <strong>統測全範圍總複習：</strong>完整收錄 109~114 年六大年度所有專業科目真題與模考全卷，共 600 題（專一 300 題 + 專二 300 題），具備微知識點智慧防撞題、精準電路圖、程式碼與詳細解析！',
+      year_114: '💡 <strong>114 年度試卷：</strong>包含 114 年度 100 題全卷模擬與衝刺試題（專一 50 題 + 專二 50 題）。',
+      year_113: '💡 <strong>113 年度試卷：</strong>包含 113 年度統測與各次模考全卷 100 題（專一 50 題 + 專二 50 題）。',
+      year_112: '💡 <strong>112 年度試卷：</strong>包含 112 年度統測與各次模考全卷 100 題（專一 50 題 + 專二 50 題）。',
+      year_111: '💡 <strong>111 年度試卷：</strong>包含 111 年度統測與各次模考全卷 100 題（專一 50 題 + 專二 50 題）。',
+      year_110: '💡 <strong>110 年度試卷：</strong>包含 110 年度統測真題與模擬考全卷 100 題（專一 50 題 + 專二 50 題）。',
+      year_109: '💡 <strong>109 年度試卷：</strong>包含 109 年度統測真題與精選全卷 100 題（專一 50 題 + 專二 50 題）。',
+      mock1: '💡 <strong>第一次模考進度：</strong>涵蓋基電 1~4章、電子 1~4章、微處 1~3章、數邏 1~4章、程式 1~4章，共 233 題（專一 113 題 + 專二 120 題）。',
+      mock2: '💡 <strong>第二次模考進度（累計涵蓋第 1 次＋第 2 次）：</strong>涵蓋基電 1~7章、電子 1~7章、微處 1~6章、數邏 1~6章、程式 1~7章，題庫共 419 題（含第 1 次 233 題 ＋ 第 2 次新增 186 題，練習與考試均會包含第 1 次題目）。',
+      mock3: '💡 <strong>第三次模考進度（累計涵蓋第 1~3 次）：</strong>涵蓋基電 1~10章、電子 1~10章、微處 1~7章、數邏 1~7章、程式 1~8章，題庫共 543 題（含第 1~2 次 419 題 ＋ 第 3 次新增 124 題）。',
+      mock4: '💡 <strong>第四、五次模考 / 統測總複習：</strong>各考科全部單元完整範圍，題庫共 600 題（專一 300 題 + 專二 300 題）。',
       past_exam: '💡 <strong>歷屆統測真題精選：</strong>歷年統測經典命題與代表性考題精華。'
     };
     elements.scopeDescBox.innerHTML = descMap[val] || descMap.all;
@@ -674,6 +675,14 @@ function startExam(modeOverride) {
     elements.qIndexNum.textContent = state.currentIndex + 1;
     elements.qTotalNum.textContent = state.currentQuestions.length;
     elements.qCategoryTag.textContent = q.category;
+    if (elements.qConceptTag) {
+      if (q.conceptName) {
+        elements.qConceptTag.textContent = '🏷️ ' + q.conceptName;
+        elements.qConceptTag.style.display = 'inline-flex';
+      } else {
+        elements.qConceptTag.style.display = 'none';
+      }
+    }
 
     // 題幹文字與程式碼處理 (若有附圖則一併渲染電路圖或邏輯圖)
     let contentHtml = formatContentWithCode(q.question);
@@ -1000,9 +1009,10 @@ function startExam(modeOverride) {
 
       itemDiv.innerHTML = `
         <div class="review-header">
-          <div class="question-meta">
+          <div class="question-meta" style="flex-wrap: wrap; gap: 0.5rem; align-items: center;">
             <span class="q-num">第 ${idx + 1} 題</span>
             <span class="q-cat">${escapeHtml(q.category)}</span>
+            ${q.conceptName ? `<span class="q-concept-badge">🏷️ ${escapeHtml(q.conceptName)}</span>` : ''}
           </div>
           ${statusHtml}
         </div>
@@ -1111,6 +1121,8 @@ function startExam(modeOverride) {
         const searchPool = [
           rawQ.id,
           rawQ.category,
+          rawQ.concept || '',
+          rawQ.conceptName || '',
           rawQ.source || '',
           inst.question,
           inst.explanation,
@@ -1206,6 +1218,7 @@ function startExam(modeOverride) {
             <span class="exam-badge" style="font-size: 0.78rem;">${subjectBadgeText}</span>
             <span class="q-cat">${escapeHtml(rawQ.category)}</span>
             <span class="status-tag" style="background: var(--primary-light); color: var(--primary); font-size: 0.75rem;">${scopeBadgeText}</span>
+            ${rawQ.conceptName ? `<span class="q-concept-badge">🏷️ ${escapeHtml(rawQ.conceptName)}</span>` : ''}
             ${sourceBadgeHtml}
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -1403,7 +1416,7 @@ function startExam(modeOverride) {
     } catch (e) {}
   }
 
-  // 智能多樣性抽題核心演算法（同次測試概念不重複、跨次優先出新題）
+  // 智能微考點多樣性抽題核心演算法（同次測驗微考點不重複、考科單元均衡配比、跨次歷次優先出新題）
   function selectDiverseQuestions(candidates, count) {
     // 1. 嚴格依題目 ID 去重，排除任何重複項
     const uniqueMap = new Map();
@@ -1416,54 +1429,91 @@ function startExam(modeOverride) {
     const actualCount = Math.min(count, pool.length);
     if (actualCount <= 0) return [];
 
-    // 2. 歷次/跨次測試防重複：區分未測與已測題目
-    const testedSet = new Set(getSessionTestedIds());
-    const unseen = pool.filter(q => !testedSet.has(q.id));
-    const seen = pool.filter(q => testedSet.has(q.id));
-
-    let priorityPool = [];
-    if (unseen.length >= actualCount) {
-      priorityPool = shuffleArray([...unseen]);
-    } else {
-      // 若未測題目不足，未測題全取，剩餘由已測題目亂序補足
-      priorityPool = shuffleArray([...unseen]).concat(shuffleArray([...seen]));
+    // 若要求出題數等於或超過候選池總量（如地毯式全題刷題），全數隨機打亂輸出
+    if (count >= pool.length) {
+      return shuffleArray(pool);
     }
 
-    // 3. 同次測試防題型概念重複 (Topic Signature Diversity)
-    const topicMap = new Map();
-    priorityPool.forEach(q => {
-      const topic = getQuestionTopicSignature(q);
-      if (!topicMap.has(topic)) topicMap.set(topic, []);
-      topicMap.get(topic).push(q);
+    // 2. 歷次/跨次測試防重複：區分未測與已測題目
+    const testedSet = new Set(getSessionTestedIds());
+
+    // 3. 依單元考科 (category) 與微知識點 (concept) 分群
+    const catMap = new Map();
+    pool.forEach(q => {
+      const cat = q.category || 'general';
+      if (!catMap.has(cat)) catMap.set(cat, new Map());
+      const concept = q.concept || getQuestionTopicSignature(q);
+      const conceptMap = catMap.get(cat);
+      if (!conceptMap.has(concept)) conceptMap.set(concept, []);
+      conceptMap.get(concept).push(q);
+    });
+
+    // 4. 為每個微考點建立待抽隊列（未測新題優先於已測題目，各群隨機打亂）
+    const catConcepts = new Map();
+    const catConceptQueues = new Map();
+
+    catMap.forEach((conceptMap, cat) => {
+      const shuffledConcepts = shuffleArray(Array.from(conceptMap.keys()));
+      catConcepts.set(cat, shuffledConcepts);
+      conceptMap.forEach((qList, concept) => {
+        const unseen = shuffleArray(qList.filter(q => !testedSet.has(q.id)));
+        const seen = shuffleArray(qList.filter(q => testedSet.has(q.id)));
+        catConceptQueues.set(concept, [...unseen, ...seen]);
+      });
     });
 
     const selected = [];
     const selectedIds = new Set();
-    const topics = shuffleArray(Array.from(topicMap.keys()));
+    const conceptCount = new Map();
+    const categories = shuffleArray(Array.from(catMap.keys()));
 
-    // 第一階段：每個概念主題最多抽 1 題，確保概念完全不撞題
-    for (const topic of topics) {
-      if (selected.length >= actualCount) break;
-      const qList = topicMap.get(topic);
-      if (qList && qList.length > 0) {
-        const q = qList.shift();
+    // 5. 多層輪詢出題（第 1 輪：所有微知識點至多抽 1 題，達成 0% 概念撞題；若題數需求大於概念總數才依序進行第 2 輪）
+    let currentTier = 1;
+    let exhausted = false;
+
+    while (selected.length < actualCount && !exhausted) {
+      let pickedInThisRound = false;
+
+      // 輪詢各單元考科，保證考科配比自然均衡（如基電 vs 電子、或數邏 vs 程式 vs 微處）
+      for (const cat of categories) {
+        if (selected.length >= actualCount) break;
+        const concepts = catConcepts.get(cat);
+
+        for (const concept of concepts) {
+          if (selected.length >= actualCount) break;
+          const used = conceptCount.get(concept) || 0;
+          if (used >= currentTier) continue;
+
+          const queue = catConceptQueues.get(concept);
+          while (queue && queue.length > 0) {
+            const cand = queue.shift();
+            if (!selectedIds.has(cand.id)) {
+              selected.push(cand);
+              selectedIds.add(cand.id);
+              conceptCount.set(concept, used + 1);
+              pickedInThisRound = true;
+              break;
+            }
+          }
+        }
+      }
+
+      if (!pickedInThisRound) {
+        currentTier++;
+        if (currentTier > 25) exhausted = true;
+      }
+    }
+
+    // 6. 安全兜底：若仍未達指定題數，由剩餘候選題隨機補足
+    if (selected.length < actualCount) {
+      const fallbackPool = shuffleArray(pool.filter(q => !selectedIds.has(q.id)));
+      for (const q of fallbackPool) {
+        if (selected.length >= actualCount) break;
         selected.push(q);
         selectedIds.add(q.id);
       }
     }
 
-    // 第二階段：若所需題數超過主題數量，從剩餘題目中補足，並保持 ID 唯一
-    if (selected.length < actualCount) {
-      for (const q of priorityPool) {
-        if (selected.length >= actualCount) break;
-        if (!selectedIds.has(q.id)) {
-          selected.push(q);
-          selectedIds.add(q.id);
-        }
-      }
-    }
-
-    // 再次洗牌，使題目順序自然分布
     return shuffleArray(selected);
   }
   function shuffleArray(arr) {
@@ -1538,6 +1588,10 @@ function startExam(modeOverride) {
     // 簡單將純換行替換為 <br>
     return formatted.replace(/\n/g, '<br>');
   }
+
+  // 匯出至全域以供測試與偵錯
+  window.selectDiverseQuestions = selectDiverseQuestions;
+  window.state = state;
 
   // 網頁加載完成後啟動
   if (document.readyState === 'loading') {
